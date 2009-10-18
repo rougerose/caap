@@ -1,0 +1,126 @@
+#CACHE{24*3600}
+#SPIP_CRON
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+  <title>#NOM_SITE_SPIP &gt; Recherche</title>
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/impression.css" type="text/css" media="print" charset="utf-8" />
+  <link rel="shortcut icon" type="image/x-icon" href="#CHEMIN{favicon.ico}" />
+  <link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="#URL_PAGE{backend}" />
+  <link rel="home" href="#URL_SITE_SPIP" title="Accueil du site" />
+</head>
+
+<body id="recherche">
+  <div id="conteneur">
+    <div id="tetiere">
+      <h1 id="logo"><a href="/">[(#LOGO_SITE_SPIP||inserer_attribut{"alt",#NOM_SITE_SPIP})]</a></h1>
+      <INCLURE{fond=inc_menu}>
+      
+    </div><!-- fin #tetiere -->
+    <div class="clear"></div>
+    <div id="corps">
+     <BOUCLE_compte_recherche(INDEX){recherche}{type_table IN articles,rubriques,mots,breves}></BOUCLE_compte_recherche>
+     [(#TOTAL_BOUCLE|?{' ',''})
+ 			<h2>votre recherche : #RECHERCHE</h2>
+ 			<p class="rechercheCompteur">#TOTAL_BOUCLE r&eacute;sultat[s(#TOTAL_BOUCLE|>{1}|?{' ',''})]</p>]
+      [(#TOTAL_BOUCLE|?{'',' '})
+  		<h2>votre recherche : #RECHERCHE</h2>
+  		<p class="rechercheCompteur">Aucun r&eacute;sultat</p>]
+      <//B_compte_recherche>
+      
+      <B_marecherche>
+      <div class="pagination">
+        [<p class="listePagination">(#PAGINATION)</p>]
+      </div>
+    	<BOUCLE_marecherche(INDEX){recherche}{!par points}{type_table IN articles,rubriques,mots,breves}{pagination}>
+      <BOUCLE_rubriques(RUBRIQUES){id_rubrique}>
+      <div class="rechercheResultats">
+        <h3><a href="[(#URL_RUBRIQUE|parametre_url{'var_recherche',[(#RECHERCHE)]})]">[(#TITRE|supprimer_numero)]</a></h3>
+        <p>
+          [(#REM) concatenation du texte complet, pour creer le resume type google]
+  				[(#REM|RechercheEtendue_google_like_string_raz)]
+  				[(#TITRE|supprimer_numero|RechercheEtendue_google_like_string)]
+  				[(#DESCRIPTIF|supprimer_numero|RechercheEtendue_google_like_string)]
+  				[(#TEXTE|supprimer_numero|RechercheEtendue_google_like_string)]
+  				<br /><a href="[(#URL_RUBRIQUE|parametre_url{'var_recherche',[(#RECHERCHE)]})]">#URL_SITE_SPIP/#URL_RUBRIQUE</a>
+        </p>
+      </div>
+      </BOUCLE_rubriques>
+      
+      <BOUCLE_articles(ARTICLES){id_article}>
+      <div class="rechercheResultats">
+        <h3><a href="[(#URL_ARTICLE|parametre_url{'var_recherche',[(#RECHERCHE)]})]">[(#TITRE|supprimer_numero)]</a></h3>
+        <p>
+          [(#REM) concatenation du texte complet, pour creer le resume type google]
+  				[(#REM|RechercheEtendue_google_like_string_raz)]
+  				[(#TITRE|supprimer_numero|RechercheEtendue_google_like_string)]
+  				[(#SOUSTITRE|supprimer_numero|RechercheEtendue_google_like_string)]
+  				[(#DESCRIPTIF|supprimer_numero|RechercheEtendue_google_like_string)]
+  				[(#TEXTE|supprimer_numero|RechercheEtendue_google_like_string)]
+  				[(#REM) affichage, avec chapeau en alternative si rien de trouve]
+  				[(#RECHERCHE|RechercheEtendue_google_like{[(#CHAPO|attribut_html)]})]
+  				<br /><a href="[(#URL_ARTICLE|parametre_url{'var_recherche',[(#RECHERCHE)]})]">#URL_SITE_SPIP/#URL_ARTICLE</a>
+        </p>
+      </div>
+      </BOUCLE_articles>
+      
+      <BOUCLE_mots(MOTS){id_mot}>
+      <div class="rechercheResultats">
+        <h3><a href="[(#URL_MOT|parametre_url{'var_recherche',[(#RECHERCHE)]})]">[(#TITRE|supprimer_numero)]</a></h3>
+        <p>
+          [(#REM) concatenation du texte complet, pour creer le resume type google]
+  				[(#REM|RechercheEtendue_google_like_string_raz)]
+  				[(#TITRE|supprimer_numero|RechercheEtendue_google_like_string)]
+  				[(#TEXTE|supprimer_numero|RechercheEtendue_google_like_string)]
+  				<br /><a href="[(#URL_MOT|parametre_url{'var_recherche',[(#RECHERCHE)]})]">#URL_SITE_SPIP/#URL_MOT</a>
+        </p>
+      </div>
+      </BOUCLE_mots>
+      
+      <BOUCLE_breves(BREVES){id_breve}>
+      <div class="rechercheResultats">
+        <h3><a href="[(#URL_BREVE|parametre_url{'var_recherche',[(#RECHERCHE)]})]">[(#TITRE|supprimer_numero)]</a></h3>
+        <p>
+          [(#REM) concatenation du texte complet, pour creer le resume type google]
+  				[(#REM|RechercheEtendue_google_like_string_raz)]
+  				[(#TITRE|supprimer_numero|RechercheEtendue_google_like_string)]
+  				[(#TEXTE|supprimer_numero|RechercheEtendue_google_like_string)]
+  				<br /><a href="[(#URL_BREVE|parametre_url{'var_recherche',[(#RECHERCHE)]})]">#URL_SITE_SPIP/#URL_BREVE</a>
+        </p>
+      </div>
+      </BOUCLE_breves>
+      </BOUCLE_marecherche>
+      </B_marecherche>
+      
+    </div><!-- fin #corps -->
+    
+    <hr class="invisible">
+    <div id="colonneDroite">
+      
+      
+      
+      
+      #FORMULAIRE_RECHERCHE
+      
+      <h2>Contact</h2>
+      <ul class="appelSommaire">
+        <BOUCLE_contact(ARTICLES){titre_mot=page contact}{par num titre, titre}>
+        [<li><a href="#URL_ARTICLE">(#TITRE|supprimer_numero)<span class="suite">&nbsp;&raquo;</span></a></li>]
+        </BOUCLE_contact>
+      </ul>
+      
+      
+      
+    </div><!-- fin #colonneDroite -->
+    <div class="clear"></div>
+    <hr class="invisible">
+    <INCLURE{fond=inc_piedDePage}>
+    
+    <div class="clear"></div>
+  </div>
+</body>
+</html>

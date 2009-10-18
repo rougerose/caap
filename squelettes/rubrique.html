@@ -1,0 +1,116 @@
+#CACHE{24*3600}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <BOUCLE_principale(RUBRIQUES){id_rubrique}>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+  <title>#NOM_SITE_SPIP &gt; [(#TITRE|supprimer_numero|textebrut)]</title>
+  [<meta name="description" content="(#DESCRIPTIF|textebrut)" />]
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/impression.css" type="text/css" media="print" charset="utf-8" />
+  <link rel="shortcut icon" type="image/x-icon" href="#CHEMIN{favicon.ico}" />
+  <link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="#URL_PAGE{backend}" />
+  <link rel="home" href="#URL_SITE_SPIP" title="Accueil du site" />
+</head>
+
+<body id="rubrique">
+  <div id="conteneur">
+    <div id="tetiere">
+      <h1 id="logo"><a href="/">[(#LOGO_SITE_SPIP||inserer_attribut{"alt",#NOM_SITE_SPIP})]</a></h1>
+      <INCLURE{fond=inc_menu}{id_rubrique}>
+      
+    </div><!-- fin #tetiere -->
+    <div class="clear"></div>
+    <div id="corps"><BOUCLE_exclu_technique(MOTS){id_mot=2}><BOUCLE_exclu_art(ARTICLES){id_mot}{doublons}></BOUCLE_exclu_art></BOUCLE_exclu_technique>
+      
+      [<div id="descriptifRubrique">
+        (#TEXTE)
+      </div>]
+      
+      <B_pages>
+      <div class="pagination">
+        [<p>(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'articles disponibles','article disponible'})].] [(#TOTAL_BOUCLE) [(#TOTAL_BOUCLE|>{1}|?{'articles sont affich&eacute;s','article est affich&eacute;'})] dans cette page.</p>]
+        [<p class="listePagination">(#PAGINATION)</p>]
+      </div>#DEBUT_SURLIGNE
+      <BOUCLE_pages(ARTICLES){id_rubrique}{par date}{inverse}{pagination 5}{doublons}>
+      <div class="articles">
+        <div class="articlesRubrique">
+          <p>[<span>(#DATE|affdate)</span>]</p>
+        </div>
+        <div class="articlesContenu">
+          [<p class="surtitreArticle">(#SURTITRE)</p>]
+          <h2 class="articleTitre">[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
+          [<p class="soustitreArticle">(#SOUSTITRE)</p>]
+          <p class="descriptifArticle">[(#INTRODUCTION|PtoBR)]&nbsp;<a href="#URL_ARTICLE" class="suite">&raquo;&nbsp;lire la suite</a></p>
+        </div>
+      </div>
+      </BOUCLE_pages>
+      </B_pages>
+      #FIN_SURLIGNE
+      
+    </div><!-- fin #corps -->
+    
+    <hr class="invisible">
+    <div id="colonneDroite">
+      
+      <div id="navigationSecondaire">
+        <p id="positionSite">Vous consultez&nbsp;: [<em>(#TITRE|supprimer_numero)</em>]</p>
+        <ul id="listeNS">
+          <B_rubriquage>
+          <BOUCLE_rubriquage(HIERARCHIE){id_rubrique}{0,1}>
+          <li><a href="#URL_RUBRIQUE" class="off">[(#TITRE|supprimer_numero)]</a></li>
+          <B_sousrubriques>
+          <ul>
+            <BOUCLE_sousrubriques(RUBRIQUES){id_parent}>
+            <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE{on,off})"]>[(#TITRE|supprimer_numero)]</a></li>
+            </BOUCLE_sousrubriques>
+          </ul>
+          </B_sousrubriques>
+          </BOUCLE_rubriquage>
+          </B_rubriquage>
+          <BOUCLE_secteur(RUBRIQUES){id_secteur}{0,1}>
+          <li><a href="#URL_RUBRIQUE" class="on">[(#TITRE|supprimer_numero)]</a></li>
+          <B_sousrubriques2>
+          <ul>
+            <BOUCLE_sousrubriques2(RUBRIQUES){id_parent}>
+            <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE{on,off})"]>[(#TITRE|supprimer_numero)]</a></li>
+            </BOUCLE_sousrubriques2>
+          </ul>
+          </B_sousrubriques2>
+          </BOUCLE_secteur>
+          <//B_rubriquage>
+        </ul>
+      </div>
+      
+      
+      #FORMULAIRE_RECHERCHE
+      
+      <h2>Contact</h2>
+      <ul class="appelSommaire">
+        <BOUCLE_contact(ARTICLES){titre_mot=page contact}{par num titre, titre}>
+        [<li><a href="#URL_ARTICLE">(#TITRE|supprimer_numero)<span class="suite">&nbsp;&raquo;</span></a></li>]
+        </BOUCLE_contact>
+      </ul>
+      
+      <B_breves>
+      <h2>En bref</h2>
+      <dl class="appelSommaire">
+        <BOUCLE_breves(BREVES){id_rubrique}{par date}{inverse}>
+        <dt>[<a href="#URL_BREVE" [title="(#INTRODUCTION|textebrut|PtoBR)"]>(#TITRE|supprimer_numero)<span class="suite">&nbsp;&raquo;</span></a>]</dt>
+        <dd>[(#INTRODUCTION|PtoBR)&nbsp;<a href="#URL_BREVE" class="suite">&raquo;&nbsp;lire la suite</a>]</dd>
+        </BOUCLE_breves>
+      </dl>
+      </B_breves>
+      
+    </div><!-- fin #colonneDroite -->
+    <div class="clear"></div>
+    <hr class="invisible">
+    <INCLURE{fond=inc_piedDePage}>
+    
+    <div class="clear"></div>
+  </div>
+  </BOUCLE_principale>
+</body>
+</html>

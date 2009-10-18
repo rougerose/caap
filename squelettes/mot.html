@@ -1,0 +1,102 @@
+#CACHE{24*3600}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <BOUCLE_principale(MOTS){id_mot}>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+  <title>#NOM_SITE_SPIP &gt; [(#TITRE|supprimer_numero|textebrut)]</title>
+  [<meta name="description" lang="#LANG" content="(#DESCRIPTIF|textebrut)" />]
+  
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="css/impression.css" type="text/css" media="print" charset="utf-8" />
+  <link rel="shortcut icon" type="image/x-icon" href="#CHEMIN{favicon.ico}" />
+  <link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="#URL_PAGE{backend}" />
+  <link rel="home" href="#URL_SITE_SPIP" title="Accueil du site" />
+</head>
+
+<body id="article">
+  <div id="conteneur">
+    <div id="tetiere">
+      <h1 id="logo"><a href="/">[(#LOGO_SITE_SPIP||inserer_attribut{"alt",#NOM_SITE_SPIP})]</a></h1>
+      <INCLURE{fond=inc_menu}>
+      
+    </div><!-- fin #tetiere -->
+    <div class="clear"></div>
+    <div id="corps">
+      <div id="contenuArticle">
+        <div id="articleTitre">#DEBUT_SURLIGNE
+          <h2 class="articleTitre">[(#TITRE|supprimer_numero)]</h2>
+        </div>
+        <div id="articleTexte">
+          [(#TEXTE)
+          <hr class="spip">]
+          
+          <B_articles_lies>
+          <h3 class="motArticlesLies">Les articles li&eacute;s &agrave; ce th&egrave;me<h3>
+            <dl class="motArticlesLiesListe">
+              <BOUCLE_articles_lies(ARTICLES){id_mot}{par date}{inverse}>
+              <dt>[<a href="#URL_ARTICLE"[ title="(#INTRODUCTION|textebrut)"]>(#TITRE|supprimer_numero)</a>]</dt>
+              </BOUCLE_articles_lies>
+            </dl>
+          </B_articles_lies>
+          
+          <B_breves_liees>
+          <h3 class="motArticlesLies">Les br&egrave;ves li&eacute;es &agrave; ce th&egrave;me<h3>
+            <dl class="motArticlesLiesListe">
+              <BOUCLE_breves_liees(BREVES){id_mot}{par date}{inverse}>
+              <dt>[<a href="#URL_BREVE"[ title="(#INTRODUCTION|textebrut)"]>(#TITRE|supprimer_numero)</a>]</dt>
+              </BOUCLE_breves_liees>
+            </dl>
+          </B_breves_liees>
+          
+          <B_sites_lies>
+          <h3 class="motArticlesLies">Les sites web li&eacute;s &agrave; ce th&egrave;me<h3>
+            <dl class="motArticlesLiesListe">
+              <BOUCLE_sites_lies(SITES){id_mot}{par date}{inverse}>
+              <dt>[<a href="#URL_SITE"[ title="(#DESCRIPTIF|textebrut)"]>(#NOM_SITE|supprimer_numero)</a>]</dt>
+              </BOUCLE_sites_lies>
+            </dl>
+          </B_sites_lies>
+          
+          <B_rubriques_liees>
+          <h3 class="motArticlesLies">Les rubriques li&eacute;es &agrave; ce th&egrave;me<h3>
+            <dl class="motArticlesLiesListe">
+              <BOUCLE_rubriques_liees(RUBRIQUES){id_mot}{par num titre, titre}>
+              <dt>[<a href="#URL_RUBRIQUE"[ title="(#DESCRIPTIF|textebrut)"]>(#TITRE|supprimer_numero)</a>]</dt>
+              </BOUCLE_rubriques_liees>
+            </dl>
+          </B_rubriques_liees>
+            
+        </div>
+        [<div id="articleNotes">
+          (#NOTES)
+        </div>]
+      </div>
+    </div><!-- fin #corps -->
+    #FIN_SURLIGNE
+    <hr class="invisible">
+    <div id="colonneDroite">
+      
+      
+      #FORMULAIRE_RECHERCHE
+      
+      <h2>Contact</h2>
+      <ul class="appelSommaire">
+        <BOUCLE_contact(ARTICLES){titre_mot=page contact}{par num titre, titre}>
+        [<li><a href="#URL_ARTICLE">(#TITRE|supprimer_numero)<span class="suite">&nbsp;&raquo;</span></a></li>]
+        </BOUCLE_contact>
+      </ul>
+      
+    </div><!-- fin #colonneDroite -->
+    <div class="clear"></div>
+    <hr class="invisible">
+    <INCLURE{fond=inc_piedDePage}>
+    
+    <div class="clear"></div>
+  </div>
+  </BOUCLE_principale>
+</body>
+</html>
