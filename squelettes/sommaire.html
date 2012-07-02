@@ -18,7 +18,7 @@
     <div id="tetiere">
       <h1 id="logo"><a href="/">[(#LOGO_SITE_SPIP||inserer_attribut{"alt",#NOM_SITE_SPIP})]</a></h1>
       <INCLURE{fond=inc_menu}>
-      
+
     </div><!-- fin #tetiere -->
     <div class="clear"></div>
     <div id="corps">
@@ -48,7 +48,7 @@
         </div>
       </div>
       </BOUCLE_articles_sommaire2></BOUCLE_mot_sommaire>
-      
+
       <div id="rubriqueInfoNB" class="articles">
         <BOUCLE_rubrique_infoNB(RUBRIQUES){id_rubrique=2}>
         <div class="articlesRubrique">
@@ -69,25 +69,27 @@
     <hr class="invisible">
     <div id="colonneDroite">
       #FORMULAIRE_RECHERCHE
-      
+
+      [(#INCLURE{fond=inc_espace-membres})]
+
       <BOUCLE_a_propos(RUBRIQUES){id_rubrique=4}>
       <h2>[(#TITRE|supprimer_numero)]</h2>
       <p class="descriptifRubrique">[(#DESCRIPTIF|PtoBR)]<a href="#URL_RUBRIQUE" class="suite">&nbsp;&raquo;&nbsp;en savoir plus</a></p>
       </BOUCLE_a_propos>
-      
+
       <BOUCLE_adherez(RUBRIQUES){id_rubrique=3}>
       <h2>[(#TITRE|supprimer_numero)]</h2>
       <B_document_adherez>
       <p class="descriptifRubrique"><a href="#URL_RUBRIQUE"><BOUCLE_document_adherez(DOCUMENTS){id_rubrique}{mode=document}{descriptif==adhesion sommaire}{par id_document}{inverse}{0,1}>[(#FICHIER|image_reduire{170,0}|inserer_attribut{'alt',[(#TITRE|supprimer_numero)]})]</BOUCLE_document_adherez></a></p></B_document_adherez>
       </BOUCLE_adherez>
-      
+
       <h2>Contact</h2>
       <ul class="appelSommaire">
         <BOUCLE_contact(ARTICLES){titre_mot=page contact}{par num titre, titre}>
         [<li><a href="#URL_ARTICLE">(#TITRE|supprimer_numero)<span class="suite">&nbsp;&raquo;</span></a></li>]
         </BOUCLE_contact>
       </ul>
-      
+
       <BOUCLE_breves_sommaire(MOTS){titre=article sommaire}>
       <B_breves>
       <h2>En bref</h2>
@@ -98,7 +100,7 @@
       </ul>
       </B_breves>
       </BOUCLE_breves_sommaire>
-      
+
       <h2>&Agrave; propos du site</h2>
       <ul id="aProposSite" class="appelSommaire">
         <li><a href="http://www.spip.net"><img src="images/spip.png" width="16" height="16" alt="Spip" /></a> réalisé avec <a href="http://www.spip.net">Spip</a></li>
@@ -107,12 +109,12 @@
         </BOUCLE_creative_commons>
         <li>conception graphique &amp; d&eacute;veloppement<br />christophe le drean</li>
       </ul>
-      
+
     </div><!-- fin #colonneDroite -->
     <div class="clear"></div>
     <hr class="invisible">
     <INCLURE{fond=inc_piedDePage}>
-    
+
     <div class="clear"></div>
   </div>
 </body>

@@ -5,13 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
   <BOUCLE_principale(ARTICLES){id_article}>
-  
+
   <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
   <title>#NOM_SITE_SPIP &gt; [(#TITRE|supprimer_numero|textebrut)]</title>
   [<meta name="description" lang="#LANG" content="(#DESCRIPTIF|textebrut)" />]
-  
+
   <meta name="keywords" lang="#LANG" content="<BOUCLE_mots_meta(MOTS){id_article}{par titre}{type!==@}{", "}>[(#TITRE|supprimer_numero|textebrut)]</BOUCLE_mots_meta>" />
-  
+
   <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" charset="utf-8" />
   <link rel="stylesheet" href="css/impression.css" type="text/css" media="print" charset="utf-8" />
   <link rel="shortcut icon" type="image/x-icon" href="#CHEMIN{favicon.ico}" />
@@ -24,7 +24,7 @@
     <div id="tetiere">
       <h1 id="logo"><a href="/">[(#LOGO_SITE_SPIP||inserer_attribut{"alt",#NOM_SITE_SPIP})]</a></h1>
       <INCLURE{fond=inc_menu}{id_rubrique}>
-      
+
     </div><!-- fin #tetiere -->
     <div class="clear"></div>
     <div id="corps">
@@ -34,11 +34,11 @@
           <h2 class="articleTitre">[(#TITRE|supprimer_numero)]</h2>
           [<p class="soustitreArticle">(#SOUSTITRE)</p>]
         </div>
-        
+
         <div id="articleAuteurs">
           <p>[(#DATE|affdate)]<B_auteurs> | par <BOUCLE_auteurs(AUTEURS){id_article}{par nom}{", "}>#NOM</BOUCLE_auteurs></B_auteurs></p>
         </div>
-        
+
         [<div id="articleChapo">
           (#CHAPO)
         </div>]
@@ -86,7 +86,7 @@
         </ul>
       </div>
       </BOUCLE_navigationSecondaire>
-      
+
       <B_themes>
       <div id="themes">
         <h2>Th&egrave;mes li&eacute;s</h2>
@@ -103,7 +103,7 @@
         </dl>
       </div>
       </B_themes>
-      
+
       <B_documents>
       <h2>Documents li&eacute;s</h2>
       <dl class="themesEtDocuments">
@@ -113,7 +113,7 @@
         </BOUCLE_documents>
       </dl>
       </B_documents>
-      
+
       <B_portfolio>
       <h2>Portfolio</h2>
       <dl class="themesEtDocuments">
@@ -125,9 +125,11 @@
         </BOUCLE_portfolio>
       </dl>
       </B_portfolio>
-      
+
       #FORMULAIRE_RECHERCHE
-      
+
+      [(#INCLURE{fond=inc_espace-membres})]
+
       <div id="contact">
         <h2>Contact</h2>
         <ul class="appelSommaire">
@@ -136,13 +138,13 @@
           </BOUCLE_contact>
         </ul>
       </div>
-      
-      
+
+
     </div><!-- fin #colonneDroite -->
     <div class="clear"></div>
     <hr class="invisible">
     <INCLURE{fond=inc_piedDePage}>
-    
+
     <div class="clear"></div>
   </div>
   </BOUCLE_principale>

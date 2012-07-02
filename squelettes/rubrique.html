@@ -20,15 +20,15 @@
     <div id="tetiere">
       <h1 id="logo"><a href="/">[(#LOGO_SITE_SPIP||inserer_attribut{"alt",#NOM_SITE_SPIP})]</a></h1>
       <INCLURE{fond=inc_menu}{id_rubrique}>
-      
+
     </div><!-- fin #tetiere -->
     <div class="clear"></div>
     <div id="corps"><BOUCLE_exclu_technique(MOTS){id_mot=2}><BOUCLE_exclu_art(ARTICLES){id_mot}{doublons}></BOUCLE_exclu_art></BOUCLE_exclu_technique>
-      
+
       [<div id="descriptifRubrique">
         (#TEXTE)
       </div>]
-      
+
       <B_pages>
       <div class="pagination">
         [<p>(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'articles disponibles','article disponible'})].] [(#TOTAL_BOUCLE) [(#TOTAL_BOUCLE|>{1}|?{'articles sont affich&eacute;s','article est affich&eacute;'})] dans cette page.</p>]
@@ -49,12 +49,12 @@
       </BOUCLE_pages>
       </B_pages>
       #FIN_SURLIGNE
-      
+
     </div><!-- fin #corps -->
-    
+
     <hr class="invisible">
     <div id="colonneDroite">
-      
+
       <div id="navigationSecondaire">
         <p id="positionSite">Vous consultez&nbsp;: [<em>(#TITRE|supprimer_numero)</em>]</p>
         <ul id="listeNS">
@@ -83,17 +83,19 @@
           <//B_rubriquage>
         </ul>
       </div>
-      
-      
+
+
       #FORMULAIRE_RECHERCHE
-      
+
+      [(#INCLURE{fond=inc_espace-membres})]
+
       <h2>Contact</h2>
       <ul class="appelSommaire">
         <BOUCLE_contact(ARTICLES){titre_mot=page contact}{par num titre, titre}>
         [<li><a href="#URL_ARTICLE">(#TITRE|supprimer_numero)<span class="suite">&nbsp;&raquo;</span></a></li>]
         </BOUCLE_contact>
       </ul>
-      
+
       <B_breves>
       <h2>En bref</h2>
       <dl class="appelSommaire">
@@ -103,12 +105,12 @@
         </BOUCLE_breves>
       </dl>
       </B_breves>
-      
+
     </div><!-- fin #colonneDroite -->
     <div class="clear"></div>
     <hr class="invisible">
     <INCLURE{fond=inc_piedDePage}>
-    
+
     <div class="clear"></div>
   </div>
   </BOUCLE_principale>
