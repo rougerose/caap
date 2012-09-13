@@ -6,13 +6,6 @@
 // Global values
 // --------------------------------------------------
 
-// transparence
-@transparent: transparent;
-
-// background rouge
-@bodyBgRed : #300103;
-@jauneDore : #e3c000;
-@bleuBS : #08c;
 
 // Grays
 // -------------------------
@@ -39,15 +32,14 @@
 
 // Scaffolding
 // -------------------------
-@bodyBackground:        @transparent;
+@bodyBackground:        @white;
 @textColor:             @grayDark;
 
 
 // Links
 // -------------------------
-// @linkColor:             #08c;
-@linkColor:             #C9040B;
-@linkColorHover:        lighten(@linkColor, 15%);
+@linkColor:             #08c;
+@linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
@@ -55,19 +47,15 @@
 @sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
-@condRegWebFontFamily:  "myriad_pro_condregular",@sansFontFamily;
-@condBoldWebFontFamily: "myriad_pro_condbold",@sansFontFamily;
-@regWebFontFamily:      "myriad_proregular",@sansFontFamily;
 
 @baseFontSize:          14px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        24px;
+@baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
-@headingsFontWeight:    normal;    // instead of browser default, bold
+@headingsFontWeight:    bold;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
-
 
 // Tables
 // -------------------------
@@ -75,7 +63,6 @@
 @tableBackgroundAccent:             #f9f9f9; // for striping
 @tableBackgroundHover:              #f5f5f5; // for hover
 @tableBorder:                       #ddd; // table and cell border
-
 
 // Buttons
 // -------------------------
@@ -101,8 +88,6 @@
 @btnInverseBackground:              #444;
 @btnInverseBackgroundHighlight:     @grayDarker;
 
-@btnJoinBackground:                 #007C21;
-@btnJoinBackgroundHighlight:     #005817;
 
 // Forms
 // -------------------------
@@ -120,12 +105,11 @@
 @dropdownDividerBottom:         @white;
 
 @dropdownLinkColor:             @grayDark;
-
 @dropdownLinkColorHover:        @white;
-@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
-
 @dropdownLinkColorActive:       @dropdownLinkColor;
+
 @dropdownLinkBackgroundActive:  @linkColor;
+@dropdownLinkBackgroundHover:   @dropdownLinkBackgroundActive;
 
 
 
@@ -146,8 +130,8 @@
 
 // Sprite icons path
 // -------------------------
-@iconSpritePath:          "#DOSSIER_SQUELETTE/img/glyphicons-halflings.png";
-@iconWhiteSpritePath:     "#DOSSIER_SQUELETTE/img/glyphicons-halflings-white.png";
+@iconSpritePath:          "../img/glyphicons-halflings.png";
+@iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
 
 
 // Input placeholder text color
@@ -160,6 +144,11 @@
 @hrBorder:                @grayLighter;
 
 
+// Horizontal forms & lists
+// -------------------------
+@horizontalComponentOffset:       180px;
+
+
 // Wells
 // -------------------------
 @wellBackground:                  #f5f5f5;
@@ -170,12 +159,12 @@
 @navbarCollapseWidth:             979px;
 
 @navbarHeight:                    40px;
-@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
 @navbarBackgroundHighlight:       #ffffff;
+@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
-@navbarText:                      @gray;
-@navbarLinkColor:                 @gray;
+@navbarText:                      #777;
+@navbarLinkColor:                 #777;
 @navbarLinkColorHover:            @grayDark;
 @navbarLinkColorActive:           @gray;
 @navbarLinkBackgroundHover:       transparent;
