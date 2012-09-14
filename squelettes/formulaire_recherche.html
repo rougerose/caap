@@ -1,9 +1,0 @@
-<div id="zoneRecherche">
-        <form action="[(#ENV{lien})]" method="get" accept-charset="utf-8">
-          [(#ENV{lien}|form_hidden)]
-          [<input type="hidden" name="lang" value="(#ENV{lang})" />]
-          <h2><label for="recherche"><:info_rechercher:></label></h2>
-          <p><input type="text" class="forml" name="recherche" id="recherche" value="[(#ENV{recherche}|sinon{<:info_rechercher:>" onfocus="this.value='';})]" /><input type="submit" class="bouton" value="ok &rarr;" /></p>
-        </form>
-      </div>
-      
