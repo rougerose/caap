@@ -11,7 +11,7 @@ function html5boilerplate_insert_head($flux){
 }
 
 function html5boilerplate_insert_head_css($flux) {
-   $css = array('css/main.css','css/normalize.css');
+   $css = array('css/main.css');
    foreach ($css as $f) {
       $fichier = find_in_path($f);
       if ($fichier){
