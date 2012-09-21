@@ -3,7 +3,7 @@
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
 function html5boilerplate_insert_head($flux){
-   $js = find_in_path('js/vendor/modernizr-2.6.1.min.js');
+   $js = find_in_path('js/vendor/modernizr-2.6.2.min.js');
    if ($js) {
       $flux .= "\n".'<script src="'.$js.'" type="text/javascript"></script>'."\n";
    }
