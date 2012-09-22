@@ -21,11 +21,11 @@ htaccess.txt
 rien.gif
 spip.png
 
-# plugins
-plugins/less-css
+# tous les plugins
+plugins/*
 
 # excepte
 !.gitignore
-#plugins/bootstrap
-#plugins/html5boilerplate/
-#plugins/caap
+!plugins/bootstrap
+!plugins/html5boilerplate/
+!plugins/caap
