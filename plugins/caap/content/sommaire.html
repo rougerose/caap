@@ -1,0 +1,7 @@
+#SET{selection,#ARRAY}
+<BOUCLE_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=0}>
+#SET_PUSH{selection,#ID_ARTICLE}
+</BOUCLE_selection>
+
+[(#REM) Affichage de la sélection ]
+<INCLURE{fond=liste/articles-selection,env,selection=#GET{selection},ajax} />

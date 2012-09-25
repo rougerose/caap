@@ -1,0 +1,189 @@
+/*
+    Author: christophe le drean
+    Author URI: rouge-rose.net
+    Template: caap.asso.fr
+    Version: 3.0.0
+*/
+
+/*    =Bootstrap variables and mixins
+    ------------------------------------------------------ */
+    @import_spip "less/variables.less";
+    @import_spip "less/mixins.less";
+
+
+/*   =Structure
+   ------------------------------------------------------ */
+   header[role=banner] {margin-top: 2em; margin-bottom: 2em;}
+
+
+/*   =Layout
+   ------------------------------------------------------ */
+   /* Éléments de base */
+   .colonne .header hgroup,
+   .colonne .header > .entry-title,
+   .colonne .titre,
+   .colonne .texte,
+   .colonne .entry-content {
+      float: right;
+      width: 620px;
+   }
+   .colonne .meta,
+   .colonne .nav-secondaire {
+      float: left;
+      width: 300px;
+      margin-right: 20px;
+   }
+
+   /* En liste */
+   .liste .colonne .header hgroup,
+   .liste .colonne .header > .entry-title {margin-left: 320px;}
+   .liste .colonne .meta {margin-top: 0.4em;}
+
+
+/*   =Liens
+   ------------------------------------------------------ */
+   a {
+      -webkit-transition:color .35s linear .1s;
+         -moz-transition:color .35s linear .1s;
+           -o-transition:color .35s linear .1s;
+              transition:color .35s linear .1s;
+   }
+   a:visited {}
+   a:hover {}
+   a:active, a:focus {position: relative; top: 1px;}
+
+
+/*   =Typo
+   ------------------------------------------------------ */
+   h1,h2,h3,h4,h5,h6 {
+      font-weight: 700;
+      margin-top: 0; margin-bottom: 1em;
+   }
+   p {margin-top: 0; font-family: @serifFontFamily;}
+
+ /*   =Banner
+    ------------------------------------------------------ */
+
+    /* =Logo */
+    #logo {
+       display: block;
+       width: 300px;
+       float: left;
+    }
+    #baseline {
+       color: @black;
+       font-size: 1em; line-height: 1;
+       font-weight: 700; font-style: italic;
+       float: left;
+       width: 300px;
+       margin: 0; margin-left: 340px;
+       position: absolute; bottom: 0; right: 0;
+    }
+    /* navigation */
+    .navigation {
+       margin-top: 0.5em;
+       border-bottom: 1px solid @grayLighter;
+       overflow: hidden;
+    }
+       /* éléments en communs */
+       .navigation .titre_rubrique,
+       .navigation nav,
+       .navigation .descriptif_site {
+          float: left;
+          width: 300px;
+          margin-left: 20px;
+       }
+       .navigation .titre_rubrique,
+       .navigation .nav,
+       .navigation .descriptif_site {
+          border-top: 1px solid #eee;
+       }
+       /* =Titre_rubrique */
+       .navigation .titre_rubrique {margin-left: 0;}
+          .navigation .titre_rubrique h1 {
+             font-style: italic;
+             margin-top: 0.5em;
+          }
+       /* =Nav */
+       .navigation .nav {
+          float: left;
+          width: 140px;
+          margin-top: 0; padding-top: 0.5em;
+          text-transform: uppercase;
+          font-size: .75em;
+       }
+       .navigation .nav:first-child {margin-right: 20px;}
+
+       /* =Descriptif site */
+       .navigation .descriptif_site {position: relative;}
+          .navigation .descriptif_site p {
+             font-size: 0.75em;
+             margin-top: 0.5em;
+          }
+
+
+/*   =Nav
+   ------------------------------------------------------ */
+   /* =nav principale (voir =Banner) */
+
+   /* =nav-secondaire */
+   .nav-secondaire .nav {margin: 0;}
+
+
+
+/*  =hentry
+   ------------------------------------------------------ */
+   .hentry {
+      border-bottom: 1px solid @grayLighter;
+      margin-bottom: 1em;
+   }
+
+   /* =header */
+   .hentry .entry-title {font-size: 1.25em; margin-bottom: .5em;}
+   .hentry hgroup h2 {font-size: 1.125em; color: lighten(@gray, 15%); font-style: italic; }
+   .hentry .meta, .hentry .meta a {color: @grayLight;}
+   .hentry .meta a:hover {color: @linkColorHover;}
+   .meta li {font-size: 0.75em;}
+   .meta .category {text-transform: uppercase;}
+
+   /* =entry-content */
+   .hentry .entry-content {
+      margin-bottom: 0.5em;
+   }
+
+
+/*   =Divers
+   ------------------------------------------------------ */
+   .suite {font-family: @sansFontFamily;}
+   .suite:before {color: @black; content:'\25A0\0020'; vertical-align: top;}
+
+/*   =Partage
+   ------------------------------------------------------ */
+   .colonne,
+   .groupe {overflow: hidden;}
+   .groupe {
+       position: relative;
+       clear: both;
+    }
+
+    /* rubriques (dans un contexte de navigation ou pas) */
+    .nav a:before,
+    .category a:before {content:'/ '; color: @grayLight;}
+    .category a:before {color: lighten(@grayLight, 25%);}
+
+/*    =Grille
+    ------------------------------------------------------ */
+    .gridbg {
+        background: url(../img/12-grid.png) repeat-y top center;
+    }
+
+/*    =Spip-admin
+    ------------------------------------------------------ */
+    #spip-admin.spip-admin-float {
+        line-height: 1em;
+        right: 0;
+    }
+    #spip-admin .spip-admin-boutons {
+        font-family: @monoFontFamily;
+        font-size: 0.688em;
+    }

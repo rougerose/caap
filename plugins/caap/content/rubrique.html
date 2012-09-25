@@ -1,0 +1,18 @@
+<!-- titre + descriptif de la rubrique -->
+
+<!-- les articles en sélection -->
+
+<!-- les articles de la rubrique -->
+
+<!-- Si pas d'articles ? un plan des sous-rubriques  -->
+<BOUCLE_contenu(RUBRIQUES){id_rubrique}>
+<article class="colonne">
+   <h1 class="header titre">#TITRE</h1>
+   [<div class="texte">
+      (#TEXTE)
+   </div><!-- .texte -->]
+   <INCLURE{fond=liste/rubriques,id_rubrique} />
+</article>
+
+
+</BOUCLE_contenu>

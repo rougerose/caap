@@ -1,0 +1,9 @@
+<B_articles>
+<div class="liste articles selection">
+   [<nav id="#ANCRE_PAGINATION" class="pagination haut">(#PAGINATION)</nav>]
+   <BOUCLE_articles(ARTICLES){id_article IN #ENV{selection}}{pagination #ENV{pagination,5}}>
+   #INCLURE{fond=inclure/article-resume,id_article}
+   </BOUCLE_articles>
+   [<nav class="pagination bas">(#PAGINATION)</nav>]
+</div><!-- .liste articles -->
+</B_articles>

@@ -1,0 +1,15 @@
+<body class="container">
+   <header role="banner">
+      <INCLURE{fond=header/#ENV{type-page},env} />
+      <INCLURE{fond=inclure/nav,env} />
+   </header>
+   <div class="page" role="main">
+      <div id="content" class="main">
+         <INCLURE{fond=content/#ENV{type-page},env} />
+      </div><!-- #content -->
+      <INCLURE{fond=extra1/#ENV{type-page},env} />
+      <INCLURE{fond=extra2/#ENV{type-page},env} />
+   </div><!-- .page -->
+   <footer id="footer"><INCLURE{fond=footer/#ENV{type-page},env} /></footer>
+   <INCLURE{fond=bottom_js/#ENV{type-page},env}>
+</body>
