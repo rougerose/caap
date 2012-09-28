@@ -22,7 +22,7 @@
 		var ul = $('<ul><\/ul>');
 		var esc = function(x){return encodeURIComponent(x).replace(/\s/g,' ');};
 		var ref = document.referrer.match(/^.*\/\/([^\/]+)\//);
-		
+
 
 		if (ref && ref[1].match(/\.facebook\./))
 			$.cookie('social_facebook', 1, { path: '/', expires: 30 }); // 30 jours
@@ -46,7 +46,7 @@
 			.parent().appendTo(ul);
 		}});
 
-		selector.after(ul.wrap('<div class="socialtags"><\/div>').parent());
+		selector.after(ul.addClass('socialtags'));
 
 		[(#CONFIG{socialtags/plusone}|?{[$('<li>(#GOOGLEPLUS1)</li>').appendTo(ul);],''})]
 

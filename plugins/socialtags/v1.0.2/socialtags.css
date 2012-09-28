@@ -4,12 +4,12 @@ div.socialtags {
 	clear:both;
 }
 
-.socialtags ul {
+.socialtags {
 	display: inline;
 	margin: 0 !important;
 	padding: 0 !important;
 }
-.socialtags ul li {
+.socialtags li {
 	background: none;
 	display: inline;
 	list-style-type: none;

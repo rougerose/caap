@@ -30,3 +30,4 @@ plugins/*
 !plugins/bootstrap/
 !plugins/html5boilerplate/
 !plugins/caap/
+!plugins/socialtags/
