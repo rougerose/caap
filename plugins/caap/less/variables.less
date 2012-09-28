@@ -42,16 +42,16 @@
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Cabin","Lato","Helvetica Neue", Helvetica, Arial, sans-serif;
-@serifFontFamily:       "Tinos",Georgia, "Times New Roman", Times, serif;
+@sansFontFamily:        "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@serifFontFamily:       "Tinos", Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace;
 
 @baseFontSize:          100%;
-@baseFontFamily:        @sansFontFamily;
+@baseFontFamily:        @serifFontFamily;
 @baseLineHeight:        1.5;
-@altFontFamily:         @serifFontFamily;
+@altFontFamily:         @sansFontFamily;
 
-@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
+@headingsFontFamily:    @sansFontFamily; // empty to use BS default, @baseFontFamily
 @headingsFontWeight:    normal;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
 
