@@ -20,4 +20,5 @@
    <necessite nom="pb_selection" compatibilite="[3.0;[" />
 
    <utilise nom="menus" compatibilite="[1.2.4;[" />
+   <utilise nom="IntertitresTdm" compatibilite="[0.9.5;[" />
 </paquet>
