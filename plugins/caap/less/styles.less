@@ -37,7 +37,7 @@
    /* En liste */
    .liste .colonne .header hgroup,
    .liste .colonne .header > .entry-title {margin-left: 320px;}
-   .liste .colonne .meta {margin-top: 0.4em;}
+   .liste .colonne .meta {margin-top: 0.1em;}
 
 
 /*   =Liens
@@ -109,26 +109,38 @@
           float: left;
           width: 140px;
           margin-top: 0; padding-top: 0.5em;
-          text-transform: uppercase;
-          font-size: .75em;
        }
        .navigation .nav:first-child {margin-right: 20px;}
 
        /* =Descriptif site */
        .navigation .descriptif_site {position: relative;}
           .navigation .descriptif_site p {
-             font-size: 0.75em;
-             margin-top: 0.5em;
+             font-size: 0.813em;
+             margin-top: 0.6em;
           }
 
 
 /*   =Nav
    ------------------------------------------------------ */
-   /* =nav principale (voir =Banner) */
-
+   /* =nav principale (voir également =Banner) */
+   .nav .item {text-transform: uppercase;}
+   .nav .item.on > a {color:@linkColorHover; font-weight: 700;}
+   .nav .item a {font-size: 0.813em;}
    /* =nav-secondaire */
+   .nav-secondaire {margin-top: 0.2em;}
    .nav-secondaire .nav {margin: 0;}
+   .nav-secondaire .nav .nav .item {margin-left: 0.5em;}
 
+
+/*   =
+   ------------------------------------------------------ */
+   .entete-contenu {
+      padding-bottom: 1em;
+      margin-bottom: 1em;
+      border-bottom: 2px dotted @grayLighter;
+   }
+   .entete-contenu .texte {
+   }
 
 
 /*  =hentry
@@ -137,13 +149,17 @@
       border-bottom: 1px solid @grayLighter;
       margin-bottom: 1em;
    }
+   .liste .hentry:last-of-type {
+      xborder-bottom-width: 0;
+      margin-bottom: 0;
+   }
 
    /* =header */
    .hentry .entry-title {font-size: 1.25em; margin-bottom: .5em;}
    .hentry hgroup h2 {font-size: 1.125em; color: lighten(@gray, 15%); font-style: italic; }
    .hentry .meta, .hentry .meta a {color: @grayLight;}
    .hentry .meta a:hover {color: @linkColorHover;}
-   .meta li {font-size: 0.75em;}
+   .meta li {font-size: 0.813em;}
    .meta .category {text-transform: uppercase;}
 
    /* =entry-content */

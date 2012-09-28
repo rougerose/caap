@@ -6,7 +6,7 @@
 
 <!-- Si pas d'articles ? un plan des sous-rubriques  -->
 <BOUCLE_contenu(RUBRIQUES){id_rubrique}>
-<article class="colonne">
+<article class="colonne entete-contenu">
    <h1 class="header titre">#TITRE</h1>
    [<div class="texte">
       (#TEXTE)
@@ -14,5 +14,30 @@
    <INCLURE{fond=liste/rubriques,id_rubrique} />
 </article>
 
+[(#REM) la sélection des articles du secteur ]
+#SET{selection,#ARRAY}
+<B_selection>
+<BOUCLE_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_SECTEUR}{doublons}>
+   #SET_PUSH{selection,#ID_ARTICLE}
+</BOUCLE_selection>
+<INCLURE{fond=liste/articles-selection,env,selection=#GET{selection},ajax} />
+</B_selection>
+
+[(#REM) les articles de la rubrique... ]
+#SET{articles,#ARRAY}
+<B_articles>
+<BOUCLE_articles(ARTICLES){id_rubrique}{!par date}{doublons}>
+   #SET_PUSH{articles,#ID_ARTICLE}
+</BOUCLE_articles>
+<INCLURE{fond=liste/articles-selection,env,selection=#GET{articles},ajax} />
+</B_articles>
+
+[(#REM) ...sinon une sélection de 3 articles de la branche ]
+<BOUCLE_articles_branche(ARTICLES){id_secteur=#ID_SECTEUR}{!par date}{0,3}>
+   #SET_PUSH{articles,#ID_ARTICLE}
+</BOUCLE_articles_branche>
+
+<INCLURE{fond=liste/articles-selection,env,selection=#GET{articles},ajax} />
+<//B_articles>
 
 </BOUCLE_contenu>

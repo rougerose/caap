@@ -12,7 +12,7 @@
          <li class="category"><a href="#URL_RUBRIQUE">#TITRE</a></li>
          </BOUCLE_rubrique>
          <li><time class="updated" datetime="[(#DATE|date_822)]" pubdate>[(#DATE|affdate)]</time></li>
-         <li class="byline author vcard"><:caap:par:> <BOUCLE_auteurs(AUTEURS){id_article}{par nom}{", "}><span class="fn">#NOM</span></BOUCLE_auteurs></li>
+         <B_auteurs><li class="byline author vcard"><:caap:par:> <BOUCLE_auteurs(AUTEURS){id_article}{par nom}{", "}><span class="fn">#NOM</span></BOUCLE_auteurs></li></B_auteurs>
       </ul>
    </header>
    <div class="entry-content">
