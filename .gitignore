@@ -15,17 +15,18 @@ squelettes-dist/
 tmp/
 
 # fichiers
-*.php
 *.revision
+index.php
 htaccess.txt
 rien.gif
 spip.png
+spip.php
 
 # tous les plugins
 plugins/*
 
 # excepte
 !.gitignore
-!plugins/bootstrap
+!plugins/bootstrap/
 !plugins/html5boilerplate/
-!plugins/caap
+!plugins/caap/
