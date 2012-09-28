@@ -12,8 +12,7 @@
 
    // css
    function caap_insert_head_css($flux) {
-       $flux .= "<link href='http://fonts.googleapis.com/css?family=Cabin:700italic&text=Comit%C3%A9%20des%20Artistes-Auteurs%20Plasticiens' rel='stylesheet' type='text/css'>"."\n";
-       $flux .= "<link href='http://fonts.googleapis.com/css?family=Cabin:400,700|Tinos:400,700,400italic,700italic' rel='stylesheet' type='text/css'>"."\n";
+       $flux .= "<link href='http://fonts.googleapis.com/css?family=Cabin:400,700,700italic|Tinos:400,700,400italic,700italic' rel='stylesheet' type='text/css'>"."\n";
        return $flux;
    }
 ?>
