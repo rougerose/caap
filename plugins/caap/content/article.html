@@ -1,0 +1,69 @@
+<BOUCLE_contenu(ARTICLES){id_article}>
+<article class="colonne hentry self">
+   <header class="header">
+      [(#SOUSTITRE|oui)
+      <hgroup>]
+         <h1 class="entry-title">#TITRE</h1>
+         [<h2>(#SOUSTITRE)</h2>]
+      [(#SOUSTITRE|oui)
+      </hgroup>]
+      <ul class="meta unstyled">
+         <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+         <li class="category"><a href="#URL_RUBRIQUE">#TITRE</a></li>
+         </BOUCLE_rubrique>
+         <li><time class="updated" datetime="[(#DATE|date_822)]" pubdate>[(#DATE|affdate)]</time></li>
+         <B_auteurs><li class="byline author vcard"><:caap:par:> <BOUCLE_auteurs(AUTEURS){id_article}{par nom}{", "}><span class="fn">#NOM</span></BOUCLE_auteurs></li></B_auteurs>
+      </ul>
+   </header>
+   <div class="entry-content surlignable">
+      [<div class="chapo">
+         (#CHAPO|image_reduire{600,0})
+      </div><!-- .chapeau -->]
+      [<div class="texte">
+         (#TEXTE|image_reduire{600,0})
+      </div><!-- .texte -->]
+      [<div class="ps">
+         <h2 class="intertitre"><:caap:info_ps:></h2>
+         (#PS|image_reduire{600,0})
+      </div><!-- .ps -->]
+      [(#REM) Gestion du portfolio et des documents ]
+      [(#INCLURE{fond=inclure/documents,id_article})]
+      [<aside class="notes">
+         <h1 class="intertitre"><:info_notes:></h1>
+         (#NOTES)
+      </aside>]
+   </div><!-- .entry -->
+   <aside class="contextuel">
+      <ul class="meta unstyled">
+         <B_tags>
+         <li class="tags">
+            <h1 class="intertitre">Mots-clés</h1>
+            <ul class="unstyled">
+               <BOUCLE_tags(MOTS){id_article}{par num titre, titre}>
+               <li class="tag"><a href="#URL_MOT" rel="tag">#TITRE</a></li>
+               </BOUCLE_tags>
+            </ul>
+         </li>
+         </B_tags>
+         [(#PLUGIN{socialtags}|oui)
+         <li class="share">
+            <h1 id="partagez" class="intertitre">Partagez</h1>
+         </li>]
+      </ul>
+   </aside>
+   <nav class="pager-nav">
+      <ul class="pager">
+         <BOUCLE_article_precedent(ARTICLES){id_rubrique}{par date}{precedent}>
+         <li class="previous"><a href="#URL_ARTICLE" title="<:caap:pager_precedent_info:> : [(#TITRE|attribut_html|couper{50})]"><:caap:pager_precedent:></a></li>
+         </BOUCLE_article_precedent>
+         <li class="previous disabled"><span><:caap:pager_precedent:></span></li>
+         <//B_article_precedent>
+         <BOUCLE_article_suivant(ARTICLES){id_rubrique}{par date}{suivant}>
+         <li class="next"><a href="#URL_ARTICLE" title="<:caap:pager_suivant_info:> : [(#TITRE|attribut_html|couper{50})]"><:caap:pager_suivant:></a></li>
+         </BOUCLE_article_suivant>
+         <li class="next disabled"><span><:caap:pager_suivant:></span></li>
+         <//B_article_suivant>
+      </ul>
+   </nav>
+</article>
+</BOUCLE_contenu>

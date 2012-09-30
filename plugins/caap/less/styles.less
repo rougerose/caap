@@ -5,10 +5,17 @@
     Version: 3.0.0
 */
 
-/*    =Bootstrap variables and mixins
+/*   =Bootstrap variables and mixins
     ------------------------------------------------------ */
     @import_spip "less/variables.less";
     @import_spip "less/mixins.less";
+
+/*  =Base
+   ------------------------------------------------------ */
+   // De nombreux styles de BS se basent sur un interlignage en px.
+   // On garde ce réglage dans le fichier variables.less
+   // et on ajoute un interlignage variable.
+   body {line-height: @defaultLineHeight;}
 
 
 /*   =Structure
@@ -19,25 +26,34 @@
 /*   =Layout
    ------------------------------------------------------ */
    /* Éléments de base */
-   .colonne .header hgroup,
-   .colonne .header > .entry-title,
-   .colonne .titre,
-   .colonne .texte,
-   .colonne .entry-content {
-      float: right;
-      width: 620px;
-   }
-   .colonne .meta,
-   .colonne .nav-secondaire {
-      float: left;
-      width: 300px;
-      margin-right: 20px;
-   }
+      /* En colonne (sommaire, rubrique, recherche... ) */
 
-   /* En liste */
-   .liste .colonne .header hgroup,
-   .liste .colonne .header > .entry-title {margin-left: 320px;}
-   .liste .colonne .meta {margin-top: 0.1em;}
+      .colonne .header hgroup,
+      .colonne .header > .entry-title,
+      .colonne.entete-contenu .titre,
+      .colonne.entete-contenu .texte,
+      .colonne .entry-content {
+         float: right;
+         width: 620px;
+      }
+      .colonne .header hgroup,
+      .colonne .header > .entry-title {margin-left: 320px;}
+
+
+      .liste .colonne .meta,
+      .self .header .meta,
+      .colonne .nav-secondaire,
+      .colonne.self .contextuel {
+         float: left;
+         width: 300px;
+         margin-right: 20px;
+      }
+      .colonne .meta {margin-top: 0.1em;}
+
+      /* Self (la page du contenu lui-même) */
+      .self .header hgroup,
+      .self .header > .entry-title {margin-bottom: 2em;}
+      .self .pager-nav {clear: both;}
 
 
 /*   =Liens
@@ -63,7 +79,6 @@
 
  /*   =Banner
     ------------------------------------------------------ */
-
     /* =Logo */
     #logo {
        display: block;
@@ -122,61 +137,111 @@
 
 /*   =Nav
    ------------------------------------------------------ */
+   .nav {font-family: @sansFontFamily;}
    /* =nav principale (voir également =Banner) */
    .nav .item {text-transform: uppercase;}
    .nav .item.on > a {color:@linkColorHover; font-weight: 700;}
-   .nav .item a {font-size: 0.813em;}
+   .nav .item a {font-size: 0.813em; line-height: 1.5em;}
    /* =nav-secondaire */
    .nav-secondaire {margin-top: 0.2em;}
    .nav-secondaire .nav {margin: 0;}
    .nav-secondaire .nav .nav .item {margin-left: 0.5em;}
 
 
-/*   =
+/*   =Entete-contenu
    ------------------------------------------------------ */
    .entete-contenu {
       padding-bottom: 1em;
       margin-bottom: 1em;
       border-bottom: 2px dotted @grayLighter;
    }
-   .entete-contenu .texte {
-   }
+   .entete-contenu.self {margin-bottom: 3em;}
 
 
 /*  =hentry
    ------------------------------------------------------ */
-   .hentry {
+   /* Elements communs */
+   .hentry .entry-title {margin-bottom: 0.5em;}
+   .hentry hgroup h2 {color: lighten(@gray, 15%); font-style: italic; font-weight: 400;}
+   .hentry .meta, .hentry .meta a {color: @grayLight;}
+   .hentry .meta a:hover {color: @linkColorHover;}
+
+   .meta li {font-family: @sansFontFamily; font-size: 0.813em;}
+   .meta li li {font-size: 1em;}
+   .meta .category {text-transform: uppercase; line-height: 1.846em;}
+
+   .entry-content .chapo {color: @black; font-size: 1.125em; line-height: 1.333em;}
+   .entry-content .chapo,
+   .entry-content .texte,
+   .entry-content .ps {margin-bottom: 3em;}
+
+   /* En liste */
+   .liste .hentry {
       border-bottom: 1px solid @grayLighter;
       margin-bottom: 1em;
    }
-   .liste .hentry:last-of-type {
-      xborder-bottom-width: 0;
-      margin-bottom: 0;
-   }
-
-   /* =header */
-   .hentry .entry-title {font-size: 1.25em; margin-bottom: .5em;}
-   .hentry hgroup h2 {font-size: 1.125em; color: lighten(@gray, 15%); font-style: italic; }
-   .hentry .meta, .hentry .meta a {color: @grayLight;}
-   .hentry .meta a:hover {color: @linkColorHover;}
-   .meta li {font-size: 0.813em;}
-   .meta .category {text-transform: uppercase;}
-
-   /* =entry-content */
-   .hentry .entry-content {
-      margin-bottom: 0.5em;
-   }
+   .liste .hentry .entry-title {font-size: 1.25em; line-height: 1.2em;}
+   .liste .hentry hgroup h2 {font-size: 1em;}
+   .liste .hentry .entry-content {margin-bottom: 0.5em;}
 
 
-/*   =Divers
+/*   =Self
    ------------------------------------------------------ */
+   .self .titre,
+   .self .entry-title,
+   .self.entete-contenu .texte {color: @black;}
+
+   .self hgroup .entry-title {margin-bottom: 0;}
+   .self hgroup h2 {font-size: 1.25em; line-height: 1.25em; margin-bottom: 1.25em;}
+
+/*   =Contenus communs aux objets
+   ------------------------------------------------------ */
+   /* =Intertitres */
+   h2.spip, h3.spip, h4.spip, h5.spip, h6.spip,
+   .entry-content .intertitre {font-weight: 400; color: @black; margin: 1.5em 0 0.5em;}
+   h2.spip {font-size: 1.625em; line-height: 1em; margin: 1em 0; }
+   h3.spip {font-size: 1.375em; line-height: 1.091em; margin-top: 1em;}
+   h4.spip {font-size: 1.125em;}
+   h5.spip {line-height: 1.5em; font-weight: 700;}
+   h6.spip {font-size: 0.875em; line-height: 1.5em; font-weight: 700;}
+
+   /* =Notes */
+   .notes {margin-right: 240px;}
+   .notes .intertitre {
+      font-size: 1.5em;
+      border-bottom: 1px solid @black;
+      margin-top: 0; margin-bottom: 0.25em;
+      padding-bottom: 0.25em;
+   }
+   .notes p {font-size: 0.875em;}
+   .notes .spip_note_ref {
+      display: inline-block;
+      width: 2em;
+      margin-left: -2em;
+   }
+
+   /* =Suite */
    .suite {font-family: @sansFontFamily;}
    .suite:before {color: @black; content:'\25A0\0020'; vertical-align: top;}
+
+   /* =Elements contextuels : mots-clés, liens sociaux */
+   .contextuel .intertitre {
+      font-size: 1em;
+      text-transform: uppercase;
+      font-weight: 400;
+      margin-bottom: 0;
+   }
+   .contextuel .tags {margin-bottom: 1em;}
+   .contextuel .tags .tag {display: inline;}
+   .contextuel .tags .tag:before {content: '\25a0\0020';}
+
+   /* =Navigation pager precedent/suivant */
+
 
 /*   =Partage
    ------------------------------------------------------ */
    .colonne,
-   .groupe {overflow: hidden;}
+   .groupe {overflow: hidden; position: relative;}
    .groupe {
        position: relative;
        clear: both;
