@@ -2,32 +2,5 @@
 .DS_Store
 .tm_properties
 
-# projet spip : tous les fichiers et dossiers sont ignores
-# dossiers
-config/
-ecrire/
-IMG/
-local/
-plugins/auto
-plugins-dist
-prive/
-squelettes-dist/
-tmp/
-
-# fichiers
-*.revision
-index.php
-htaccess.txt
-rien.gif
-spip.png
-spip.php
-
-# tous les plugins
-plugins/*
-
-# excepte
-!.gitignore
-!plugins/bootstrap/
-!plugins/html5boilerplate/
-!plugins/caap/
-!plugins/socialtags/
+# tous les plugins auto
+auto/
