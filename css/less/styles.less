@@ -3,19 +3,22 @@
     Author URI: rouge-rose.net
     Template: caap.asso.fr
     Version: 3.0.0
+    ===========================
+    Notes : les fichiers .less doivent être compilés en local. Spip n'utilise que des les .css
+    ===========================
 */
 
 /*   =Bootstrap variables and mixins
     ------------------------------------------------------ */
-    @import_spip "less/variables.less";
-    @import_spip "less/mixins.less";
+    @import "bootstrap/variables.less";
+    @import "bootstrap/mixins.less";
 
 /*  =Base
    ------------------------------------------------------ */
    // De nombreux styles de BS se basent sur un interlignage en px.
    // On garde ce réglage dans le fichier variables.less
    // et on ajoute un interlignage variable.
-   body {line-height: @defaultLineHeight;}
+   //body {line-height: @defaultLineHeight;}
 
 
 /*   =Structure
