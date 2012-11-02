@@ -429,7 +429,7 @@ var hashgrid = function(set) {
 $(document).ready(function() {
 
 	var grid = new hashgrid({
-		numberOfGrids: 2
+      id: 'bsgrid'
 	});
 
 });
