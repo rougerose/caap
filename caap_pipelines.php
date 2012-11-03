@@ -13,6 +13,7 @@ function caap_insert_head($flux){
 
 // css
 function caap_insert_head_css($flux) {
+   $flux .= "<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Sans+Narrow|PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>\n";
    return $flux;
 }
 

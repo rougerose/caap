@@ -10,3 +10,44 @@
    @import "css/variables.less";
    @import "css/mixins.less";
 
+
+/*   =Liens
+   ------------------------------------------------------ */
+   a {
+      -webkit-transition:color .35s linear .1s;
+         -moz-transition:color .35s linear .1s;
+           -o-transition:color .35s linear .1s;
+              transition:color .35s linear .1s;
+   }
+   a:visited {}
+   a:hover {text-decoration: underline;}
+   a:active, a:focus {position: relative; top: 1px;}
+
+
+/*   =Nav
+   ------------------------------------------------------ */
+   .nav .item {text-transform: uppercase;}
+   .nav .item:before {content:'/ '; color: @grayLight;}
+   //.nav > li > a {color: @gray; display: inline;}
+   .nav .item.on a {font-weight: 700; color: @linkColor;}
+   .nav > li > a:hover {background: none;}
+
+/*   =Banner
+   ------------------------------------------------------ */
+   header[role=banner] {margin-top:@baseLineHeight; margin-bottom: @baseLineHeight;}
+   .logo {overflow: hidden; position: relative;}
+      #logo {padding-bottom: 0.5em; border-bottom: @borderCaap;}
+      #baseline {
+         color: @black;
+         font: italic 700 16px/1 @sansFontFamily;
+         position: absolute; bottom: 0; right: 0;
+         margin-bottom: 0.5em;
+      }
+
+/*   =Navigation
+   ------------------------------------------------------ */
+   .navigation {overflow: hidden; border-bottom:@borderCaap; margin-left: 20px;}
+      .menu-liste {border-top: @borderCaap; margin-left: 20px; padding-top: 0.5em;}
+      .nav .item a {display: inline; color: @gray;}
+      .navigation .menu-liste:first-child {margin-left: 320px;}
+      .navigation .descriptif_site {border-top: @borderCaap; padding-top: 0.5em;}
