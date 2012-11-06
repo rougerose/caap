@@ -5,6 +5,10 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
+   // D
+   'info_document' => 'Document',
+   'info_documents' => 'Documents',
+
    // I
    'info_ps' => 'Post-scriptum',
 

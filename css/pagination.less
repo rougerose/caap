@@ -6,10 +6,13 @@
 
 // Space out pagination from surrounding content
 .pagination {
-  margin: @baseLineHeight 0;
+  margin: @baseLineHeight 0 @baseLineHeight @gridGutterWidth;
 }
-
 // pagination styles caap
+.selection .pagination {
+   float: left;
+   margin-left: ((@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1) + @gridGutterWidth)) + @gridGutterWidth;
+}
 .pagination-label {
    font-size: @baseFontSize+2;
    line-height: @baseLineHeight;
@@ -25,7 +28,7 @@
 .pagination ul {
   // Allow for text-based alignment
   display: inline-block;
-  //.ie7-inline-block();
+  .ie7-inline-block();
   // Reset default ul styles
   margin-left: 0;
   margin-bottom: 0;

@@ -1,0 +1,27 @@
+@import "bs/css/scaffolding.less";
+
+// spip
+   // images et documents
+   .spip_documents img,
+   .documents img {.img-polaroid}
+   .spip_documents a,
+   .documents a {display: block;}
+   .spip_documents a:hover,
+   .documents a:hover {text-decoration: none;}
+   // dans le texte (article, rubrique, etc.)
+   .texte .spip_documents {display: block; margin-top: 5px; margin-bottom: @baseLineHeight;}
+   .texte .spip_documents.spip_documents_left {margin-right:@gridGutterWidth;}
+   .texte .spip_documents.spip_documents_center {text-align: center; clear: both; margin-bottom: 0;}
+   .texte .spip_documents.spip_documents_right {margin-left: @gridGutterWidth;}
+      .texte .spip_doc_titre {margin-top: @baseLineHeight/2;}
+      .texte .spip_doc_titre,
+      .texte .spip_doc_descriptif {font-size: @fontSizeSmall; color: @grayLight; margin-left: 0;}
+   // dans le portfolio ou dans documents joints aux articles ou rubriques
+   .documents.portfolio a {float: left; margin: 0 @gridGutterWidth @baseLineHeight 0;}
+   .documents.portfolio .item_0 {margin-right: 0;}
+   .documents.portfolio .item_1 {clear:left;}
+   // les fichiers (autres que les images) sont présentés en liste dl > dt > dd
+   .documents.fichiers dt {float: left;}
+   .documents.fichiers dd {overflow: hidden;}
+      .documents.fichiers dt img {margin-right: @gridGutterWidth;}
+      .documents.fichiers .spip_doc_titre {margin-top: 0;}

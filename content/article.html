@@ -1,13 +1,13 @@
 <BOUCLE_contenu(ARTICLES){id_article}>
-<article class="colonne hentry self">
+<article class="hentry self">
    <header class="header">
       [(#SOUSTITRE|oui)
       <hgroup>]
-         <h1 class="entry-title">#TITRE</h1>
-         [<h2>(#SOUSTITRE)</h2>]
+         <h1 class="entry-title titre">#TITRE</h1>
+         [<h2 class="soustitre">(#SOUSTITRE)</h2>]
       [(#SOUSTITRE|oui)
       </hgroup>]
-      <ul class="meta unstyled">
+      <ul class="meta-publi">
          <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
          <li class="category"><a href="#URL_RUBRIQUE">#TITRE</a></li>
          </BOUCLE_rubrique>
@@ -23,22 +23,22 @@
          (#TEXTE|image_reduire{600,0})
       </div><!-- .texte -->]
       [<div class="ps">
-         <h2 class="intertitre"><:caap:info_ps:></h2>
+         <h2 class="spip intertitre"><:caap:info_ps:></h2>
          (#PS|image_reduire{600,0})
       </div><!-- .ps -->]
       [(#REM) Gestion du portfolio et des documents ]
       [(#INCLURE{fond=inclure/documents,id_article})]
       [<aside class="notes">
-         <h1 class="intertitre"><:info_notes:></h1>
+         <h1 class="spip intertitre"><:info_notes:></h1>
          (#NOTES)
       </aside>]
    </div><!-- .entry -->
-   <aside class="contextuel">
-      <ul class="meta unstyled">
+   <aside class="contextuel liste">
+      <ul class="liste-items">
          <B_tags>
          <li class="tags">
             <h1 class="intertitre">Mots-clés</h1>
-            <ul class="unstyled">
+            <ul class="liste-items">
                <BOUCLE_tags(MOTS){id_article}{par num titre, titre}>
                <li class="tag"><a href="#URL_MOT" rel="tag">#TITRE</a></li>
                </BOUCLE_tags>
