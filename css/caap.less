@@ -20,17 +20,16 @@
 /*   =Layout
    ------------------------------------------------------ */
    .main article {
-      float: left;
-      margin-left: @gridGutterWidth;
       min-height: 1px; // prevent collapsing columns
       width: (@gridColumnWidth * 12) + (@gridGutterWidth * (12 - 1));
    }
    .self > .titre, // rubrique
+   .self .header .titre,
    .contenu-entete .texte, // rubrique
    .header > .entry-title, // liste art et art lui-même
    .header hgroup,
    .entry-content,
-   .documents {
+   figure.documents {
       float: right;
       width: (@gridColumnWidth * 8) + (@gridGutterWidth * (8 - 1)); // 8 colonnes
    }
@@ -39,8 +38,11 @@
    .self hgroup {margin-bottom: @baseLineHeight * 2;}
    .header > .entry-title,
    .header hgroup {
-      margin-left: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1) + @gridGutterWidth);// 4 col
+      margin-left: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1)); // 4 col, si pas de logo
    }
+   .header.lg > .entry-title,
+   .header.lg hgroup {margin-left: 0;} // Si logo
+
    .contenu-entete .nav-secondaire,
    .liste .meta-publi,
    .self .meta-publi,
@@ -76,21 +78,25 @@
    .nav > li > a:hover {background: none; color: @linkColorHover;}
 
    /* Navigation principale */
-   .nav-principale {border-bottom:@borderCaap; margin-left: 20px;}
+   .nav-principale {border-bottom:@borderCaap;}
       .menu-liste {border-top: @borderCaap; margin-left: 20px; padding-top: 0.5em;}
       .nav .item a {display: inline; color: @gray;}
       .nav-principale .menu-liste:first-child {margin-left: 320px;}
       .nav-principale .descriptif_site {border-top: @borderCaap; padding-top: 0.5em;}
 
    /* Navigation secondaire */
-   .nav-secondaire {margin-left: 0;}
+   .nav-secondaire {margin-left: 0; clear: left;}
    .nav-secondaire .nav .nav {margin-left: @gridGutterWidth/4;}
 
 /*   =Banner
    ------------------------------------------------------ */
-   header[role=banner] {margin-top:@baseLineHeight; margin-bottom: @baseLineHeight;}
-   .logo {position: relative;}
-      #logo {padding-bottom: 0.5em; border-bottom: @borderCaap;}
+   header[role=banner] {
+      margin-top:@baseLineHeight;
+      margin-bottom: @baseLineHeight;
+      position: relative;
+   }
+   header[role=banner] .logo {position: relative;}
+      #logo {padding-bottom: 0.5em; border-bottom: @borderCaap; margin-left: 0;}
       #baseline {
          color: @black;
          font: italic 700 16px/1 @sansFontFamily;
@@ -100,7 +106,7 @@
 
 /*   =Contenu entete
    ------------------------------------------------------ */
-   .contenu-entete {border-bottom: 2px dotted @grayLighter; margin-bottom: @baseLineHeight;}
+   .contenu-entete {/*border-bottom: 2px dotted @grayLighter;*/ margin-bottom: @baseLineHeight;}
 
 /*   =Contenu contextuel
    ------------------------------------------------------ */
@@ -136,17 +142,18 @@
    .self hgroup .titre {margin-bottom: 0;}
    .self .soustitre {font-size: @baseFontSize * 1.71; margin-top: 0;}
    .contenu-entete.self .texte {font-size: @baseFontSize * 1.14;}
-   .self .meta-publi {margin-bottom: @baseLineHeight;}
+   .self .meta-publi {margin-bottom: @baseLineHeight; clear: left;}
 
 /*   =Listes
    ------------------------------------------------------ */
+   .liste.selection {float: left;}
    .liste .liste-items {margin-left: 0; list-style: none;}
       .liste-items .intertitre {
          font-size: @baseFontSize; line-height: @baseLineHeight; text-transform: uppercase;
          margin: 0;
       }
 
-   /* Articles */
+   /* Contenus */
    .liste .hentry {border-bottom: @borderCaap; padding-bottom: @baseLineHeight; margin-bottom: @baseLineHeight;}
    .liste .entry-title {font-size: @baseFontSize*1.57; line-height: @baseLineHeight;}
       .liste .entry-title a {color: @black;}
@@ -155,6 +162,10 @@
    .liste hgroup .soustitre {margin-top: @baseLineHeight/4;}
    .liste .soustitre {font-size: @baseFontSize*1.3; line-height: @baseLineHeight;}
 
+/*   =Recherche
+   ------------------------------------------------------ */
+   .resultats {font-size: @fontSizeLarge; font-weight: 700;}
+   .resultats.detail {border-bottom: 1px solid @black;}
 
 /*   =Suite
    ------------------------------------------------------ */
@@ -185,6 +196,11 @@
    .notes .intertitre {border-bottom: 1px solid @black;}
 
    /* images et documents */
-   .documents {margin: 0 0 @baseLineHeight;}
+   .entry-content #documents {margin: 0;}
+   .entry-content .documents {margin: 0 0 @baseLineHeight;}
+   /* logos d'objet */
+   .logo-objet {float: left; margin: 0 @gridGutterWidth @baseLineHeight 0;}
+   .self .logo-objet {}
    /* HR */
    hr.spip {border-color: @black; margin:@baseLineHeight * 2;}
+

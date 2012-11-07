@@ -1,7 +1,12 @@
 <BOUCLE_contenu(RUBRIQUES){id_rubrique}>
-<article class="contenu-entete self oh gtr">
-   <h1 class="titre gtr">#TITRE</h1>
-   [<div class="texte gtr">
+<article class="contenu-entete self oh">
+   <header class="header">
+      <h1 class="titre">#TITRE</h1>
+      [<figure class="logo-objet">
+         (#LOGO_RUBRIQUE||image_reduire{210,0})
+      </figure>]
+   </header>
+   [<div class="texte">
       (#TEXTE)
    </div><!-- .texte -->]
    <INCLURE{fond=navs/rubriques,id_rubrique} />

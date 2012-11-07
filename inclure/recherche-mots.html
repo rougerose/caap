@@ -1,0 +1,29 @@
+[(#REM)
+   Variables
+   =========
+   selection : tableau de la sélection transmis par inclure
+] #SET{selection,#ENV{selection}}
+<B_mots>
+[<p class="resultats detail">
+   (#GET{selection}|count|singulier_ou_pluriel{caap:recherche_mot,caap:recherche_mots,nb})
+</p>]
+<ol class="liste-items recherche">
+   #ANCRE_PAGINATION
+   <BOUCLE_mots(MOTS){id_mot IN #GET{selection}}{pagination 5}>
+   <li class="item">
+      <article class="hentry colonne oh">
+         <header class="header">
+            <h1 class="entry-title"><a href="#URL_MOT" rel="bookmark">#TITRE</a></h1>
+         </header>
+         <div class="entry-content">
+            [(#DESCRIPTIF)]
+            <p class="suite"><a href="#URL_MOT"><:caap:suite:></a></p>
+         </div><!-- .entry -->
+      </article>
+   </li>
+   </BOUCLE_mots>
+</ol>
+[<p class="pagination bas">(#PAGINATION)</p>]
+</B_mots>
+<p class="message info"><:caap:aucun_resultat:></p>
+<//B_mots>

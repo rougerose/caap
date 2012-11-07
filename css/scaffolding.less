@@ -3,11 +3,13 @@
 // spip
    // images et documents
    .spip_documents img,
-   .documents img {.img-polaroid}
+   .documents img,
+   .logo-objet .spip_logos {.img-polaroid}
    .spip_documents a,
-   .documents a {display: block;}
+   figure.documents a,
+   .image {display: block;}
    .spip_documents a:hover,
-   .documents a:hover {text-decoration: none;}
+   figure.documents a:hover {text-decoration: none;}
    // dans le texte (article, rubrique, etc.)
    .texte .spip_documents {display: block; margin-top: 5px; margin-bottom: @baseLineHeight;}
    .texte .spip_documents.spip_documents_left {margin-right:@gridGutterWidth;}

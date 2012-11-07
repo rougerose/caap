@@ -1,0 +1,41 @@
+[(#REM)
+   Variables
+   =========
+   selection : tableau de la sélection transmis par inclure
+] #SET{selection,#ENV{selection}}
+<B_documents>
+[<p class="resultats detail">
+   (#GET{selection}|count|singulier_ou_pluriel{caap:recherche_document,caap:recherche_documents,nb})
+</p>]
+<ol class="liste-items recherche">
+   #ANCRE_PAGINATION
+   <BOUCLE_documents(DOCUMENTS){id_document IN #GET{selection}}{pagination 5}>[
+   (#REM) calcul de l'url
+   ]<BOUCLE_lien_article(documents_liens){id_document}{objet=article}>[
+   (#SET{url, #INFO_URL{article,#ID_OBJET}})
+   ]</BOUCLE_lien_article>
+   <BOUCLE_lien_rubrique(documents_liens){id_document}{objet=rubrique}>[
+   (#SET{url,#INFO_URL{rubrique,#ID_OBJET}})
+   ]</BOUCLE_lien_rubrique>
+   <li class="item">
+      <article class="hentry colonne oh">
+         <header class="header">
+            <h1 class="entry-title"><a href="[(#GET{url}|ancre_url{documents})]" rel="bookmark">[(#TITRE|sinon{<:caap:info_document:> #ID_DOCUMENT})]</a></h1>
+         </header>
+         <div class="entry-content">
+            [<figure class="logo-objet">
+               <a href="[(#GET{url}|ancre_url{documents})]" type="#MIME_TYPE"[ title="(#TITRE|couper|sinon{<:info_document:> #ID_DOCUMENT}) - #TYPE_DOCUMENT"] class="image">(#LOGO_DOCUMENT||image_reduire{130,0})</a>
+            </figure>]
+            <p class="spip">
+               [(#DESCRIPTIF|PtoBR) ]<span><:caap:fichier:> #TYPE_DOCUMENT/[(#TAILLE|taille_en_octets).][ (#DATE|affdate{d/m/Y}).]</span>
+            </p>
+            <p class="suite"><a href="[(#GET{url}|ancre_url{documents})]"><:caap:suite:></a></p>
+         </div><!-- .entry -->
+      </article>
+   </li>
+   </BOUCLE_documents>
+</ol>
+[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
+</B_documents>
+<p class="message info"><:caap:aucun_resultat:></p>
+<//B_documents>

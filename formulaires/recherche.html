@@ -1,0 +1,11 @@
+<div class="formulaire_spip formulaire_recherche [ (#ENV{class})]" id="formulaire_recherche">
+<form action="[(#ENV{action})]" method="get"><div>
+	[(#ENV{action}|form_hidden)]
+	[<input type="hidden" name="lang" value="(#ENV{lang})" />]
+	<label for="#ENV{_id_champ}" class="invisible"><:caap:info_rechercher:></label>
+	<div class="input-append">
+		<input type="[(#HTML5|?{search,text})]" class="search text span3" name="recherche" id="#ENV{_id_champ}" value="" accesskey="4" autocapitalize="off" autocorrect="off"[ (#HTML5|?{placeholder="<:caap:info_rechercher:>",''})] />
+		<button type="submit" class="btn">&gt;&gt;</button>
+	</div>
+</div></form>
+</div>

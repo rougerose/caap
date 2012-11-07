@@ -1,0 +1,44 @@
+[(#REM) tableaux des résultats ]
+#SET{articles,#ARRAY} #SET{rubriques,#ARRAY} #SET{mots,#ARRAY} #SET{documents,#ARRAY} #SET{sites,#ARRAY} #SET{total,''}
+<BOUCLE_articles(ARTICLES){recherche}{!par points}>[(#SET{articles,#GET{articles}|push{#ID_ARTICLE}})]</BOUCLE_articles>
+<BOUCLE_rubriques(RUBRIQUES){recherche}{!par points}>[(#SET{rubriques,#GET{rubriques}|push{#ID_RUBRIQUE}})]</BOUCLE_rubriques>
+<BOUCLE_mots(MOTS){recherche}{!par points}>[(#SET{mots,#GET{mots}|push{#ID_MOT}})]</BOUCLE_mots>
+<BOUCLE_documents(DOCUMENTS){recherche}{!par points}>[(#SET{documents,#GET{documents}|push{#ID_DOCUMENT}})]</BOUCLE_documents>
+<BOUCLE_sites(SITES){recherche}{!par points}>[(#SET{sites,#GET{sites}|push{#ID_SYNDIC}})]</BOUCLE_sites>[
+(#SET{total,
+   #GET{articles}|count
+      |plus{#GET{rubriques}|count}
+      |plus{#GET{mots}|count}
+      |plus{#GET{documents}|count}
+      |plus{#GET{sites}|count}
+})
+]<article class="contenu-entete self recherche oh">
+   <h1 class="titre"><:caap:recherche_titre:> &laquo;&nbsp;#RECHERCHE&nbsp;&raquo;</h1>
+   <div class="texte">
+      [(#GET{total}|>{0}|?{
+         [<p class="resultats total message info">(#GET{total}|singulier_ou_pluriel{caap:recherche_resultat,caap:recherche_resultats,nb})</p>],
+         <p class="resultats message info"><:caap:recherche_pas_de_resultat:></p>
+      })]
+   </div><!-- .texte -->
+</article>
+[(#GET{total}|>{0}|oui)
+   [(#GET{articles}|count|>{0}|oui)
+   [<div class="liste articles recherche">
+      (#INCLURE{fond=inclure/recherche-articles,selection=#GET{articles},ajax})
+   </div>]][
+   (#GET{rubriques}|count|>{0}|oui)
+   [<div class="liste rubriques recherche">
+      (#INCLURE{fond=inclure/recherche-rubriques,selection=#GET{rubriques},ajax})
+   </div>]][
+   (#GET{mots}|count|>{0}|oui)
+   [<div class="liste mots recherche">
+      (#INCLURE{fond=inclure/recherche-mots,selection=#GET{mots},ajax})
+   </div>]][
+   (#GET{documents}|count|>{0}|oui)
+   [<div class="liste documents recherche">
+      (#INCLURE{fond=inclure/recherche-documents,selection=#GET{documents},ajax})
+   </div>]][
+   (#GET{sites}|count|>{0}|oui)
+   [<div class="liste sites recherche">
+      (#INCLURE{fond=inclure/recherche-sites,selection=#GET{sites},ajax})
+   </div>]]]

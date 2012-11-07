@@ -1,10 +1,10 @@
 <body class="container">
-   <header role="banner" class="row">
+   <header role="banner">
       <INCLURE{fond=header/#ENV{type-page},env} />
       <INCLURE{fond=navs/nav,env} />
    </header>
    <div class="page" role="main">
-      <div id="content" class="main row">
+      <div id="content" class="main">
          <INCLURE{fond=content/#ENV{type-page},env} />
       </div><!-- #content -->
       <INCLURE{fond=extra1/#ENV{type-page},env} />

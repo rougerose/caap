@@ -1,12 +1,15 @@
 <BOUCLE_contenu(ARTICLES){id_article}>
 <article class="hentry self">
-   <header class="header">
+   <header class="header[(#LOGO_ARTICLE|oui) lg]">
       [(#SOUSTITRE|oui)
       <hgroup>]
          <h1 class="entry-title titre">#TITRE</h1>
          [<h2 class="soustitre">(#SOUSTITRE)</h2>]
       [(#SOUSTITRE|oui)
       </hgroup>]
+      [<figure class="logo-objet">
+         (#LOGO_ARTICLE||image_reduire{210,0})
+      </figure>]
       <ul class="meta-publi">
          <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
          <li class="category"><a href="#URL_RUBRIQUE">#TITRE</a></li>
