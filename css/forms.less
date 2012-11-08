@@ -2,15 +2,28 @@
 
 /* Structure generale des formulaires
 ----------------------------------------------- */
-.formulaire_spip { clear: both; margin-bottom: @baseLineHeight; padding: @baseLineHeight; background-color: @wellBackground;position: relative;}
-.formulaire_spip .boutons {.form-actions;margin: 0 -@baseLineHeight; padding: @baseLineHeight;text-align: right;}
+.formulaire_spip {
+   background-color: #fff;
+   margin-bottom: @baseLineHeight;
+   //padding: @baseLineHeight;
+   position: relative;
+   clear: both;
+}
+.formulaire_spip .boutons {
+   .form-actions;
+   background-color: #fff;
+   padding-left: 0;
+}
 input.submit {.btn}
 
 /* Explications */
 .formulaire_spip .explication {.help-block }
 
 /* Lignes */
-.formulaire_spip >div>ul,.formulaire_spip fieldset>ul,.formulaire_spip form>ul,.formulaire_spip form>div>ul {margin-left: 0;list-style: none;.control-group;}
+.formulaire_spip > div > ul,
+.formulaire_spip fieldset > ul,
+.formulaire_spip form > ul,
+.formulaire_spip form > div > ul {margin-left: 0;list-style: none;.control-group;}
 
 .formulaire_spip .editer { clear: both; margin: 0 -@baseLineHeight; padding: @baseLineHeight/4 @baseLineHeight; }
 
@@ -120,8 +133,8 @@ input.submit {.btn}
 
 /* Formulaire de login dans une page */
 .formulaire_login form .editer {clear:left;}
-.formulaire_login form input.text,
-.formulaire_login form input.password {#grid > .core > .span(5)}
+.formulaire_login form .text,
+.formulaire_login form .password {#grid > .core > .span(5)}
 
 .formulaire_login form .editer_password .details {margin-bottom:0;}
 .formulaire_login #spip_logo_auteur {float:right;}
