@@ -21,7 +21,7 @@
    ------------------------------------------------------ */
    .main article {
       min-height: 1px; // prevent collapsing columns
-      width: (@gridColumnWidth * 12) + (@gridGutterWidth * (12 - 1));
+      #grid > .core > .span(12)
    }
    .self > .titre, // rubrique
    .self .header .titre,
@@ -32,7 +32,7 @@
    .contenu,
    figure.documents {
       float: right;
-      width: (@gridColumnWidth * 8) + (@gridGutterWidth * (8 - 1)); // 8 colonnes
+      #grid > .core > .span(8)
    }
    .self > .titre,
    .self .header > .titre,
@@ -49,10 +49,10 @@
    .self .meta-publi,
    .self .contextuel {
       float: left;
-      width: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1)); // 4 colonnes
+      #grid > .core > .span(4)
    }
    .notes {
-      width: (@gridColumnWidth * 5) + (@gridGutterWidth * (5 - 1)); // 5 colonnes
+      #grid > .core > .span(5)
    }
    .pager-nav {clear: both;}
 
