@@ -16,14 +16,14 @@
             <h1 class="entry-title"><a href="#URL_MOT" rel="bookmark">#TITRE</a></h1>
          </header>
          <div class="entry-content">
-            [(#DESCRIPTIF)]
+            [(#INTRODUCTION)]
             <p class="suite"><a href="#URL_MOT"><:caap:suite:></a></p>
          </div><!-- .entry -->
       </article>
    </li>
    </BOUCLE_mots>
 </ol>
-[<p class="pagination bas">(#PAGINATION)</p>]
+[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
 </B_mots>
 <p class="message info"><:caap:aucun_resultat:></p>
 <//B_mots>

@@ -1,0 +1,11 @@
+#SET{mots,#ARRAY}<BOUCLE_mots(MOTS){par titre}>[(#SET{mots,#GET{mots}|push{#ID_MOT}})]</BOUCLE_mots>
+<article class="contenu-entete self recherche oh">
+   <h1 class="titre"><:caap:info_mots:></h1>
+   [<aside class="notes">
+      <h1 class="spip intertitre"><:info_notes:></h1>
+      (#NOTES)
+   </aside>]
+</article>
+[<div class="liste mots">
+   (#INCLURE{fond=liste/mots,selection=#GET{mots},ajax})
+</div>]

@@ -8,6 +8,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    // D
    'info_document' => 'Document',
    'info_documents' => 'Documents',
+   'info_mots' => 'Mots-clés',
    'info_rechercher' => 'Rechercher',
 
    // I

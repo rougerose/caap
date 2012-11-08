@@ -29,6 +29,7 @@
    .header > .entry-title, // liste art et art lui-même
    .header hgroup,
    .entry-content,
+   .contenu,
    figure.documents {
       float: right;
       width: (@gridColumnWidth * 8) + (@gridGutterWidth * (8 - 1)); // 8 colonnes
@@ -104,6 +105,11 @@
          margin-bottom: 0.5em;
       }
 
+/*   =Contenu
+   ------------------------------------------------------ */
+   .contenu .texte,
+   .contenu .ps {margin-bottom: @baseLineHeight*2;}
+
 /*   =Contenu entete
    ------------------------------------------------------ */
    .contenu-entete {/*border-bottom: 2px dotted @grayLighter;*/ margin-bottom: @baseLineHeight;}
@@ -128,8 +134,6 @@
             font-size: @baseFontSize * 1.14;
             margin-bottom: @baseLineHeight * 2;
          }
-         .entry-content .texte,
-         .entry-content .ps {margin-bottom: @baseLineHeight*2;}
       .tags {margin-bottom: @baseLineHeight;}
       .tags .tag {display: inline;}
       .tags .tag:before {content: '\25a0\0020';}

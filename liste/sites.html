@@ -2,28 +2,33 @@
    Variables
    =========
    selection : tableau de la sélection transmis par inclure
-]
-
-   #SET{selection,#ENV{selection}}
-
+] #SET{selection,#ENV{selection}}
 <B_sites>
 [<p class="resultats detail">
-   (#GET{selection}|count|singulier_ou_pluriel{dapsa:recherche_site,dapsa:recherche_sites,nb})
+   (#GET{selection}|count|singulier_ou_pluriel{caap:recherche_site,caap:recherche_sites,nb})
 </p>]
 
-<ol [id="(#ANCRE_PAGINATION|extraire_attribut{id})" ]class="liste-items recherche">
+<ol class="liste-items recherche">
+   #ANCRE_PAGINATION
    <BOUCLE_sites(SITES){id_syndic IN #GET{selection}}{pagination 5}>
    <li class="item">
-      <h2 class="entry-title"><a href="#INFO_URL{site,#ID_SYNDIC}">#NOM_SITE</a></h2>
-      [<a href="#INFO_URL{site,#ID_SYNDIC}" class="image">(#LOGO_SITE||image_reduire{210,0})</a>]
-      [<p class="#EDIT{intro} introduction entry-content">
-         (#DESCRIPTIF|PtoBR) <a href="#INFO_URL{site,#ID_SYNDIC}" class="suite"><:dapsa:suite:></a>
-      </p>]
-      [<p class="url site"><a href="#URL_SITE" class="">(#URL_SITE)</a></p>]
+      <article class="hentry colonne oh">
+         <header class="header">
+            <h1 class="entry-title"><a href="#INFO_URL{site,#ID_SYNDIC}">#NOM_SITE</a></h1>
+         </header>
+         <div class="entry-content">
+            [<figure class="logo-objet">
+               <a href="#INFO_URL{site,#ID_SYNDIC}" class="image">(#LOGO_SITE||image_reduire{210,0})</a>
+            </figure>]
+            [(#DESCRIPTIF|PtoBR)]
+            [<p class="url site"><a href="#URL_SITE" class="">(#URL_SITE)</a></p>]
+            <p class="suite"><a href="[(#GET{url}|ancre_url{documents})]"><:caap:suite:></a></p>
+         </div><!-- .entry -->
+      </article>
    </li>
    </BOUCLE_sites>
 </ol>
-[<p class="pagination bas">(#PAGINATION)</p>]
+[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
 </B_sites>
-<p class="message info"><:dapsa:aucun_resultat:></p>
+<p class="message info"><:caap:aucun_resultat:></p>
 <//B_sites>
