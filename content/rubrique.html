@@ -1,6 +1,6 @@
 <BOUCLE_contenu(RUBRIQUES){id_rubrique}>
 <article class="contenu-entete self oh">
-   <header class="header">
+   <header class="header[(#LOGO_RUBRIQUE|oui) lg]">
       <h1 class="titre">#TITRE</h1>
       [<figure class="logo-objet">
          (#LOGO_RUBRIQUE||image_reduire{210,0})
@@ -37,5 +37,4 @@
 
 <INCLURE{fond=liste/articles-selection,env,selection=#GET{articles},ajax} />
 <//B_articles>
-
 </BOUCLE_contenu>

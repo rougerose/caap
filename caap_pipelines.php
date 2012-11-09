@@ -17,6 +17,7 @@ function caap_insert_head_css($flux) {
    return $flux;
 }
 
+// grille de mise en page (hashgrid.js)
 function caap_affichage_final($flux){
    if (
    $GLOBALS['html']
@@ -29,6 +30,12 @@ function caap_affichage_final($flux){
       $flux = substr_replace($flux,'<script type="text/javascript" src="'.$f.'"></script>',$p,0);
    }
    return $flux;
+}
+
+// jquery-ui
+function caap_jqueryui_plugins($scripts){
+   $scripts[] = "jquery.ui.accordion";
+   return $scripts;
 }
 
 

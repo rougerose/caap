@@ -38,10 +38,12 @@
    .self .header > .titre,
    .self hgroup {margin-bottom: @baseLineHeight * 2;}
    .header > .entry-title,
+   .self .header > .titre,
    .header hgroup {
       margin-left: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1)); // 4 col, si pas de logo
    }
    .header.lg > .entry-title,
+   .self .header.lg > .titre,
    .header.lg hgroup {margin-left: 0;} // Si logo
 
    .contenu-entete .nav-secondaire,
@@ -55,6 +57,10 @@
       #grid > .core > .span(5)
    }
    .pager-nav {clear: both;}
+
+   .ressources .theme {
+      padding-left: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1) + @gridGutterWidth);
+   }
 
 /*   =Liens
    ------------------------------------------------------ */
@@ -157,7 +163,6 @@
          margin: 0;
       }
 
-   /* Contenus */
    .liste .hentry {border-bottom: @borderCaap; padding-bottom: @baseLineHeight; margin-bottom: @baseLineHeight;}
    .liste .entry-title {font-size: @baseFontSize*1.57; line-height: @baseLineHeight;}
       .liste .entry-title a {color: @black;}
@@ -165,6 +170,13 @@
    .liste hgroup .entry-title {margin-bottom: @baseLineHeight/4;}
    .liste hgroup .soustitre {margin-top: @baseLineHeight/4;}
    .liste .soustitre {font-size: @baseFontSize*1.3; line-height: @baseLineHeight;}
+
+   /* ressources */
+   .liste.ressources .theme {
+      font-size: 23px;
+      border-bottom: 1px solid @linkColor;
+   }
+   .liste.ressources .articles {clear: both; margin-left: 0;}
 
 /*   =Recherche
    ------------------------------------------------------ */
@@ -202,9 +214,11 @@
    /* images et documents */
    .entry-content #documents {margin: 0;}
    .entry-content .documents {margin: 0 0 @baseLineHeight;}
+
    /* logos d'objet */
    .logo-objet {float: left; margin: 0 @gridGutterWidth @baseLineHeight 0;}
    .self .logo-objet {}
+
    /* HR */
    hr.spip {border-color: @black; margin:@baseLineHeight * 2;}
 
