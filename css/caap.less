@@ -19,7 +19,7 @@
 
 /*   =Layout
    ------------------------------------------------------ */
-   .main article {
+   .main .self {
       min-height: 1px; // prevent collapsing columns
       #grid > .core > .span(12)
    }
@@ -30,10 +30,33 @@
    .header hgroup,
    .entry-content,
    .contenu,
-   figure.documents {
+   figure.documents,
+   .comment-item .comment-reply {
       float: right;
       #grid > .core > .span(8)
    }
+   // debut forums > comment
+   // padding de 10px. A prendre en compte de le calcul de la largeur
+   .comment-item .comment-content,
+   .comment-item .spip-admin.modererforum,
+   .formulaire_forum .info,
+   .formulaire_forum .message-post,
+   .formulaire_forum .boutons,
+   .formulaire_forum textarea {
+      float: right;
+      width: (@gridColumnWidth * 8) + (@gridGutterWidth * (8 - 1)) - 10px;
+   }
+   .comment-item .comment-meta,
+   .formulaire_forum .qui {
+      float: left;
+      width: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1)) - 10px;
+   }
+   // fin forums > comment
+
+   // début forums > comment en previsualisation
+   .previsu .comment-item .comment-content {width: (@gridColumnWidth * 8) + (@gridGutterWidth * (8 - 1)) - 20px;}
+   .previsu .comment-item .comment-meta {width: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1)) - 20px;}
+
    .self > .titre,
    .self .header > .titre,
    .self hgroup {margin-bottom: @baseLineHeight * 2;}
@@ -58,21 +81,33 @@
    }
    .pager-nav {clear: both;}
 
-   .ressources .theme {
+   .ressources .theme,
+   .forum .intertitre {
       padding-left: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1) + @gridGutterWidth);
    }
 
 /*   =Liens
    ------------------------------------------------------ */
    a {
-      -webkit-transition:color .35s linear .1s;
-         -moz-transition:color .35s linear .1s;
-           -o-transition:color .35s linear .1s;
-              transition:color .35s linear .1s;
+      -webkit-transition:color .35s ease-in-out .2s;
+         -moz-transition:color .35s ease-in-out .2s;
+           -o-transition:color .35s ease-in-out .2s;
+              transition:color .35s ease-in-out .2s;
+   }
+   p a, li a {
+      color: @textColor;
+      border-bottom: 1px solid @linkColor;
    }
    a:visited {}
-   a:hover {text-decoration: underline;}
+   a:hover {text-decoration: none;}
+   p a:hover, li a:hover {color: @linkColor;}
    a:active, a:focus {position: relative; top: 1px;}
+
+   nav li a,
+   .category a,
+   .socialtags a,
+   .markItUp a,
+   .comment-meta .permalink {border-bottom: 0;}
 
 
 /*   =Navs
@@ -81,8 +116,8 @@
    .nav .item,
    .meta-publi .category {text-transform: uppercase;}
    .nav .item:before, .meta-publi .category:before {content:'/ '; color: @grayLight;}
-   .nav .item.on > a {font-weight: 700; color: @linkColor;}
-   .nav > li > a:hover {background: none; color: @linkColorHover;}
+   .nav .item.on > a, .meta-publi .category.on a {font-weight: 700; color: @linkColor;}
+   .nav > li > a:hover {background: none; color: @linkColor;}
 
    /* Navigation principale */
    .nav-principale {border-bottom:@borderCaap;}
@@ -163,7 +198,8 @@
          margin: 0;
       }
 
-   .liste .hentry {border-bottom: @borderCaap; padding-bottom: @baseLineHeight; margin-bottom: @baseLineHeight;}
+   .liste .hentry,
+   .liste.comments .comment-itemXX {border-bottom: @borderCaap; padding-bottom: @baseLineHeight; margin-bottom: @baseLineHeight;}
    .liste .entry-title {font-size: @baseFontSize*1.57; line-height: @baseLineHeight;}
       .liste .entry-title a {color: @black;}
       .liste .entry-title a:hover {color: @linkColor;}
@@ -178,6 +214,8 @@
    }
    .liste.ressources .articles {clear: both; margin-left: 0;}
 
+   /* forums */
+
 /*   =Recherche
    ------------------------------------------------------ */
    .resultats {font-size: @fontSizeLarge; font-weight: 700;}
@@ -185,8 +223,10 @@
 
 /*   =Suite
    ------------------------------------------------------ */
+   .suite{font-weight: bold;}
    .suite:before {
       color: @black;
+      font-size: 18px;
       content:'\25A0\0020';
       vertical-align: top;
       -webkit-transition:color .35s linear .1s;
@@ -196,11 +236,64 @@
    }
    .suite:hover:before {color: @linkColor;}
 
+/*   =Action
+   ------------------------------------------------------ */
+   .action.sujet {text-align: right;}
+
+
+/*   =Forums
+   ------------------------------------------------------ */
+   /* Rubrique */
+   .meta-forum {margin-left: 0;}
+   .meta-forum li {display: inline; margin-right: @gridGutterWidth/2;}
+   .meta-forum .label {text-transform: uppercase; background-color: @gray;}
+
+   /* Article */
+   #forum {clear: both;}
+
+   /* Article > comments */
+   .comments .ecrire-message {text-align: right;}
+   .comments .comment-item {clear:both; margin-bottom:@baseLineHeight;}
+   .comments .comment {background-color: rgba(240,240,240,0.6); padding: 10px;}
+   .comments .liste-items .liste-items .comment-item {border-top: 1px solid #fff; margin-bottom: 0;}
+   .comments .comment-reply {margin-top: @baseLineHeight/2;}
+      /* comment-meta */
+      .comment-meta {position: relative;}
+      .comment-meta .auteur {font-weight: 700;}
+      .comment-meta .image {
+         float: left;
+         margin-right: 20px;
+      }
+      .comment-meta time {
+         font-size: @fontSizeSmall;
+         color: @grayLight;
+         text-transform: uppercase;
+         display: block;
+      }
+      .comment-meta .permalink {
+         font-size: 20px;
+         font-weight: 700;
+         position: absolute;
+         top: 0; right: 0;
+         color: #ccc;
+      }
+      .comment-meta .permalink:hover {color: @linkColor;}
+      /* boutons admin forum */
+      .spip-admin.modererforum .bouton_action_post {float: right; margin-bottom: 0;}
+      .spip-admin.modererforum .bouton_action_post.spam {margin-right: @gridGutterWidth;}
+   /* Les sujets */
+   .sujets h2 {
+      border-bottom: @borderCaap;
+      padding-left: 1em;
+   }
+
+
 /*   =Spip
    ------------------------------------------------------ */
    /* Titres */
    h1.spip, h2.spip, h3.spip, h4.spip, h5.spip, h6.spip {font-weight: 400; color: @black;}
-   h1.spip {font-size: @baseFontSize*2;}
+   h1.spip,
+   .forum .intertitre {font-size: @baseFontSize*2;}
    h2.spip,
    .notes .intertitre {font-size: @baseFontSize * 1.86; line-height: @baseLineHeight * 1.5; margin-bottom:(@baseLineHeight / 2.22); margin-top: @baseLineHeight;}
    h3.spip {font-size: @baseFontSize * 1.57; line-height: @baseLineHeight * 1.5; margin-top: @baseLineHeight * 1.5;}

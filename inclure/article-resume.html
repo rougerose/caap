@@ -1,3 +1,8 @@
+[(#REM) contexte d'affichage du résumé : permet d'afficher (ou pas) des contenus selon hypothèses :
+   - standard : le lien vers l'article + "lire la suite"
+   - forum : infos relatives au(x) fil(s) de discussion (nbre sujets, messages, date dernier message) et le lien "lire la suite" devient "suite"
+
+][(#ENV{contexte}|is_null|?{#SET{contexte,standard},#SET{contexte,#ENV{contexte}}})]
 <BOUCLE_article(ARTICLES){id_article}>
 <article class="hentry colonne oh">
    <header class="header">
@@ -17,7 +22,12 @@
    </header>
    <div class="entry-content">
       [(#INTRODUCTION)]
-      <p class="suite"><a href="#URL_ARTICLE"><:caap:suite:></a></p>
+      [(#REM) test contexte : standard ou rubrique forum ? ][
+      (#GET{contexte}|=={standard}|oui)
+         <p class="suite"><a href="#URL_ARTICLE"><:caap:suite:></a></p>][
+      (#GET{contexte}|=={forums-meta}|oui)
+         #INCLURE{fond=liste/forums-meta,id_article}
+      ]
    </div><!-- .entry -->
 </article>
 </BOUCLE_article>

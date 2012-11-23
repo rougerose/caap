@@ -1,0 +1,26 @@
+[(#REM) Cette balise (invisible) provoque le recalcul du forum la premiere fois qu'un message est poste (cf. inc/invalideur). ]
+[(#PARAMETRES_FORUM|?{''})]#SET{total_messages,0}
+<BOUCLE_compteur(FORUMS){id_article}{plat}> </BOUCLE_compteur>[(#SET{total_messages,#TOTAL_BOUCLE})]</B_compteur>
+<B_comments-list>
+<h2 class="intertitre">[(#GET{total_messages}|singulier_ou_pluriel{caap:message_un,caap:message_plusieurs,nb})]</h2>
+[<p class="ecrire-message"><i class="icon-comment"></i> <a href="#comment-form">(#ENV{repondre_titre,<:repondre_article:>})</p>]
+[<nav class="pagination haut[ (#ENV{pagination_align})]">(#PAGINATION{li})</nav>]
+<ol class="liste-items comments-ul comments-items">
+   <BOUCLE_comments-list(FORUMS){id_article}{objet ?}{id_objet ?}{!par date_thread}{pagination 10}>
+   <li id="comment-#ID_FORUM" class="comment-li comment-item oh[ (#COMPTEUR_BOUCLE|alterner{'odd','even'})][ (#COMPTEUR_BOUCLE|=={1}|oui)first][ (#EXPOSE)][(#ID_OBJET|me{#OBJET,#ID_AUTEUR})me]">
+      <INCLURE{fond=inclure/comment}{id_forum}{compteur=#COMPTEUR_BOUCLE}{thread=oui}>
+      <B_comments-fils>
+      <ol class="liste-items comments-ul comments-items">
+         <BOUCLE_comments-fils(FORUMS){id_thread}{id_forum!=#_comments-list:ID_FORUM}{par date}>
+         <li class="comment-li comment-item oh[ (#COMPTEUR_BOUCLE|=={1}|oui)first][ (#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|oui)last][(#ID_OBJET|me{#OBJET,#ID_AUTEUR})me]">
+            <INCLURE{fond=inclure/comment}{id_forum}{thread=oui}>
+         </li>
+         </BOUCLE_comments-fils>
+      </ol>
+      </B_comments-fils>
+      [<p class="comment-reply"><i class="icon-comment"></i> <a href="(#PARAMETRES_FORUM|url_reponse_forum)" onclick="jQuery(this).add_reply_to([(#ID_THREAD)]);return false;" rel="noindex nofollow"><:forum:repondre_message:></a></p>]
+   </li>
+   </BOUCLE_comments-list>
+</ol>
+[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
+</B_comments-list>

@@ -1,0 +1,18 @@
+[(#REM)
+   cette page permet de :
+      - créer un nouveau sujet de discussion. ENV = ID_ARTICLE.
+      - afficher un sujet discussion déjà existant. ENV = ID_ARTICLE + ID_FORUM
+]
+[(#ENV)]
+<article class="forum self">
+   [(#ENV{id_forum}|oui)
+      <h1 class="titre"><:caap:message_poster:></h1>
+   ][(#ENV{id_forum}|non)
+      <h1 class="titre"><:caap:sujet_creer:></h1>
+      [(#FORMULAIRE_FORUM)]
+   ]
+</article>
+[(#ENV{id_forum}|oui)
+   <INCLURE{fond=comments-thread1}{id_article}>
+   [(#FORMULAIRE_FORUM{#SELF})]
+]

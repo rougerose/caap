@@ -1,0 +1,20 @@
+<BOUCLE_comment(FORUMS){id_forum}>
+<article id="comment#ID_FORUM" class="comment oh">
+   <div id="forum#ID_FORUM" class="comment-meta">
+      <BOUCLE_auteur(AUTEURS){id_auteur}{tout}>
+      [<a href="#URL_AUTEUR" class="image">(#LOGO_AUTEUR||sinon{#CHEMIN{gravatar.png}})</a>]
+      <a href="#URL_AUTEUR" class="auteur">#NOM</a>
+      </BOUCLE_auteur>
+      [<span class="image">(#LOGO_AUTEUR||sinon{#CHEMIN{gravatar.png}})</span>]
+      [<span class="auteur">(#NOM)</span>]
+      <//B_auteur>
+      <time pubdate datetime="[(#DATE|date_iso)]">[(#DATE|affdate_jourcourt)][ <span class="heure">(#DATE|heures)[:(#DATE|minutes)]</span>]</time>
+      [(#CONFIG{comments/permalink}|=={aucun}|non)<a rel="self bookmark" href="#forum#ID_FORUM" title="<:caap:permalink:>" class="permalink #CONFIG{comments/permalink}">[(#CONFIG{comments/permalink}|=={picto}|?{[<img src="(#CHEMIN{img/permalink.gif})" alt="#" />],[(#CONFIG{comments/permalink}|=={compteur}|?{[(#ENV{compteur})],#})]})]</a>]
+   </div><!-- .comment-meta -->
+   <div class="comment-content">
+      [<div class="comment-texte #EDIT{texte}">(#TEXTE)</div>]
+      [<div class="comment-notes">(#NOTES|safehtml)</div>]
+   </div><!-- .comment-content -->
+   [(#BOUTONS_ADMIN_FORUM)]
+</article>
+</BOUCLE_comment>

@@ -12,7 +12,7 @@
       </figure>]
       <ul class="meta-publi">
          <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
-         <li class="category"><a href="#URL_RUBRIQUE">#TITRE</a></li>
+         <li class="category on"><a href="#URL_RUBRIQUE">#TITRE</a></li>
          </BOUCLE_rubrique>
          <li><time class="updated" datetime="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></li>
          <B_auteurs><li class="byline author vcard"><:caap:par:> <BOUCLE_auteurs(AUTEURS){id_article}{par nom}{", "}><span class="fn">#NOM</span></BOUCLE_auteurs></li></B_auteurs>
@@ -54,6 +54,12 @@
          </li>]
       </ul>
    </aside>
+   [(#REM) Afficher les sujets des forums, si l'on est bien dans la rubrique Espace membres > Discussions ]
+   <BOUCLE_rubrique_forum(RUBRIQUES){id_rubrique}{si #ID_RUBRIQUE|=={13}}>
+   <div id="forum" class="forum">
+      <INCLURE{fond=inclure/forum,env,repondre_titre=<:caap:message_ecrire:>,repondre_url=(#PARAMETRES_FORUM|url_reponse_forum)} />
+   </div><!-- #forum -->
+   </BOUCLE_rubrique_forum>
    <nav class="pager-nav">
       <ul class="pager">
          <BOUCLE_article_precedent(ARTICLES){id_rubrique}{par date}{precedent}>

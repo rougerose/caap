@@ -4,17 +4,30 @@
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
+   // A
+   'afficher' => "Afficher",
+
    // C
    'changer_passe' => 'Changer votre mot de passe',
 
    // D
+   'dernier_message' => 'Dernier message',
+
+   // I
    'info_document' => 'Document',
    'info_documents' => 'Documents',
    'info_mots' => 'Mots-clés',
+   'info_ps' => 'Post-scriptum',
    'info_rechercher' => 'Rechercher',
 
-   // I
-   'info_ps' => 'Post-scriptum',
+   //L
+
+   // M
+   'message' => 'Message',
+   'message_ecrire' => 'Écrire un message',
+   'messages' => 'Messages',
+   'message_un' => '@nb@ message',
+   'message_plusieurs' => '@nb@ messages',
 
    //P
    'pager_precedent' => '&#8249;',
@@ -22,6 +35,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'pager_suivant' => '&#8250;',
    'pager_suivant_info' => 'Article suivant',
    'par' => 'par',
+   'permalink' => 'Lien permanent vers ce message',
 
    // R
    'recherche_article' => '1 article',
@@ -43,7 +57,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 
    // S
-   'suite' => 'Lire la suite'
+   'suite' => 'Lire la suite',
+   'sujet' => 'Sujet',
+   'sujet_creer' => 'Créer un nouveau sujet',
+   'sujet_un' => '@nb@ sujet',
+   'sujets' => 'Sujets',
+   'sujets_plusieurs' => '@nb@ sujets'
 );
 
 ?>

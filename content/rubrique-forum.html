@@ -1,0 +1,39 @@
+<BOUCLE_contenu(RUBRIQUES){id_rubrique}>
+<article class="contenu-entete self oh">
+   <header class="header[(#LOGO_RUBRIQUE|oui) lg]">
+      <h1 class="titre">#TITRE</h1>
+      [<figure class="logo-objet">
+         (#LOGO_RUBRIQUE||image_reduire{210,0})
+      </figure>]
+   </header>
+   [<div class="texte">
+      (#TEXTE)
+   </div><!-- .texte -->]
+   <INCLURE{fond=navs/rubriques,id_rubrique} />
+</article>
+
+[(#REM) la sélection des articles du secteur ]
+#SET{selection,#ARRAY}
+<B_selection>
+<BOUCLE_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{doublons}>
+   #SET_PUSH{selection,#ID_ARTICLE}
+</BOUCLE_selection>
+<INCLURE{fond=liste/articles-selection,env,selection=#GET{selection},contexte=forums-meta,ajax} />
+</B_selection>
+
+[(#REM) les articles de la rubrique... ]
+#SET{articles,#ARRAY}
+<B_articles>
+<BOUCLE_articles(ARTICLES){id_rubrique}{!par date}{doublons}>
+   #SET_PUSH{articles,#ID_ARTICLE}
+</BOUCLE_articles>
+<INCLURE{fond=liste/articles-selection,env,selection=#GET{articles},contexte=forums-meta,ajax} />
+</B_articles>
+
+[(#REM) ...sinon une sélection de 3 articles de la branche ]
+<BOUCLE_articles_branche(ARTICLES){id_secteur=#ID_SECTEUR}{!par date}{0,3}>
+   #SET_PUSH{articles,#ID_ARTICLE}
+</BOUCLE_articles_branche>
+<INCLURE{fond=liste/articles-selection,env,selection=#GET{articles},contexte=forums-meta,ajax} />
+<//B_articles>
+</BOUCLE_contenu>

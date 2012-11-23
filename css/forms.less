@@ -3,7 +3,7 @@
 /* Structure generale des formulaires
 ----------------------------------------------- */
 .formulaire_spip {
-   background-color: #fff;
+   //background-color: #fff;
    margin-bottom: @baseLineHeight;
    //padding: @baseLineHeight;
    position: relative;
@@ -11,7 +11,7 @@
 }
 .formulaire_spip .boutons {
    .form-actions;
-   background-color: #fff;
+   //background-color: #fff;
    padding-left: 0;
 }
 input.submit {.btn}
@@ -69,7 +69,7 @@ input.submit {.btn}
 .span2 form textarea { width: 80%;}
 */
 //form textarea { width: 80%;}
-.markItUp .markItUpContainer .markItUpHeader {width: 80%;padding-right: 6px;padding-left: 6px;}
+.markItUp .markItUpContainer .markItUpHeader {padding-right: 6px;padding-left: 6px;}
 .markItUp .markItUpContainer .markItUpHeader + textarea {border-top-left-radius: 0;border-top-right-radius: 0;border-top:0;}
 
 /*
@@ -138,4 +138,10 @@ input.submit {.btn}
 
 .formulaire_login form .editer_password .details {margin-bottom:0;}
 .formulaire_login #spip_logo_auteur {float:right;}
+
+/* Formulaire forum */
+.formulaire_forum {border: @borderCaap; padding: 10px;}
+.formulaire_forum form {overflow: hidden;}
+.formulaire_forum .forum textarea {float: none; padding-left: 0; padding-right: 0;}
+.formulaire_forum .boutons {clear: both; padding-left: 0; padding-right: 0; background-color: transparent;}
 
