@@ -120,13 +120,13 @@ input.submit {.btn}
 //.formulaire_menu_lang form select {#grid > .core > .span(3)}
 
 /* Formulaires de recherche (site / petitions) */
+.js #formulaire_recherche {display: none;} // si js disponible, le formulaire est masqué.
 .formulaire_recherche {.form-search}
 .formulaire_recherche {
    text-align: right;
-   padding: 0; margin: 0;
+   padding: 0; margin: @baseLineHeight 0;
    background: none;
    border: 0;
-   position: absolute; top: 0; right: 0;
 }
 .formulaire_recherche form {margin-bottom: 0;}
 .formulaire_recherche .btn {width: 80px;}

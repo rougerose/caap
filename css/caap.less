@@ -133,9 +133,9 @@
 /*   =Banner
    ------------------------------------------------------ */
    header[role=banner] {
-      margin-top:@baseLineHeight;
-      margin-bottom: @baseLineHeight;
-      position: relative;
+      //margin-top:@baseLineHeight;
+      margin-bottom: @baseLineHeight * 2;
+      //position: relative;
    }
    header[role=banner] .logo {position: relative;}
       #logo {padding-bottom: 0.5em; border-bottom: @borderCaap; margin-left: 0;}
@@ -146,6 +146,36 @@
          margin-bottom: 0.5em;
       }
 
+/*   =Recherche-panneau
+   ------------------------------------------------------ */
+   .recherche-panneau {
+      border-bottom: 4px solid #000;
+      background-color: @black;
+      margin-bottom: 20px;
+   }
+   .recherche-panneau .container {position: relative;}
+   .recherche-panneau .action {
+      background: #000 url(../img/search.png) no-repeat 4px 8px;
+      height: 34px; width: 30px;
+      display: inline-block;
+      cursor: pointer;
+      position: absolute; right: 0; bottom: -34px; z-index: 0;
+      -webkit-border-bottom-right-radius: 3px;
+      -webkit-border-bottom-left-radius: 3px;
+      -moz-border-radius-bottomright: 3px;
+      -moz-border-radius-bottomleft: 3px;
+      border-bottom-right-radius: 3px;
+      border-bottom-left-radius: 3px;
+   }
+   .recherche-panneau,
+   .recherche-panneau .action {
+      -webkit-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      -moz-box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+      box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.5);
+   }
+   .recherche-panneau .action:hover,
+   .recherche-panneau .action.on {background-position: 4px -25px;}
+
 /*   =Contenu
    ------------------------------------------------------ */
    .contenu .texte,
@@ -153,7 +183,7 @@
 
 /*   =Contenu entete
    ------------------------------------------------------ */
-   .contenu-entete {/*border-bottom: 2px dotted @grayLighter;*/ margin-bottom: @baseLineHeight;}
+   .contenu-entete {margin-bottom: @baseLineHeight;}
 
 /*   =Contenu contextuel
    ------------------------------------------------------ */

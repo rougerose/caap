@@ -1,9 +1,10 @@
-<body class="container">
+<body>
    <header role="banner">
+      <INCLURE{fond=inclure/recherche-panneau,env} />
       <INCLURE{fond=header/#ENV{type-page},env} />
       <INCLURE{fond=navs/nav,env} />
    </header>
-   <div class="page" role="main">
+   <div class="container page" role="main">
       <div id="content" class="main">
          <INCLURE{fond=content/#ENV{type-page},env} />
       </div><!-- #content -->

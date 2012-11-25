@@ -13,4 +13,13 @@ $(document).ready(function() {
       autoHeight: false,
       icons: false
    });
+
+   // ==================================
+   // = Animation du panneau-recherche =
+   // ==================================
+   $(".recherche-panneau .action").click(function(){
+      $("#formulaire_recherche").slideToggle('slow','swing');
+      $(this).toggleClass("on");
+   });
+
 });
