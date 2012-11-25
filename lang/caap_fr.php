@@ -17,6 +17,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'info_document' => 'Document',
    'info_documents' => 'Documents',
    'info_mots' => 'Mots-clés',
+   'info_partagez' => 'Partager',
    'info_ps' => 'Post-scriptum',
    'info_rechercher' => 'Rechercher',
 
@@ -45,7 +46,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'recherche_label' => 'Recherche',
    'recherche_label_cap' => 'RECHERCHE',
    'recherche_mot' => '1 mot-clé',
-   'recherche_mots' => '@nb@ mots',
+   'recherche_mots' => '@nb@ mots-clés',
    'recherche_rubrique' => '1 rubrique',
    'recherche_rubriques' => '@nb@ rubriques',
    'recherche_site' => '1 site web',

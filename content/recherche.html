@@ -36,7 +36,7 @@
    </div>]][
    (#GET{documents}|count|>{0}|oui)
    [<div class="liste documents recherche">
-      (#INCLURE{fond=liste/documents,selection=#GET{documents},ajax})
+      (#INCLURE{fond=liste/documents,selection=#GET{documents},composition=recherche,ajax})
    </div>]][
    (#GET{sites}|count|>{0}|oui)
    [<div class="liste sites recherche">

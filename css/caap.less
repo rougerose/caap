@@ -107,6 +107,7 @@
    .category a,
    .socialtags a,
    .markItUp a,
+   h1 a,
    .comment-meta .permalink {border-bottom: 0;}
 
 
@@ -188,8 +189,17 @@
 /*   =Contenu contextuel
    ------------------------------------------------------ */
    .contextuel, .contextuel a,
-   .self .meta-publi {color: @grayLight;}
+   .self .meta-publi,
+   .meta-publi time,
+   .meta-publi .byline,
+   .meta-publi .data-document {color: @grayLight;}
    .contextuel a:hover {color: @linkColor;}
+
+   .meta-publi time,
+   .comment-meta time {text-transform: uppercase;}
+
+   .meta-publi .data-document,
+   .meta-publi .byline {font-style: italic;}
 
 /*   =Hentry
    ------------------------------------------------------ */
@@ -228,9 +238,8 @@
          margin: 0;
       }
 
-   .liste .hentry,
-   .liste.comments .comment-itemXX {border-bottom: @borderCaap; padding-bottom: @baseLineHeight; margin-bottom: @baseLineHeight;}
-   .liste .entry-title {font-size: @baseFontSize*1.57; line-height: @baseLineHeight;}
+   .liste .hentry {border-bottom: @borderCaap; padding-bottom: @baseLineHeight; margin-bottom: @baseLineHeight;}
+   .liste .entry-title {font-size: @baseFontSize*1.57; line-height: @baseLineHeight; margin-bottom: @baseLineHeight;}
       .liste .entry-title a {color: @black;}
       .liste .entry-title a:hover {color: @linkColor;}
    .liste hgroup .entry-title {margin-bottom: @baseLineHeight/4;}
@@ -244,10 +253,12 @@
    }
    .liste.ressources .articles {clear: both; margin-left: 0;}
 
-   /* forums */
+   /* recherche */
+   .liste.recherche {margin-bottom: @baseLineHeight*4;}
 
 /*   =Recherche
    ------------------------------------------------------ */
+
    .resultats {font-size: @fontSizeLarge; font-weight: 700;}
    .resultats.detail {border-bottom: 1px solid @black;}
 
@@ -258,7 +269,7 @@
       color: @black;
       font-size: 18px;
       content:'\25A0\0020';
-      vertical-align: top;
+      vertical-align: baseline;
       -webkit-transition:color .35s linear .1s;
          -moz-transition:color .35s linear .1s;
            -o-transition:color .35s linear .1s;
@@ -297,7 +308,6 @@
       .comment-meta time {
          font-size: @fontSizeSmall;
          color: @grayLight;
-         text-transform: uppercase;
          display: block;
       }
       .comment-meta .permalink {

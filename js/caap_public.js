@@ -9,7 +9,7 @@ $(document).ready(function() {
    // =============================================
    $("#ressources").accordion({
       header: 'dt',
-      active:false,
+      //active:false,
       autoHeight: false,
       icons: false
    });
