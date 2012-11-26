@@ -3,15 +3,12 @@
 /* Structure generale des formulaires
 ----------------------------------------------- */
 .formulaire_spip {
-   //background-color: #fff;
    margin-bottom: @baseLineHeight;
-   //padding: @baseLineHeight;
    position: relative;
    clear: both;
 }
 .formulaire_spip .boutons {
    .form-actions;
-   //background-color: #fff;
    padding-left: 0;
 }
 input.submit {.btn}
@@ -116,7 +113,7 @@ input.submit {.btn}
 }
 
 /* Selection des langues */
-.formulaire_menu_lang { margin: 0; padding: 0; background: none; border: 0;}
+.formulaire_menu_lang { margin: 0; padding: 0; /*background: none;*/ border: 0;}
 //.formulaire_menu_lang form select {#grid > .core > .span(3)}
 
 /* Formulaires de recherche (site / petitions) */
@@ -125,7 +122,6 @@ input.submit {.btn}
 .formulaire_recherche {
    text-align: right;
    padding: 0; margin: @baseLineHeight 0;
-   background: none;
    border: 0;
 }
 .formulaire_recherche form {margin-bottom: 0;}
@@ -143,5 +139,5 @@ input.submit {.btn}
 .formulaire_forum {border: @borderCaap; padding: 10px;}
 .formulaire_forum form {overflow: hidden;}
 .formulaire_forum .forum textarea {float: none; padding-left: 0; padding-right: 0;}
-.formulaire_forum .boutons {clear: both; padding-left: 0; padding-right: 0; background-color: transparent;}
+.formulaire_forum .boutons {clear: both; padding-left: 0; padding-right: 0;}
 

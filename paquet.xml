@@ -18,7 +18,9 @@
    <necessite nom="spip_bonux" compatibilite="[3.0.3;]" />
    <necessite nom="pb_selection" compatibilite="[3.0;]" />
    <necessite nom="bootstrap" compatibilite="[1.0.0;]" />
-   <utilise nom="menus" compatibilite="[1.2.4;[" />
+   <utilise nom="accesrestreint" compatibilite="[3.8.0;]" />
+   <utilise nom="jaz" compatibilite="[1.1.0;]" />
+   <utilise nom="menus" compatibilite="[1.2.4;]" />
    <utilise nom="IntertitresTdm" compatibilite="[0.9.5;]" />
    <chemin path="" />
 </paquet>

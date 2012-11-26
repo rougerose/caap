@@ -13,6 +13,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    // D
    'dernier_message' => 'Dernier message',
 
+   // E
+   'entree_nom_pseudo' => 'Votre nom et votre prénom',
+
    // I
    'info_document' => 'Document',
    'info_documents' => 'Documents',
@@ -20,10 +23,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'info_partagez' => 'Partager',
    'info_ps' => 'Post-scriptum',
    'info_rechercher' => 'Rechercher',
+   'inscrire_titre' => "S'inscrire",
 
    //L
+	'label_bouton_inscription' => 'Vous inscrire',
+	'label_bouton_identification' => 'Vous identifier',
 
    // M
+   'membre_deja' => "Déjà inscrit ?",
+   'membre_nouveau' => "Première visite ?",
    'message' => 'Message',
    'message_ecrire' => 'Écrire un message',
    'messages' => 'Messages',

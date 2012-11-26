@@ -31,7 +31,8 @@
    .entry-content,
    .contenu,
    figure.documents,
-   .comment-item .comment-reply {
+   .comment-item .comment-reply,
+   .orientation {
       float: right;
       #grid > .core > .span(8)
    }
@@ -201,6 +202,11 @@
    .meta-publi .data-document,
    .meta-publi .byline {font-style: italic;}
 
+   .liste-items .intertitre {
+      font-size: @baseFontSize; line-height: @baseLineHeight; text-transform: uppercase;
+      margin: 0;
+   }
+
 /*   =Hentry
    ------------------------------------------------------ */
    .hentry {}
@@ -233,10 +239,6 @@
    ------------------------------------------------------ */
    .liste.selection {float: left;}
    .liste .liste-items {margin-left: 0; list-style: none;}
-      .liste-items .intertitre {
-         font-size: @baseFontSize; line-height: @baseLineHeight; text-transform: uppercase;
-         margin: 0;
-      }
 
    .liste .hentry {border-bottom: @borderCaap; padding-bottom: @baseLineHeight; margin-bottom: @baseLineHeight;}
    .liste .entry-title {font-size: @baseFontSize*1.57; line-height: @baseLineHeight; margin-bottom: @baseLineHeight;}
@@ -281,6 +283,22 @@
    ------------------------------------------------------ */
    .action.sujet {text-align: right;}
 
+
+/*   =Membres
+   ------------------------------------------------------ */
+   /* orientation */
+   .orientation {margin: @baseLineHeight 0; border-bottom: @borderCaap;}
+   .orientation li {
+      text-align: center;
+      border: @borderCaap; border-width: 1px 0 0;
+      display: inline;
+      margin-left: 0; margin-bottom: @baseLineHeight;
+   }
+   .orientation li a {text-transform: uppercase; font-weight: 700;}
+   .orientation .visite-nouveau {margin-left: @gridGutterWidth;}
+   .orientation .intertitre {
+      font-size: 22px;
+   }
 
 /*   =Forums
    ------------------------------------------------------ */
