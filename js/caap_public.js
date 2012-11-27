@@ -10,8 +10,8 @@ $(document).ready(function() {
    $("#ressources").accordion({
       header: 'dt',
       //active:false,
-      autoHeight: false,
-      icons: false
+      autoHeight: false
+      //icons: false
    });
 
    // ==================================
