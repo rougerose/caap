@@ -1,0 +1,38 @@
+<BOUCLE_auteur_profil(AUTEURS){id_auteur}{tout}>
+[(#REM) Les messages de retour après modification du profil. Les messages sont affichés en fonction des variables. Un premier test préalable. ][
+(#ENV{modification}|ou{#ENV{email_confirm}}|ou{#ENV{email_modif}}|oui)
+<div class="texte">
+   [(#ENV{modification}|et{#ENV{email_confirm}|is_null}|oui)
+   <div class="alert alert-success">
+      <:caap:info_modification_ok:>
+   </div>
+   ][(#ENV{email_confirm}|et{#ENV{modification}}|oui)
+   <div class="alert alert-success">
+      <:caap:info_modification_ok_envoi_email:>
+   </div>
+   ][(#ENV{email_modif}|=={ok}|et{#ENV{modification}|is_null}|oui)
+   <div class="alert alert-success">
+      <:caap:info_modification_ok_email_ok:>
+   </div>]
+</div><!-- .texte -->]
+<div class="liste auteur profil section oh">
+   <h2 class="intertitre">Vos informations personnelles</h2>
+   <div class="section-contenu">
+      <dl class="profil">
+         [<dt>Biographie</dt>
+         <dd>
+            (#BIO)
+         </dd>]
+         [<dt><:caap:info_email:></dt>
+         <dd>(#SESSION{id_auteur}|=={#ID_AUTEUR}|oui)#EMAIL</dd>][
+         (#URL_SITE|oui)
+         [<dt><:caap:info_site_web:></dt>
+         <dd><a href="(#URL_SITE|match{^http://}|?{#URL_SITE,[(#VAL{http://}|concat{#URL_SITE})]})" class="url org spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a>
+         </dd>]]
+      </dl>
+      [(#SESSION{id_auteur}|=={#ID_AUTEUR}|oui)
+      <p class="action"><a class="btn" href="[(#URL_PAGE{auteur-edition}|parametre_url{id_auteur,#ID_AUTEUR}|parametre_url{id_rubrique,12})]"><:caap:profil_modifier_titre:></a></p>]
+   </div>
+</div>
+<INCLURE{fond=liste/auteur-comments,id_auteur,ajax} />
+</BOUCLE_auteur_profil>

@@ -1,0 +1,14 @@
+<B_commentaires>
+<div class="liste auteur messages comments section">
+   <h2 class="intertitre"><:caap:info_commentaires_profil:></h2>
+   #ANCRE_PAGINATION
+   <ul class="liste-items">
+      <BOUCLE_commentaires(FORUMS){plat}{id_auteur}{!par date}{pagination #ENV{pagine,5}}{0,40}>
+      <li class="comment-item">
+         #INCLURE{fond=inclure/comment,id_forum,contexte=auteur-profil}
+      </li>
+      </BOUCLE_commentaires>
+   </ul>
+   [<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
+</div>
+</B_commentaires>

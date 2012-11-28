@@ -32,7 +32,8 @@
    .contenu,
    figure.documents,
    .comment-item .comment-reply,
-   .orientation {
+   .orientation,
+   .section .section-contenu, .section .ariaformprop {
       float: right;
       #grid > .core > .span(8)
    }
@@ -82,8 +83,10 @@
    }
    .pager-nav {clear: both;}
 
+   .section .intertitre,
    .ressources .theme,
-   .forum .intertitre {
+   .forum .intertitre,
+   .liste.auteur .intertitre {
       padding-left: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1) + @gridGutterWidth);
    }
 
@@ -125,7 +128,7 @@
    .nav-principale {border-bottom:@borderCaap;}
       .menu-liste {border-top: @borderCaap; margin-left: 20px; padding-top: 0.5em;}
       .nav .item a {display: inline; color: @gray;}
-      .nav-principale .menu-liste:first-child {margin-left: 320px;}
+      .nav-principale .menu-liste:first-child {margin-left: 0;}
       .nav-principale .descriptif_site {border-top: @borderCaap; padding-top: 0.5em;}
 
    /* Navigation secondaire */
@@ -140,7 +143,7 @@
       //position: relative;
    }
    header[role=banner] .logo {position: relative;}
-      #logo {padding-bottom: 0.5em; border-bottom: @borderCaap; margin-left: 0;}
+      #logo {padding-bottom: 0.5em; margin-left: 0;}
       #baseline {
          color: @black;
          font: italic 700 16px/1 @sansFontFamily;
@@ -258,6 +261,11 @@
    /* recherche */
    .liste.recherche {margin-bottom: @baseLineHeight*4;}
 
+   /* profil auteur */
+   .liste.profil.auteur {
+      clear: both;
+   }
+
 /*   =Recherche
    ------------------------------------------------------ */
 
@@ -300,6 +308,11 @@
       font-size: 22px;
    }
 
+   /* mon profil */
+   .liste.auteur dd {margin-left: @gridGutterWidth;}
+   .liste.auteur dd + dt {margin-top: @baseLineHeight/2;}
+   .liste.auteur.messages .titre {font-size: @baseFontSize; line-height: @baseLineHeight; margin-top: 0;}
+
 /*   =Forums
    ------------------------------------------------------ */
    /* Rubrique */
@@ -339,25 +352,25 @@
       /* boutons admin forum */
       .spip-admin.modererforum .bouton_action_post {float: right; margin-bottom: 0;}
       .spip-admin.modererforum .bouton_action_post.spam {margin-right: @gridGutterWidth;}
-   /* Les sujets */
-   .sujets h2 {
-      border-bottom: @borderCaap;
-      padding-left: 1em;
-   }
 
 
 /*   =Spip
    ------------------------------------------------------ */
    /* Titres */
    h1.spip, h2.spip, h3.spip, h4.spip, h5.spip, h6.spip {font-weight: 400; color: @black;}
-   h1.spip,
-   .forum .intertitre {font-size: @baseFontSize*2;}
+   h1.spip {font-size: @baseFontSize*2;}
    h2.spip,
    .notes .intertitre {font-size: @baseFontSize * 1.86; line-height: @baseLineHeight * 1.5; margin-bottom:(@baseLineHeight / 2.22); margin-top: @baseLineHeight;}
    h3.spip {font-size: @baseFontSize * 1.57; line-height: @baseLineHeight * 1.5; margin-top: @baseLineHeight * 1.5;}
    h4.spip {margin-top: @baseLineHeight * 1.5;}
    h5.spip {font-size: @baseFontSize; margin-top: @baseLineHeight; margin-bottom: 10px;}
    h6.spip {font-weight: 700; margin-top: @baseLineHeight; margin-bottom: 10px;}
+
+   .section .intertitre {font-size: @baseFontSize * 1.86;font-weight: 400; border-bottom: 1px solid #000;}
+
+   .texte h2.spip:first-child,
+   .texte h3.spip:first-child,
+   .texte h4.spip:first-child {margin-top: 0;}
 
    /* Notes */
    .notes .intertitre {border-bottom: 1px solid @black;}

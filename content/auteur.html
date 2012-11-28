@@ -1,0 +1,17 @@
+<BOUCLE_contenu(AUTEURS){id_auteur}{tout}>
+<article class="contenu-entete self oh">
+   <header class="header[(#LOGO_AUTEUR|oui) lg]">
+      <h1 class="titre">#NOM</h1>
+      [<figure class="logo-objet">
+         (#LOGO_AUTEUR||sinon{#CHEMIN{gravatar.png}})
+      </figure>]
+   </header>
+   <BOUCLE_mon_profil(CONDITION){si #SESSION{id_auteur}|=={#ID_AUTEUR}}>
+      <INCLURE{fond=inclure/auteur-profil,env} />
+   </BOUCLE_mon_profil>
+   [<div class="contact section">
+      <h2 class="intertitre"><:caap:contacter_titre:> #NOM</h2>
+      (#FORMULAIRE_ECRIRE_AUTEUR)
+   </div>]
+</article>
+</BOUCLE_contenu>

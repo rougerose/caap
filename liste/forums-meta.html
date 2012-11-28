@@ -1,4 +1,5 @@
-<ul class="meta-forum">
+[(#REM) le nombre de messages d'un forum depuis la rubrique Discussions
+]<ul class="meta-forum">
    <BOUCLE_total_messages(FORUMS){id_article}{plat}> </BOUCLE_total_messages>
    <li><strong class="label badge-info">[(#TOTAL_BOUCLE|singulier_ou_pluriel{<:caap:message:>,<:caap:messages:>})]</strong>[ (#TOTAL_BOUCLE)]</li></B_total_messages>
    <li><strong class="label badge-info"><:caap:message:></strong> 0</li><//B_total_messages>

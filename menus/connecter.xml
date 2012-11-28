@@ -1,0 +1,10 @@
+<entree>
+	<nom><:caap:menu_nom_connecter:></nom>
+	<rang>10</rang>
+	<description><:caap:menu_description_connecter:></description>
+	<icone>images/menus_logout.png</icone>
+	<parametre nom="titre" class="multilang" label="menus:entree_titre_prive" />
+	<parametre nom="titre_connecter" class="multilang" label="menus:entree_titre_connecter" />
+	<parametre nom="css" label="menus:entree_css" />
+	<parametre nom="url" label="menus:entree_url_public" />
+</entree>

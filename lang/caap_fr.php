@@ -9,6 +9,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
    // C
    'changer_passe' => 'Changer votre mot de passe',
+   'contacter_titre' => "Contacter",
+   'contenu_interdit' => "Vous n'avez pas le droit de modifier ces informations.",
 
    // D
    'dernier_message' => 'Dernier message',
@@ -17,13 +19,20 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'entree_nom_pseudo' => 'Votre nom et votre prénom',
 
    // I
+   'info_commentaires_profil' => "Vos commentaires",
    'info_document' => 'Document',
    'info_documents' => 'Documents',
+   'info_email' => "Adresse email",
+   'info_modification_ok' => 'Vos modifications ont bien été enregistrées',
+   'info_modification_ok_envoi_email' => "Vos modifications ont bien été enregistrées. Vous avez demandé à modifier votre adresse email : avant d'être prise en compte, un mail de confirmation va vous parvenir dans quelques instants.",
+   'info_modification_ok_email_ok' => "Votre nouvel email est confirmé et enregistré.",
    'info_mots' => 'Mots-clés',
    'info_partagez' => 'Partager',
    'info_ps' => 'Post-scriptum',
    'info_rechercher' => 'Rechercher',
-   'inscrire_titre' => "S'inscrire",
+   'info_site_web' => 'Site web',
+   'inscrire_titre' => "s'inscrire",
+   'identification_titre' => 'se connecter',
 
    //L
 	'label_bouton_inscription' => 'Vous inscrire',
@@ -38,6 +47,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'message_un' => '@nb@ message',
    'message_plusieurs' => '@nb@ messages',
 
+   // N
+   'menu_nom_connecter' => 'Se connecter (espace membres CAAP)',
+   'menu_description_connecter' => "Lien permettant de se connecter à l'espace Membres si on ne l'est pas déjà, puis d'aller dans l'espace privé si l'on y est autorisé.",
+
    //P
    'pager_precedent' => '&#8249;',
    'pager_precedent_info' => 'Article précédent',
@@ -45,6 +58,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'pager_suivant_info' => 'Article suivant',
    'par' => 'par',
    'permalink' => 'Lien permanent vers ce message',
+   'profil_modifier_titre' => 'Modifier vos infos',
 
    // R
    'recherche_article' => '1 article',
