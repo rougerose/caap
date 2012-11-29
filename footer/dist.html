@@ -9,7 +9,7 @@
    </div>
    <div class="groupe clearfix">
       <div class="derniers-articles">
-         <h2 class="intertitre"><:caap:dernieres_publications:></h2>
+         <h2 class="intertitre"><:caap:derniers_articles:></h2>
          <ul class="liste">
             <BOUCLE_derniers(ARTICLES){!par date}{id_secteur !IN 12}{0,5}>
             <li class="item"><a href="#URL_ARTICLE">#TITRE</a></li>
@@ -20,7 +20,7 @@
          <BOUCLE_membres(RUBRIQUES){id_rubrique=12}{tout_voir}>
          <h2 class="intertitre">#TITRE</h2>
          <B_messages>
-         <h3 class="soustitre">Derniers messages</h3>
+         <h3 class="soustitre"><:caap:derniers_messages:></h3>
          <ul class="liste">
             <BOUCLE_messages(FORUMS){plat}{id_secteur}{!par date}{0,2}{tout_voir}>
             [(#SESSION{id_auteur}|?{[(#SET{url,#URL_FORUM})],[(#SET{url,#URL_RUBRIQUE})]})]
@@ -29,7 +29,7 @@
          </ul>
          </B_messages>
          <B_documents>
-         <h3 class="soustitre">Derniers documents</h3>
+         <h3 class="soustitre"><:caap:derniers_documents:></h3>
          <ul class="liste">
             <BOUCLE_documents(DOCUMENTS){id_rubrique=14}{!par date}{0,2}{tout_voir}>
             [(#SESSION{id_auteur}|?{[(#SET{url,#URL_DOCUMENT})],[(#SET{url,#URL_RUBRIQUE{12}})]})]

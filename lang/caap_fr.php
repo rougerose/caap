@@ -5,6 +5,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
    // A
+   'a_propos_caap' => 'À propos',
    'afficher' => "Afficher",
 
    // C
@@ -13,7 +14,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'contenu_interdit' => "Vous n'avez pas le droit de modifier ces informations.",
 
    // D
+   'derniers_documents' => "Les derniers documents",
    'dernier_message' => 'Dernier message',
+   'derniers_messages' => 'Les derniers messages',
+   'derniers_articles' = 'Les derniers articles',
 
    // E
    'entree_nom_pseudo' => 'Votre nom et votre prénom',
