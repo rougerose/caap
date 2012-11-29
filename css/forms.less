@@ -129,8 +129,6 @@ input.submit {.btn}
 
 /* Formulaire de login dans une page */
 .formulaire_login form .editer {clear:left;}
-.formulaire_login form .text,
-.formulaire_login form .password {#grid > .core > .span(5)}
 
 .formulaire_login form .editer_password .details {margin-bottom:0;}
 .formulaire_login #spip_logo_auteur {float:right;}
@@ -140,4 +138,14 @@ input.submit {.btn}
 .formulaire_forum form {overflow: hidden;}
 .formulaire_forum .forum textarea {float: none; padding-left: 0; padding-right: 0;}
 .formulaire_forum .boutons {clear: both; padding-left: 0; padding-right: 0;}
+
+/* Largeur des champs, formulaires : inscription, ecrire_auteur et login  */
+.formulaire_login .text,
+.formulaire_login .password,
+.formulaire_inscription .text,
+.formulaire_inscription .password,
+.formulaire_ecrire_auteur .text,
+.formulaire_ecrire_auteur textarea {
+   #grid > .core > .span(5)
+}
 

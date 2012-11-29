@@ -1,1 +1,54 @@
-<!-- footer vide -->
+<div class="container">
+   <div class="apropos groupe">
+      <h2 class="intertitre"><:caap:a_propos_caap:></h2>
+      <ul class="liste">
+         <BOUCLE_caap(ARTICLES){id_rubrique=5}{par num titre, titre}>
+         <li class="item"><a href="#URL_ARTICLE">#TITRE</a></li>
+         </BOUCLE_caap>
+      </ul>
+   </div>
+   <div class="groupe clearfix">
+      <div class="derniers-articles">
+         <h2 class="intertitre"><:caap:dernieres_publications:></h2>
+         <ul class="liste">
+            <BOUCLE_derniers(ARTICLES){!par date}{id_secteur !IN 12}{0,5}>
+            <li class="item"><a href="#URL_ARTICLE">#TITRE</a></li>
+            </BOUCLE_derniers>
+         </ul>
+      </div>
+      <div class="membres">
+         <BOUCLE_membres(RUBRIQUES){id_rubrique=12}{tout_voir}>
+         <h2 class="intertitre">#TITRE</h2>
+         <B_messages>
+         <h3 class="soustitre">Derniers messages</h3>
+         <ul class="liste">
+            <BOUCLE_messages(FORUMS){plat}{id_secteur}{!par date}{0,2}{tout_voir}>
+            [(#SESSION{id_auteur}|?{[(#SET{url,#URL_FORUM})],[(#SET{url,#URL_RUBRIQUE})]})]
+            <li class="item"><a href="#GET{url}">[(#TEXTE|couper{50})]</a></li>
+            </BOUCLE_messages>
+         </ul>
+         </B_messages>
+         <B_documents>
+         <h3 class="soustitre">Derniers documents</h3>
+         <ul class="liste">
+            <BOUCLE_documents(DOCUMENTS){id_rubrique=14}{!par date}{0,2}{tout_voir}>
+            [(#SESSION{id_auteur}|?{[(#SET{url,#URL_DOCUMENT})],[(#SET{url,#URL_RUBRIQUE{12}})]})]
+            <li class="item"><a href="#GET{url}">[(#TITRE|sinon{document #TYPE_DOCUMENT})]</a></li>
+            </BOUCLE_documents>
+         </ul>
+         </B_documents>
+         </BOUCLE_membres>
+      </div>
+   </div>
+   <nav class="nav">
+      <ul class="liste clearfix">
+         <li class="signature">[(#SLOGAN_SITE_SPIP)][ <a href="#URL_SITE_SPIP/" rel="start home" class="caap" >(#LOGO_SITE_SPIP|image_reduire{70,0}|inserer_attribut{alt,#NOM_SITE_SPIP})</a>]</li>
+         <BOUCLE_contact(ARTICLES){page=contact}>
+         <li class="contact"><a href="#URL_ARTICLE">#TITRE</a></li>
+         </BOUCLE_contact>
+         <BOUCLE_credits(ARTICLES){page=credits}>
+         <li class="credits"><a href="#URL_ARTICLE">#TITRE</a></li>
+         </BOUCLE_credits>
+      </ul>
+   </nav>
+</div>

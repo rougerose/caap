@@ -29,6 +29,8 @@
          <h2 class="spip intertitre"><:caap:info_ps:></h2>
          (#PS|image_reduire{600,0})
       </div><!-- .ps -->]
+      [(#PAGE|=={contact}|oui)
+      [(#FORMULAIRE_ECRIRE_AUTEUR)]]
       [(#REM) Gestion du portfolio et des documents ]
       [(#INCLURE{fond=inclure/documents,id_article})]
       [<aside class="notes">

@@ -19,6 +19,7 @@
 
 /*   =Layout
    ------------------------------------------------------ */
+   .main {margin-bottom: 40px;}
    .main .self {
       min-height: 1px; // prevent collapsing columns
       #grid > .core > .span(12)
@@ -40,7 +41,7 @@
    }
    // debut forums > comment
    .section .comment-form .ariaformprop {float: none;width: auto;}
-   // padding de 10px. A prendre en compte de le calcul de la largeur
+   /*padding de 10px. A prendre en compte de le calcul de la largeur*/
    .comment-item .comment-content,
    .comment-item .spip-admin.modererforum,
    .formulaire_forum .info,
@@ -60,13 +61,15 @@
    // début forums > comment en previsualisation
    .previsu .comment-item .comment-content {width: (@gridColumnWidth * 8) + (@gridGutterWidth * (8 - 1)) - 20px;}
    .previsu .comment-item .comment-meta {width: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1)) - 20px;}
+   // fin forums > comment en prévisu
 
    .self > .titre,
    .self .header > .titre,
    .self hgroup {margin-bottom: @baseLineHeight * 2;}
    .header > .entry-title,
    .self .header > .titre,
-   .header hgroup {
+   .header hgroup,
+   .footer .groupe {
       margin-left: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1)); // 4 col, si pas de logo
    }
    .header.lg > .entry-title,
@@ -76,7 +79,8 @@
    .contenu-entete .nav-secondaire,
    .liste .meta-publi,
    .self .meta-publi,
-   .self .contextuel {
+   .self .contextuel,
+   .footer .derniers-articles, .footer .membres {
       float: left;
       #grid > .core > .span(4)
    }
@@ -115,36 +119,37 @@
    .markItUp a,
    h1 a,
    .comment-meta .permalink,
-   .comments .titre.sujet a {border-bottom: 0;}
+   .comments .titre.sujet a,
+   .footer .item a {border-bottom: 0;}
+
+   .pager li > a:hover {color: #eee;}
 
 
 /*   =Navs
    ------------------------------------------------------ */
    /* Elements communs */
    .nav .item,
-   .meta-publi .category {text-transform: uppercase;}
+   .meta-publi .category {text-transform: uppercase; list-style-type: none; }
    .nav .item:before, .meta-publi .category:before {content:'/ '; color: @grayLight;}
    .nav .item.on > a, .meta-publi .category.on a {font-weight: 700; color: @linkColor;}
    .nav > li > a:hover {background: none; color: @linkColor;}
 
    /* Navigation principale */
    .nav-principale {border-bottom:@borderCaap;}
-      .menu-liste {border-top: @borderCaap; margin-left: 20px; padding-top: 0.5em;}
+      .nav-principale .menu-liste {border-top: @borderCaap; margin-left: 20px; padding-top: 0.5em;}
       .nav .item a {display: inline; color: @gray;}
       .nav-principale .menu-liste:first-child {margin-left: 0;}
       .nav-principale .descriptif_site {border-top: @borderCaap; padding-top: 0.5em;}
 
    /* Navigation secondaire */
    .nav-secondaire {margin-left: 0; clear: left;}
-   .nav-secondaire .nav .nav {margin-left: @gridGutterWidth/4;}
+   .nav-secondaire .nav .nav,
+   .footer .menu-liste .menu-liste {margin-left: @gridGutterWidth/2;}
+
 
 /*   =Banner
    ------------------------------------------------------ */
-   header[role=banner] {
-      //margin-top:@baseLineHeight;
-      margin-bottom: @baseLineHeight * 2;
-      //position: relative;
-   }
+   header[role=banner] {margin-bottom: @baseLineHeight * 2;}
    header[role=banner] .logo {position: relative;}
       #logo {padding-bottom: 0.5em; margin-left: 0;}
       #baseline {
@@ -183,6 +188,34 @@
    }
    .recherche-panneau .action:hover,
    .recherche-panneau .action.on {background-position: 4px -25px;}
+
+/*   =Footer
+   ------------------------------------------------------ */
+   .footer {
+      background-color: @black;
+      box-shadow: -1px 4px 3px -1px #fff inset;
+      padding-top: @baseLineHeight;
+   }
+   .footer .groupe {padding-left: 20px; margin-bottom: @baseLineHeight*2;}
+   .footer .membres {margin-left: 20px;}
+   .footer .item a {color: #ccc;}
+   .footer .item a:hover,
+   .footer .nav li a:hover {color: @linkColor;}
+   .footer .nav {position: relative;}
+   .footer .nav li {
+      color: #fff;
+      display: inline-block;
+      text-transform: uppercase;
+   }
+   .footer .nav li a {color: #fff;}
+   .footer .contact a {padding-right: 5px;}
+   .footer .credits a {padding-left: 5px;}
+   .footer .signature {width: 320px;}
+   .footer .signature .caap {
+      background-color: #fff;
+      position: absolute;
+      right: 0; top:-50%;
+   }
 
 /*   =Contenu
    ------------------------------------------------------ */
@@ -264,8 +297,20 @@
    /* recherche */
    .liste.recherche {margin-bottom: @baseLineHeight*4;}
 
-   /* profil auteur */
-
+   /* footer */
+   .footer .liste {
+      list-style-type: none;
+      margin-left: 0;
+      margin-bottom: @baseLineHeight;
+   }
+   .footer .liste .item {
+      color: #ccc;
+      margin-bottom: @baseLineHeight/4;
+      text-indent: -1em;
+      margin-left: 1em;
+   }
+   .footer .liste .item:before,
+   .footer .credits:before {content:'\25A0\0020'; color: #555;}
 
 /*   =Recherche
    ------------------------------------------------------ */
@@ -377,6 +422,16 @@
    h6.spip {font-weight: 700; margin-top: @baseLineHeight; margin-bottom: 10px;}
 
    .section .intertitre {font-size: @baseFontSize * 1.86;font-weight: 400; border-bottom: 1px solid #000;}
+   .groupe .intertitre {
+      font-size: @baseFontSize*1.42; line-height: @baseLineHeight;
+      font-weight: 400;
+      color: @gray;
+      text-transform: uppercase;
+   }
+   .groupe .soustitre {
+      font-size: 16px; line-height: @baseLineHeight; margin-bottom: 0;
+      color: @gray;
+   }
 
    .texte h2.spip:first-child,
    .texte h3.spip:first-child,
