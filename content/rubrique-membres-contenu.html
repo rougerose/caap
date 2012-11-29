@@ -1,1 +1,31 @@
-<!--  -->
+#SET{documents,#ARRAY} #SET{messages,#ARRAY}
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<article class="contenu-entete self oh">
+   <header class="header[(#LOGO_RUBRIQUE|oui) lg]">
+      <h1 class="titre">#TITRE</h1>
+      [<figure class="logo-objet">
+         (#LOGO_RUBRIQUE||image_reduire{210,0})
+      </figure>]
+   </header>
+   <div class="texte">
+      [(#TEXTE)]
+   </div><!-- .texte -->
+   <INCLURE{fond=navs/rubriques,id_rubrique} />
+</article>
+[(#REM) les derniers messages ]
+   <BOUCLE_messages(FORUMS){plat}{id_secteur}{!par date}{0,5}>[(#SET{messages,#GET{messages}|push{#ID_FORUM}})]</BOUCLE_messages>
+   [(#GET{messages}|count|>{0}|oui)
+   [<div class="liste messages comments section">
+      <h2 class="intertitre">Les derniers messages</h2>
+      (#INCLURE{fond=liste/comments-selection,selection=#GET{messages},contexte=#ENV{composition},ajax})
+      <p class="tous"><a href="#URL_RUBRIQUE{13}">Tous les sujets</a></p>
+   </div>]]
+[(#REM) les derniers documents ]
+   <BOUCLE_documents(DOCUMENTS){id_rubrique=14}{!par date}{0,5}>[(#SET{documents,#GET{documents}|push{#ID_DOCUMENT}})]</BOUCLE_documents>
+   [(#GET{documents}|count|>{0}|oui)
+   [<div class="liste documents membres section">
+      <h2 class="intertitre">Les derniers documents</h2>
+      (#INCLURE{fond=liste/documents,selection=#GET{documents},composition=#ENV{composition},ajax})
+      <p class="tous"><a href="#URL_RUBRIQUE{14}">Tous les documents disponibles</a></p>
+   </div>]]
+</BOUCLE_rubrique>

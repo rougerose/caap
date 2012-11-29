@@ -9,7 +9,7 @@
    <BOUCLE_mon_profil(CONDITION){si #SESSION{id_auteur}|=={#ID_AUTEUR}}>
       <INCLURE{fond=inclure/auteur-profil,env} />
    </BOUCLE_mon_profil>
-   [<div class="contact section">
+   [<div class="contact auteur section">
       <h2 class="intertitre"><:caap:contacter_titre:> #NOM</h2>
       (#FORMULAIRE_ECRIRE_AUTEUR)
    </div>]

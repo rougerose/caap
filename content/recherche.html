@@ -36,6 +36,9 @@
    </div>]][
    (#GET{documents}|count|>{0}|oui)
    [<div class="liste documents recherche">
+      [<p class="resultats detail">
+         (#GET{documents}|count|singulier_ou_pluriel{caap:recherche_document,caap:recherche_documents,nb})
+      </p>]
       (#INCLURE{fond=liste/documents,selection=#GET{documents},composition=recherche,ajax})
    </div>]][
    (#GET{sites}|count|>{0}|oui)

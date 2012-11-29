@@ -1,7 +1,7 @@
 <BOUCLE_comment(FORUMS){id_forum}>
 <article id="comment#ID_FORUM" class="comment oh">
    <div id="forum#ID_FORUM" class="comment-meta">
-      <BOUCLE_auteur(AUTEURS){id_auteur}{tout}{si #ENV{contexte}|=={forum}}>
+      <BOUCLE_auteur(AUTEURS){id_auteur}{tout}{si #ENV{contexte}|match{forum|membres}}>
       [<a href="#URL_AUTEUR" class="image">(#LOGO_AUTEUR||sinon{#CHEMIN{gravatar.png}})</a>]
       <a href="#URL_AUTEUR" class="auteur">#NOM</a>
       </BOUCLE_auteur>
@@ -9,7 +9,7 @@
       [(#ENV{contexte}|=={forum}|oui)[(#CONFIG{comments/permalink}|=={aucun}|non)<a rel="self bookmark" href="#forum#ID_FORUM" title="<:caap:permalink:>" class="permalink #CONFIG{comments/permalink}">[(#CONFIG{comments/permalink}|=={picto}|?{[<img src="(#CHEMIN{img/permalink.gif})" alt="#" />],[(#CONFIG{comments/permalink}|=={compteur}|?{[(#ENV{compteur})],#})]})]</a>]]
    </div><!-- .comment-meta -->
    <div class="comment-content">
-      <BOUCLE_condition(CONDITION){si #ENV{contexte}|=={auteur-profil}}>[
+      <BOUCLE_condition(CONDITION){si #ENV{contexte}|match{auteur-profil|membres}}>[
       (#OBJET|=={article}|oui)
       <h3 class="titre sujet"><a href="#URL_FORUM">#INFO_TITRE{article,#ID_OBJET}</a></h3>]
       </BOUCLE_condition>

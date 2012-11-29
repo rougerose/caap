@@ -5,11 +5,8 @@
    url_doc : url du document
 ] #SET{selection,#ENV{selection}} #SET{url_doc,''}
 <B_documents>
-[<p class="resultats detail">
-   (#GET{selection}|count|singulier_ou_pluriel{caap:recherche_document,caap:recherche_documents,nb})
-</p>]
+#ANCRE_PAGINATION
 <ol class="liste-items recherche">
-   #ANCRE_PAGINATION
    <BOUCLE_documents(DOCUMENTS){id_document IN #GET{selection}}{pagination 5}>[
    (#REM) calcul de l'url du document
    ]<BOUCLE_lien_article(documents_liens){id_document}{objet=article}>[
