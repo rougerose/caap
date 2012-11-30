@@ -1,0 +1,27 @@
+<BOUCLE_article(ARTICLES){id_article}>
+<div class="container">
+   <nav class="pager-nav">
+      <ul class="pager">
+         <BOUCLE_article_precedent(ARTICLES){id_rubrique}{par date}{precedent}>
+         <li class="previous"><a href="#URL_ARTICLE" title="<:caap:pager_precedent_info:> : [(#TITRE|attribut_html|couper{50})]"><:caap:pager_precedent:></a></li>
+         </BOUCLE_article_precedent>
+         <li class="previous disabled"><span><:caap:pager_precedent:></span></li>
+         <//B_article_precedent>
+         <BOUCLE_article_suivant(ARTICLES){id_rubrique}{par date}{suivant}>
+         <li class="next"><a href="#URL_ARTICLE" title="<:caap:pager_suivant_info:> : [(#TITRE|attribut_html|couper{50})]"><:caap:pager_suivant:></a></li>
+         </BOUCLE_article_suivant>
+         <li class="next disabled"><span><:caap:pager_suivant:></span></li>
+         <//B_article_suivant>
+      </ul>
+   </nav>
+   <nav class="breadcrumb">
+      <ul>
+         <li><a href="#URL_SITE_SPIP/"><:accueil_site:></a></li>
+         <BOUCLE_bc(HIERARCHIE){id_article}>
+         <li><a href="#URL_RUBRIQUE">[(#TITRE|couper{30})]</a></li>
+         </BOUCLE_bc>
+         <li class="on"><span>[(#TITRE|couper{30})]</span></li>
+      </ul>
+   </nav>
+</div>
+</BOUCLE_article>

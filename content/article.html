@@ -63,19 +63,5 @@
          env,repondre_titre=<:caap:message_ecrire:>,repondre_url=(#PARAMETRES_FORUM|url_reponse_forum)} />
    </div><!-- #forum -->
    </BOUCLE_rubrique_forum>
-   <nav class="pager-nav">
-      <ul class="pager">
-         <BOUCLE_article_precedent(ARTICLES){id_rubrique}{par date}{precedent}>
-         <li class="previous"><a href="#URL_ARTICLE" title="<:caap:pager_precedent_info:> : [(#TITRE|attribut_html|couper{50})]"><:caap:pager_precedent:></a></li>
-         </BOUCLE_article_precedent>
-         <li class="previous disabled"><span><:caap:pager_precedent:></span></li>
-         <//B_article_precedent>
-         <BOUCLE_article_suivant(ARTICLES){id_rubrique}{par date}{suivant}>
-         <li class="next"><a href="#URL_ARTICLE" title="<:caap:pager_suivant_info:> : [(#TITRE|attribut_html|couper{50})]"><:caap:pager_suivant:></a></li>
-         </BOUCLE_article_suivant>
-         <li class="next disabled"><span><:caap:pager_suivant:></span></li>
-         <//B_article_suivant>
-      </ul>
-   </nav>
 </article>
 </BOUCLE_contenu>

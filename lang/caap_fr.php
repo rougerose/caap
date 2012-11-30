@@ -17,7 +17,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'derniers_documents' => "Les derniers documents",
    'dernier_message' => 'Dernier message',
    'derniers_messages' => 'Les derniers messages',
-   'derniers_articles' = 'Les derniers articles',
+   'derniers_articles' => 'Les derniers articles',
 
    // E
    'entree_nom_pseudo' => 'Votre nom et votre prénom',

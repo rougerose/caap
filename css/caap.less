@@ -80,14 +80,15 @@
    .liste .meta-publi,
    .self .meta-publi,
    .self .contextuel,
-   .footer .derniers-articles, .footer .membres {
+   .footer .derniers-articles,
+   .footer .membres,
+   .bc .pager-nav {
       float: left;
       #grid > .core > .span(4)
    }
    .notes {
       #grid > .core > .span(5)
    }
-   .pager-nav {clear: both;}
 
    .section .intertitre,
    .ressources .theme,
@@ -193,7 +194,7 @@
    ------------------------------------------------------ */
    .footer {
       background-color: @black;
-      box-shadow: -1px 4px 3px -1px #fff inset;
+      //box-shadow: -1px 4px 3px -1px #fff inset;
       padding-top: @baseLineHeight;
    }
    .footer .groupe {padding-left: 20px; margin-bottom: @baseLineHeight*2;}
@@ -311,6 +312,10 @@
    }
    .footer .liste .item:before,
    .footer .credits:before {content:'\25A0\0020'; color: #555;}
+
+/*   =Breadcrumb
+   ------------------------------------------------------ */
+   .bc {background-color: #eee;}
 
 /*   =Recherche
    ------------------------------------------------------ */

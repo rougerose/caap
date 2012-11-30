@@ -1,0 +1,40 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+.bc {
+   margin-top: 40px;
+}
+.breadcrumb {
+   #grid > .core > .span(8)
+}
+.breadcrumb {
+   float: right;
+   margin: 0;
+   list-style: none;
+   ul {
+      margin: 0;
+   }
+   li {
+      display: inline;
+      float: left;
+      //.ie7-inline-block();
+      text-shadow: 0 1px 0 @white;
+      text-transform: uppercase;
+      margin-right: 5px;
+      a, span {
+         line-height: 32px;
+         display: block;
+         padding: 5px 0 7px;
+      }
+      a:before, span:before {content:'/'; color: #aaa; margin-right: 5px;}
+   }
+   .on span {color: @linkColor;}
+   .divider {
+      padding: 0 5px;
+      color: #ccc;
+   }
+   .active {
+      color: @grayLight;
+   }
+}
