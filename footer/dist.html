@@ -11,7 +11,7 @@
       <div class="derniers-articles">
          <h2 class="intertitre"><:caap:derniers_articles:></h2>
          <ul class="liste">
-            <BOUCLE_derniers(ARTICLES){!par date}{id_secteur !IN 12}{0,5}>
+            <BOUCLE_derniers(ARTICLES){!par date}{id_secteur !IN 12}{0,7}>
             <li class="item"><a href="#URL_ARTICLE">#TITRE</a></li>
             </BOUCLE_derniers>
          </ul>
@@ -37,6 +37,14 @@
             </BOUCLE_documents>
          </ul>
          </B_documents>
+         <B_articles>
+         <h3 class="soustitre"><:caap:derniers_articles:></h3>
+         <ul class="liste">
+            <BOUCLE_articles(ARTICLES){branche}{id_rubrique !IN 13,14}{0,2}{tout_voir}>
+            [(#SESSION{id_auteur}|?{[(#SET{url,#URL_ARTICLE})],[(#SET{url,#URL_RUBRIQUE{12}})]})]
+            <li class="item"><a href="#GET{url}">[(#TEXTE|couper{50})]</a></li>
+            </BOUCLE_articles>
+         </ul>
          </BOUCLE_membres>
       </div>
    </div>
