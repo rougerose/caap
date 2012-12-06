@@ -42,7 +42,7 @@
          <ul class="liste">
             <BOUCLE_articles(ARTICLES){branche}{id_rubrique !IN 13,14}{0,2}{tout_voir}>
             [(#SESSION{id_auteur}|?{[(#SET{url,#URL_ARTICLE})],[(#SET{url,#URL_RUBRIQUE{12}})]})]
-            <li class="item"><a href="#GET{url}">[(#TEXTE|couper{50})]</a></li>
+            <li class="item"><a href="#GET{url}">#TITRE</a></li>
             </BOUCLE_articles>
          </ul>
          </BOUCLE_membres>
