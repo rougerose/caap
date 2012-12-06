@@ -93,6 +93,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'sujets_plusieurs' => '@nb@ sujets',
 
    // T
+   'tous_articles' => 'Tous les articles',
+   'tous_documents' => 'Tous les documents',
+   'tous_sujets' => 'Tous les sujets',
    'tri_date' => 'par date',
    'tri_mot_cle' => 'par mot-clé',
    'tri_titre' => 'par titre',

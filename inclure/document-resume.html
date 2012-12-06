@@ -19,7 +19,7 @@
       <B_mots>
       <p>
          <i class="icon-tags"></i>
-         <BOUCLE_mots(MOTS){id_document}{par titre}{si #ENV{composition}|=={documents}}>
+         <BOUCLE_mots(MOTS){id_document}{par titre}{si #ENV{composition}|match{documents|membres}}>
          #TITRE
          </BOUCLE_mots>
       </p>
