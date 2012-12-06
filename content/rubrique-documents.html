@@ -12,14 +12,17 @@
    </div><!-- .texte -->]
    <INCLURE{fond=navs/rubriques,id_rubrique} />
 </article>
-<BOUCLE_documents(DOCUMENTS){id_rubrique}>[(#SET{documents,#GET{documents}|push{#ID_DOCUMENT}})]</BOUCLE_documents>
+<BOUCLE_documents(DOCUMENTS){id_rubrique}>
+<B_test_mots><BOUCLE_test_mots(CONDITION){si #ENV{id_mot}}>
+<BOUCLE_mots(MOTS){id_mot}{id_document}>[
+   (#SET{documents,#GET{documents}|push{#ID_DOCUMENT}})
+]</BOUCLE_mots></BOUCLE_test_mots></B_test_mots>[
+   (#SET{documents,#GET{documents}|push{#ID_DOCUMENT}})
+]<//B_test_mots>
+</BOUCLE_documents>
 [(#GET{documents}|count|>{0}|oui)
    [<div class="liste documents recherche">
-      [<p class="resultats detail">
-         (#GET{documents}|count|singulier_ou_pluriel{caap:recherche_document,caap:recherche_documents,nb})
-      </p>]
-      (#INCLURE{fond=liste/documents,selection=#GET{documents},composition=#ENV{composition},ajax})
+      (#INCLURE{fond=liste/documents,env,selection=#GET{documents},composition=#ENV{composition},ajax})
    </div>]
 ]
-
 </BOUCLE_contenu>

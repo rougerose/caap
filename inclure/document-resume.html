@@ -16,6 +16,14 @@
          [(#DESCRIPTIF|PtoBR)]
       </p>
       [<p class="suite"><a href="(#GET{url_doc})"><:caap:suite:></a></p>]
+      <B_mots>
+      <p>
+         <i class="icon-tags"></i>
+         <BOUCLE_mots(MOTS){id_document}{par titre}{si #ENV{composition}|=={documents}}>
+         #TITRE
+         </BOUCLE_mots>
+      </p>
+      </B_mots>
    </div><!-- .entry -->
 </article>
 </BOUCLE_document>

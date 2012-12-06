@@ -30,6 +30,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'info_modification_ok' => 'Vos modifications ont bien été enregistrées',
    'info_modification_ok_envoi_email' => "Vos modifications ont bien été enregistrées. Vous avez demandé à modifier votre adresse email : avant d'être prise en compte, un mail de confirmation va vous parvenir dans quelques instants.",
    'info_modification_ok_email_ok' => "Votre nouvel email est confirmé et enregistré.",
+   'info_mot' => 'Mot-clé',
    'info_mots' => 'Mots-clés',
    'info_partagez' => 'Partager',
    'info_ps' => 'Post-scriptum',
@@ -89,7 +90,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'sujet_creer' => 'Créer un nouveau sujet',
    'sujet_un' => '@nb@ sujet',
    'sujets' => 'Sujets',
-   'sujets_plusieurs' => '@nb@ sujets'
+   'sujets_plusieurs' => '@nb@ sujets',
+
+   // T
+   'tri_date' => 'par date',
+   'tri_mot_cle' => 'par mot-clé',
+   'tri_titre' => 'par titre',
+   'tri_type_document' => 'par type de fichier'
 );
 
 ?>
