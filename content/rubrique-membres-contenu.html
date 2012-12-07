@@ -25,7 +25,7 @@
    [<div class="liste messages comments section">
       <h2 class="intertitre"><:caap:derniers_messages:></h2>
       (#INCLURE{fond=liste/comments-selection,selection=#GET{messages},contexte=#ENV{composition}})
-      <p class="tous"><a href="#URL_RUBRIQUE{13}"><:caap:tous_sujets:>Tous les sujets</a></p>
+      <p class="tous"><a href="#URL_RUBRIQUE{13}"><:caap:tous_sujets:></a></p>
    </div>]
 ][(#REM) les derniers documents ]
 <BOUCLE_documents(DOCUMENTS){id_rubrique=14}{!par date}{0,5}>[(#SET{documents,#GET{documents}|push{#ID_DOCUMENT}})]</BOUCLE_documents>
