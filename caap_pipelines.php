@@ -4,7 +4,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 
 // javascript
 function caap_insert_head($flux){
-   $js = find_in_path('js/caap_public.js');
+   $js = find_in_path('javascript/caap_public.js');
    if ($js) {
       $flux .= "\n".'<script src="'.$js.'" type="text/javascript"></script>'."\n";
    }
@@ -25,7 +25,7 @@ function caap_affichage_final($flux){
    AND $GLOBALS['visiteur_session']['statut']=='0minirezo'
    AND $GLOBALS['visiteur_session']['webmestre']=='oui'
    AND $p=stripos($flux,"</body>")
-   AND $f = find_in_path("js/hashgrid.js")
+   AND $f = find_in_path("javascript/hashgrid.js")
    ){
       $flux = substr_replace($flux,'<script type="text/javascript" src="'.$f.'"></script>',$p,0);
    }
