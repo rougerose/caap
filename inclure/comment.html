@@ -2,7 +2,7 @@
 <article id="comment#ID_FORUM" class="comment oh">
    <div id="forum#ID_FORUM" class="comment-meta">
       <BOUCLE_auteur(AUTEURS){id_auteur}{tout}{si #ENV{contexte}|match{forum|membres}}>
-      [<a href="#URL_AUTEUR" class="image">(#LOGO_AUTEUR||sinon{#CHEMIN{gravatar.png}})</a>]
+      [<a href="#URL_AUTEUR" class="image">(#MODELE{gravatar}{email=#EMAIL})</a>]
       <a href="#URL_AUTEUR" class="auteur">#NOM</a>
       </BOUCLE_auteur>
       <time pubdate datetime="[(#DATE|date_iso)]">[(#DATE|affdate_jourcourt)][ <span class="heure">(#DATE|heures)[:(#DATE|minutes)]</span>]</time>

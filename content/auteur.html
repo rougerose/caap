@@ -3,7 +3,7 @@
    <header class="header[(#LOGO_AUTEUR|oui) lg]">
       <h1 class="titre">#NOM</h1>
       [<figure class="logo-objet">
-         (#LOGO_AUTEUR||sinon{#CHEMIN{gravatar.png}})
+         (#MODELE{gravatar}{email=#EMAIL})
       </figure>]
    </header>
    <BOUCLE_mon_profil(CONDITION){si #SESSION{id_auteur}|=={#ID_AUTEUR}}>
