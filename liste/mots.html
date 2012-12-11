@@ -4,7 +4,7 @@
       <li class="tags">
          <h1 class="intertitre"><:caap:info_mots:></h1>
          <ul class="liste-items">
-            <BOUCLE_tags(MOTS){id_article?}{id_rubrique?}{par num titre, titre}{", "}>
+            <BOUCLE_tags(MOTS){id_article?}{id_rubrique?}{par num titre, titre}>
             <li class="tag">[(#COMPTEUR_BOUCLE|=={1}|oui)<i class="icon-tags"></i> ]<a href="#URL_MOT" rel="tag">#TITRE</a></li>
             </BOUCLE_tags>
          </ul>
