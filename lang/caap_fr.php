@@ -52,9 +52,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'message_un' => '@nb@ message',
    'message_plusieurs' => '@nb@ messages',
 
+   // notifications inscriptions
+   'message_auteur_inscription_confirmer_contenu_user' => "Votre demande d'inscription a bien été enregistrée. Elle doit être maintenant validée par un administrateur. Vous recevrez un mail de confirmation de votre inscription.",
+   'message_auteur_invalide_contenu_user' => "Un administrateur a refusé la validation de votre compte.",
+
    // N
    'menu_nom_connecter' => 'Se connecter (espace membres CAAP)',
-   'menu_description_connecter' => "Lien permettant de se connecter à l'espace Membres si on ne l'est pas déjà, puis d'aller dans l'espace privé si l'on y est autorisé.",
+   'menu_description_connecter' => "Lien permettant de se connecter à l'espace Adhérents si on ne l'est pas déjà, puis d'aller dans l'espace privé si l'on y est autorisé.",
+
+	'form_forum_voici1' => 'Voici vos identifiants qui vous permettront d\'accéder à l\'Espace Adhérents du site "@nom_site_spip@" (@adresse_site@) :',
 
    //P
    'pager_precedent' => '&#8249;',
