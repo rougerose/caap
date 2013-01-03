@@ -53,6 +53,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'message_plusieurs' => '@nb@ messages',
 
    // notifications inscriptions
+   'message_auteur_invalide_contenu_user' => "Votre demande d'inscription n'a pas été validée.
+
+Vérifiez que vous êtes bien à jour de votre cotisation. Si c'est le cas, prenez contact avec nous par mail : contact@caap.asso.fr",
    'message_auteur_inscription_confirmer_contenu_user' => "Votre demande d'inscription a bien été enregistrée. Elle doit être maintenant validée par un administrateur. Vous recevrez un mail de confirmation de votre inscription.",
    'message_auteur_invalide_contenu_user' => "Un administrateur a refusé la validation de votre compte.",
 
