@@ -457,3 +457,26 @@
    /* HR */
    hr.spip {border-color: @black; margin:@baseLineHeight * 2;}
 
+/*   =PRINT
+   ------------------------------------------------------ */
+   @media print {
+      body {
+         font-size: 12pt;
+         line-height: 16pt;
+         margin: 5%;
+      }
+      /* liens */
+      .contenu p a:after,
+      .contenu .spip_doc_titre a:after { content: " [http://caap.asso.fr/" attr(href) "]"; font-size: 80%;}
+      .contenu p a[href^="http://"]:after {content: " [" attr(href) "]";}
+      .contenu p a[href^="#"]:after {display: none;}
+
+      /* éléments à masquer */
+      .recherche-panneau,
+      .nav-principale,
+      .footer,
+      .pager-nav {display: none;}
+
+      /* fil d'ariane: fond blanc */
+      .bc {background-color: #fff;}
+   }
