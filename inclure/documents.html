@@ -4,7 +4,7 @@
 <figure class="documents portfolio">
    <h1 class="spip"><:medias:info_portfolio:></h1>
    <BOUCLE_documents_portfolio(DOCUMENTS){id_article?}{id_rubrique?}{mode=document}{extension IN png,jpg,gif}{par num titre, date}{vu=non}>[
-   <a class="mediabox" href="(#URL_DOCUMENT)" type="#MIME_TYPE" rel="documents_portfolio[-a(#ID_ARTICLE)][-r(#ID_RUBRIQUE)]" [ title="(#TITRE|attribut_html|couper{80})"] class="[item_(#COMPTEUR_BOUCLE|modulo{4})]">[(#FICHIER|image_reduire{130,100}|inserer_attribut{class,spip_logos}|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]</a>]</BOUCLE_documents_portfolio>
+   <a class="mediabox[ item_(#COMPTEUR_BOUCLE|modulo{4})]" href="(#URL_DOCUMENT)" type="#MIME_TYPE" rel="documents_portfolio[-a(#ID_ARTICLE)][-r(#ID_RUBRIQUE)]" [ title="(#TITRE|attribut_html|couper{80})"]>[(#FICHIER|image_reduire{130,100}|inserer_attribut{class,spip_logos}|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]</a>]</BOUCLE_documents_portfolio>
 </figure>
 </B_documents_portfolio>
 
