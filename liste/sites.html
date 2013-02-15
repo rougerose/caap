@@ -14,15 +14,15 @@
    <li class="item">
       <article class="hentry colonne oh">
          <header class="header">
-            <h1 class="entry-title"><a href="#INFO_URL{site,#ID_SYNDIC}">#NOM_SITE</a></h1>
+            <h1 class="entry-title"><a href="[(#ID_SYNDIC|generer_url_entite{site})]">#NOM_SITE</a></h1>
          </header>
          <div class="entry-content">
             [<figure class="logo-objet">
-               <a href="#INFO_URL{site,#ID_SYNDIC}" class="image">(#LOGO_SITE||image_reduire{210,0})</a>
+               <a href="[(#ID_SYNDIC|generer_url_entite{site})]" class="image">(#LOGO_SITE||image_reduire{210,0})</a>
             </figure>]
             [(#DESCRIPTIF|PtoBR)]
             [<p class="url site"><a href="#URL_SITE" class="">(#URL_SITE)</a></p>]
-            <p class="suite"><a href="[(#GET{url}|ancre_url{documents})]"><:caap:suite:></a></p>
+            <p class="suite"><a href="[(#ID_SYNDIC|generer_url_entite{site})]"><:caap:suite:></a></p>
          </div><!-- .entry -->
       </article>
    </li>
