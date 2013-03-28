@@ -40,6 +40,7 @@ function notifications_instituerauteur($quoi, $id_auteur, $options) {
 	 * S'il est validé, on lui recrée un pass que l'on met dans le mail avec son login
 	 */
 	if ($options['statut_ancien'] == '8aconfirmer') {
+      //spip_log("instituerauteur_caap niv 1",'notifications',_LOG_ERREUR);
 		if($options['statut'] == '5poubelle'){
 			$modele = "notifications/auteur_invalide";
 			$modele_admin = "notifications/auteur_invalide_admin";

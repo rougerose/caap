@@ -64,7 +64,6 @@ http://www.caap.asso.fr/spip.php?article4
 Cordialement,
 Emmanuel Barrat",
    'message_auteur_inscription_confirmer_contenu_user' => "Votre demande d'inscription a bien été enregistrée. Elle doit être maintenant validée par un administrateur. Vous recevrez un mail de confirmation de votre inscription.",
-   'message_auteur_invalide_contenu_user' => "Un administrateur a refusé la validation de votre compte.",
 
    // N
    'menu_nom_connecter' => 'Se connecter (espace membres CAAP)',
