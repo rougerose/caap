@@ -53,9 +53,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'message_plusieurs' => '@nb@ messages',
 
    // notifications inscriptions
-   'message_auteur_invalide_contenu_user' => "Votre demande d'inscription n'a pas été validée.
+   'message_auteur_invalide_contenu_user' => "Vous n’êtes pas à jour de votre adhésion et votre demande d'inscription à l'espace adhérent ne peut être validée, ou bien vous n’apparaissez pas sous ce nom dans nos documents.
 
-Vérifiez que vous êtes bien à jour de votre cotisation. Si c'est le cas, prenez contact avec nous par mail : contact@caap.asso.fr",
+Merci de nous contacter par mail (contact@caap.asso.fr) pour voir quel est le problème.
+
+Vous pouvez adhérer pour 10 ou 30 euros par an selon votre situation, en nous renvoyant votre bulletin complété :
+
+http://www.caap.asso.fr/spip.php?article4
+
+Cordialement,
+Emmanuel Barrat",
    'message_auteur_inscription_confirmer_contenu_user' => "Votre demande d'inscription a bien été enregistrée. Elle doit être maintenant validée par un administrateur. Vous recevrez un mail de confirmation de votre inscription.",
    'message_auteur_invalide_contenu_user' => "Un administrateur a refusé la validation de votre compte.",
 
