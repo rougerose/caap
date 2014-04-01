@@ -8,7 +8,7 @@
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 // en dev, pas de cache
-define('_NO_CACHE', 1);
+// define('_NO_CACHE', 1);
 
 // plugin jaz : ajout automatique des nouveaux inscrits à la rubrique Membres
 // define('_ZONES_AUTO_JOINTES', '2');
