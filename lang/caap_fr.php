@@ -53,13 +53,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'message_plusieurs' => '@nb@ messages',
 
    // notifications inscriptions
-   'message_auteur_invalide_contenu_user' => "Vous n’êtes pas à jour de votre adhésion et votre demande d'inscription à l'espace adhérent ne peut être validée, ou bien vous n’apparaissez pas sous ce nom dans nos documents.
-
-Merci de nous contacter par mail (contact@caap.asso.fr) pour voir quel est le problème.
+   'message_auteur_invalide_contenu_user' => "Vous n’êtes pas à jour de votre adhésion et votre demande d'inscription à l'espace adhérent ne peut être validée, ou bien vous n’apparaissez pas sous ce nom dans nos documents. Contactez nous par mail (caap2@free.fr) pour voir quel est le problème.
 
 Vous pouvez adhérer pour 10 ou 30 euros par an selon votre situation, en nous renvoyant votre bulletin complété :
-
 http://www.caap.asso.fr/spip.php?article4
+
+Si vous souhaitez seulement recevoir les informations du CAAP merci d'en faire la demande en utilisant cette adresse :
+caap2@free.fr
 
 Cordialement,
 Emmanuel Barrat",
