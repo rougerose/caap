@@ -1,11 +1,1 @@
-[(#ENV{couper}|=={1}|oui)
-   [<p class="append">
-      (#DESCRIPTIF_SITE_SPIP|couper{200})
-      <a class="anim more" href="[(#SELF)]" onclick="ajaxReload('descriptif_site',{args:{couper:0}});return(false);">+</a>
-   </p>]
-][(#ENV{couper}|=={0}|oui)
-   [<p class="append">
-      (#DESCRIPTIF_SITE_SPIP|PtoBR)
-      <a class="anim less" href="[(#SELF)]" onclick="ajaxReload('descriptif_site',{args:{couper:1}});return(false);">-</a>
-   </p>]
-]
+[<p>(#DESCRIPTIF_SITE_SPIP|couper{200}) <a href="#apropos"><:caap:suite:></a></p>]

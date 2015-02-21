@@ -1,25 +1,29 @@
 <div class="container">
-   <div class="apropos groupe">
-      <h2 class="intertitre"><:caap:a_propos_caap:></h2>
-      <ul class="liste">
-         <BOUCLE_caap(ARTICLES){id_rubrique=5}{par num titre, titre}>
-         <li class="item"><a href="#URL_ARTICLE">#TITRE</a></li>
-         </BOUCLE_caap>
-         <li class="item"><a href="https://www.facebook.com/caapartsvisuels">Suivez le CAAP sur Facebook</a></li>
-      </ul>
+   <div id="apropos" class="apropos groupe clearfix">
+      <h2 class="intertitre intertitre--contrast"><:caap:a_propos_caap:></h2>
+      <div class="colonne colonne--2-3">
+         [<p class="site--descriptif">(#DESCRIPTIF_SITE_SPIP|PtoBR)</p>]
+         <p><a href="#INFO_URL{article,26}" class="btn-apropos btn--firstitem">En savoir plus</a> <a href="#INFO_URL{article,4}" class="btn-apropos">Adhérer</a></p>
+      </div><!-- /.colonne--2-3 -->
+      <div class="colonne colonne--droite colonne--1-3">
+         <p><a href="https://www.facebook.com/caapartsvisuels" class="a--icon">[(#CHEMIN{img/icon--facebook.png}|balise_img{Facebook,i--inline})] Suivre le CAAAP</a></p>
+         <BOUCLE_contact(ARTICLES){page=contact}>
+         <p><a href="URL_ARTICLE" class="a--icon">[(#CHEMIN{img/icon--email.png}|balise_img{Contact par mail,i--inline})] #TITRE</a></p>
+         </BOUCLE_contact>
+      </div>
    </div>
    <div class="groupe clearfix">
-      <div class="derniers-articles">
-         <h2 class="intertitre"><:caap:derniers_articles:></h2>
+      <div class="colonne colonne--1-2 derniers-articles">
+         <h2 class="intertitre intertitre--contrast"><:caap:derniers_articles:></h2>
          <ul class="liste">
             <BOUCLE_derniers(ARTICLES){!par date}{id_secteur !IN 12}{0,7}>
             <li class="item"><a href="#URL_ARTICLE">#TITRE</a></li>
             </BOUCLE_derniers>
          </ul>
       </div>
-      <div class="membres">
+      <div class="colonne colonne--1-2 colonne--droite membres">
          <BOUCLE_membres(RUBRIQUES){id_rubrique=12}{tout_voir}>
-         <h2 class="intertitre">#TITRE</h2>
+         <h2 class="intertitre intertitre--contrast">#TITRE</h2>
          <B_messages>
          <h3 class="soustitre"><:caap:derniers_messages:></h3>
          <ul class="liste">
@@ -52,9 +56,6 @@
    <nav class="nav">
       <ul class="liste clearfix">
          <li class="signature">[(#SLOGAN_SITE_SPIP)][ <a href="#URL_SITE_SPIP/" rel="start home" class="caap" >(#LOGO_SITE_SPIP|image_reduire{70,0}|inserer_attribut{alt,#NOM_SITE_SPIP})</a>]</li>
-         <BOUCLE_contact(ARTICLES){page=contact}>
-         <li class="contact"><a href="#URL_ARTICLE">#TITRE</a></li>
-         </BOUCLE_contact>
          <BOUCLE_credits(ARTICLES){page=credits}>
          <li class="credits"><a href="#URL_ARTICLE">#TITRE</a></li>
          </BOUCLE_credits>
