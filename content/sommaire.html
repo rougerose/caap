@@ -1,11 +1,3 @@
-[(#REM) hero ]
-[<div class="preface">
-    <div class="preface-content">
-        <p>(#DESCRIPTIF_SITE_SPIP|PtoBR)</p>
-        <p><a href="#INFO_URL{article,26}" class="btn-preface">En savoir plus</a> <a href="#INFO_URL{article,4}" class="btn-preface">Adhérer</a></p>
-    </div>
-</div>]
-
 #SET{selection,#ARRAY}
 <BOUCLE_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=0}>[
 (#SET_PUSH{selection,#ID_ARTICLE})
