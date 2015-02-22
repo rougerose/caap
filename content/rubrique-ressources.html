@@ -1,0 +1,40 @@
+<BOUCLE_contenu(RUBRIQUES){id_rubrique}>
+<article class="contenu-entete self oh">
+   <header class="header">
+      <h1 class="titre">#TITRE</h1>
+      [<figure class="logo-objet">
+         (#LOGO_RUBRIQUE||image_reduire{210,0})
+      </figure>]
+   </header>
+   #PIPELINE{insert_head}
+   [<div class="texte">
+      (#TEXTE)
+   </div><!-- .texte -->]
+   <div class="contextuel rubrique">
+      <INCLURE{fond=navs/rubriques,id_rubrique} />
+      <INCLURE{fond=liste/mots,id_rubrique} />
+   </div>
+</article>
+
+   #SET{tab_categories,#ARRAY}
+
+<BOUCLE_tableau_categories(ARTICLES spip_mots_liens){id_rubrique}{id_groupe=3}>
+   [(#ID_MOT|unique|oui) [(#SET_PUSH{tab_categories,#ID_MOT})] ]
+</BOUCLE_tableau_categories>
+
+<B_categories>
+<dl id="ressources" class="liste ressources">
+   <BOUCLE_categories(MOTS){id_mot IN #GET{tab_categories}}{par titre}>[
+   (#SET{id,#ID_MOT})
+   ]<dt class="theme"><a href="#theme#GET{id}">#TITRE</a></dt>
+   <B_articles_lies>
+   <dd id="theme#GET{id}" class="articles">
+      <BOUCLE_articles_lies(ARTICLES){id_rubrique}{id_mot}{par titre}>[
+      (#INCLURE{fond=inclure/article-resume,id_article,composition=#ENV{composition}})
+      ]</BOUCLE_articles_lies>
+   </dd>
+   </B_articles_lies>
+   </BOUCLE_categories>
+</dl>
+</B_categories>
+</BOUCLE_contenu>

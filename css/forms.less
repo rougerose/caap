@@ -1,0 +1,151 @@
+@import "bs/css/forms.less";
+
+/* Structure generale des formulaires
+----------------------------------------------- */
+.formulaire_spip {
+   margin-bottom: @baseLineHeight;
+   position: relative;
+   clear: both;
+}
+.formulaire_spip .boutons {
+   .form-actions;
+   padding-left: 0;
+}
+input.submit {.btn}
+
+/* Explications */
+.formulaire_spip .explication {.help-block }
+
+/* Lignes */
+.formulaire_spip > div > ul,
+.formulaire_spip fieldset > ul,
+.formulaire_spip form > ul,
+.formulaire_spip form > div > ul {margin-left: 0;list-style: none;.control-group;}
+
+.formulaire_spip .editer { clear: both; margin: 0 -@baseLineHeight; padding: @baseLineHeight/4 @baseLineHeight; }
+
+/* choix */
+.formulaire_spip .choix label {display:inline;font-weight:normal;}
+.formulaire_spip .choix input.radio,
+.formulaire_spip .choix input.checkbox {width:auto;margin: 0;}
+
+/* choix de mot dans le form forum notamment */
+.formulaire_spip .choix_mots {#grid > .fluid > .row-fluid}
+.formulaire_spip .saisie_mot {
+  .input-block-level();
+  float: left;
+  margin-left: @fluidGridGutterWidth;
+  *margin-left: @fluidGridGutterWidth - (.5 / @gridRowWidth * 100 * 1%);
+  #grid > .fluid > .span(4);
+}
+.formulaire_spip .saisie_mot:nth-child(3n-2) {margin-left: 0;clear: both;}
+.formulaire_spip .saisie_mot label {display:inline;font-weight:normal;}
+.formulaire_spip .saisie_mot input.radio,
+.formulaire_spip .saisie_mot input.checkbox {width:auto;margin: 0;}
+
+
+/* Champs de saisie */
+/*
+.span9 form input.text { width: 80%;}
+.span8 form input.text { width: 80%;}
+.span7 form input.text { width: 80%;}
+.span6 form input.text { width: 80%;}
+.span5 form input.text { width: 80%;}
+.span4 form input.text { width: 80%;}
+.span3 form input.text { width: 80%;}
+.span2 form input.text { width: 80%;}
+*/
+//form input.text { width: 80%;}
+/*
+.span8 form textarea { width: 80%;}
+.span7 form textarea { width: 80%;}
+.span6 form textarea { width: 80%;}
+.span5 form textarea { width: 80%;}
+.span4 form textarea { width: 80%;}
+.span3 form textarea { width: 80%;}
+.span2 form textarea { width: 80%;}
+*/
+//form textarea { width: 80%;}
+.markItUp .markItUpContainer .markItUpHeader {padding-right: 6px;padding-left: 6px;}
+.markItUp .markItUpContainer .markItUpHeader + textarea {border-top-left-radius: 0;border-top-right-radius: 0;border-top:0;}
+
+/*
+.span9 form select { width: 80%;}
+.span8 form select { width: 80%;}
+.span7 form select { width: 80%;}
+.span6 form select { width: 80%;}
+.span5 form select { width: 80%;}
+.span4 form select { width: 80%;}
+.span3 form select { width: 80%;}
+.span2 form select { width: 80%;}
+*/
+//form select { width: 80%;}
+
+
+/* Reponses, previsu et erreurs
+----------------------------------------------- */
+
+/* Champs obligatoires */
+.formulaire_spip li.obligatoire {}
+.formulaire_spip li.obligatoire label {font-weight: bold;}
+
+/* * Erreurs */
+.editer.erreur { background-color: @errorBackground; }
+.editer .erreur_message { display: block; color: @errorText; font-weight: bold;}
+.editer .erreur_message label {display: inline;}
+.editer .erreur_message input {margin: 0;}
+
+/* Reponses */
+.reponse_formulaire {.alert;}
+.reponse_formulaire_ok {.alert-success;}
+.reponse_formulaire_erreur {.alert-error;}
+
+/* Variantes et cas particuliers
+----------------------------------------------- */
+
+/* quelques fieldset.info qui ne sont pas des messages d'info */
+.formulaire_spip fieldset.info {
+  background-color: inherit;
+  color: inherit;
+  text-shadow:inherit;
+  .border-radius(inherit);
+  fieldset;
+}
+
+/* Selection des langues */
+.formulaire_menu_lang { margin: 0; padding: 0; /*background: none;*/ border: 0;}
+//.formulaire_menu_lang form select {#grid > .core > .span(3)}
+
+/* Formulaires de recherche (site / petitions) */
+.js #formulaire_recherche {display: none;} // si js disponible, le formulaire est masqué.
+.formulaire_recherche {.form-search}
+.formulaire_recherche {
+   text-align: right;
+   padding: 0; margin: @baseLineHeight 0;
+   border: 0;
+}
+.formulaire_recherche form {margin-bottom: 0;}
+.formulaire_recherche .btn {width: 80px;}
+
+/* Formulaire de login dans une page */
+.formulaire_login form .editer {clear:left;}
+
+.formulaire_login form .editer_password .details {margin-bottom:0;}
+.formulaire_login #spip_logo_auteur {float:right;}
+
+/* Formulaire forum */
+.formulaire_forum {border: @borderCaap; padding: 10px;}
+.formulaire_forum form {overflow: hidden;}
+.formulaire_forum .forum textarea {float: none; padding-left: 0; padding-right: 0;}
+.formulaire_forum .boutons {clear: both; padding-left: 0; padding-right: 0;}
+
+/* Largeur des champs, formulaires : inscription, ecrire_auteur et login  */
+.formulaire_login .text,
+.formulaire_login .password,
+.formulaire_inscription .text,
+.formulaire_inscription .password,
+.formulaire_ecrire_auteur .text,
+.formulaire_ecrire_auteur textarea {
+   #grid > .core > .span(5)
+}
+

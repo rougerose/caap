@@ -1,0 +1,52 @@
+<BOUCLE_contenu(ARTICLES){id_article}>
+<article class="hentry self">
+   <header class="header[(#LOGO_ARTICLE|oui) lg]">
+      [(#SOUSTITRE|oui)
+      <hgroup>]
+         <h1 class="entry-title titre">#TITRE</h1>
+         [<h2 class="soustitre">(#SOUSTITRE)</h2>]
+      [(#SOUSTITRE|oui)
+      </hgroup>]
+      [<figure class="logo-objet">
+         (#LOGO_ARTICLE||image_reduire{210,0})
+      </figure>]
+      <ul class="meta-publi">
+         <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+         <li class="category on"><a href="#URL_RUBRIQUE">#TITRE</a></li>
+         </BOUCLE_rubrique>
+         <li><time class="updated" datetime="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></li>
+         <B_auteurs><li class="byline author vcard"><:caap:par:> <BOUCLE_auteurs(AUTEURS){id_article}{par nom}{", "}><span class="fn">#NOM</span></BOUCLE_auteurs></li></B_auteurs>
+      </ul>
+   </header>
+   <div class="entry-content contenu surlignable">
+      [<div class="chapo">
+         (#CHAPO|image_reduire{600,0})
+      </div><!-- .chapeau -->]
+      [<div class="texte">
+         (#TEXTE|image_reduire{600,0})
+      </div><!-- .texte -->]
+      [<div class="ps">
+         <h2 class="spip intertitre"><:caap:info_ps:></h2>
+         (#PS|image_reduire{600,0})
+      </div><!-- .ps -->]
+      [(#PAGE|=={contact}|oui)
+      [(#FORMULAIRE_ECRIRE_AUTEUR)]]
+      [(#REM) Gestion du portfolio et des documents ]
+      [(#INCLURE{fond=inclure/documents,id_article})]
+      [<aside class="notes">
+         <h1 class="spip intertitre"><:info_notes:></h1>
+         (#NOTES)
+      </aside>]
+   </div><!-- .entry -->
+   <div class="contextuel article">
+      <INCLURE{fond=liste/mots,id_article} />
+   </div>
+   [(#REM) Afficher les sujets des forums, si l'on est bien dans la rubrique Espace membres > Discussions ]
+   <BOUCLE_rubrique_forum(RUBRIQUES){id_rubrique}{si #ID_RUBRIQUE|=={14}}>
+   <div id="forum" class="forum">
+      <INCLURE{fond=inclure/forum,
+         env,repondre_titre=<:caap:message_ecrire:>,repondre_url=(#PARAMETRES_FORUM|url_reponse_forum)} />
+   </div><!-- #forum -->
+   </BOUCLE_rubrique_forum>
+</article>
+</BOUCLE_contenu>

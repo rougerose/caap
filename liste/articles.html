@@ -1,0 +1,18 @@
+[(#REM) VARIABLES > selection : tableau de la sélection transmis par inclure
+] #SET{selection,#ENV{selection}}
+<B_articles>
+[<p class="resultats detail">
+   (#GET{selection}|count|singulier_ou_pluriel{caap:recherche_article,caap:recherche_articles,nb})
+</p>]
+<ol class="liste-items recherche">
+   #ANCRE_PAGINATION
+   <BOUCLE_articles(ARTICLES){id_article IN #GET{selection}}{!par date}{pagination 5}>
+   <li>
+      #INCLURE{fond=inclure/article-resume,id_article}
+   </li>
+   </BOUCLE_articles>
+</ol>
+[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
+</B_articles>
+<p class="message info"><:caap:recherche_pas_de_resultat:></p>
+<//B_articles>

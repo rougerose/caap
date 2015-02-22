@@ -1,0 +1,34 @@
+[(#REM)
+   Variables
+   =========
+   selection : tableau de la sélection transmis par inclure
+] #SET{selection,#ENV{selection}}
+<B_sites>
+[<p class="resultats detail">
+   (#GET{selection}|count|singulier_ou_pluriel{caap:recherche_site,caap:recherche_sites,nb})
+</p>]
+
+<ol class="liste-items recherche">
+   #ANCRE_PAGINATION
+   <BOUCLE_sites(SITES){id_syndic IN #GET{selection}}{pagination 5}>
+   <li class="item">
+      <article class="hentry colonne oh">
+         <header class="header">
+            <h1 class="entry-title"><a href="[(#ID_SYNDIC|generer_url_entite{site})]">#NOM_SITE</a></h1>
+         </header>
+         <div class="entry-content">
+            [<figure class="logo-objet">
+               <a href="[(#ID_SYNDIC|generer_url_entite{site})]" class="image">(#LOGO_SITE||image_reduire{210,0})</a>
+            </figure>]
+            [(#DESCRIPTIF|PtoBR)]
+            [<p class="url site"><a href="#URL_SITE" class="">(#URL_SITE)</a></p>]
+            <p class="suite"><a href="[(#ID_SYNDIC|generer_url_entite{site})]"><:caap:suite:></a></p>
+         </div><!-- .entry -->
+      </article>
+   </li>
+   </BOUCLE_sites>
+</ol>
+[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
+</B_sites>
+<p class="message info"><:caap:aucun_resultat:></p>
+<//B_sites>

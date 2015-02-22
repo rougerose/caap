@@ -1,0 +1,16 @@
+<article class="contenu-entete self login oh">
+   <h1 class="titre">[(#INFO_TITRE{rubrique,12}) : ]<:caap:inscrire_titre:></h1>
+   <div class="contenu">
+      [(#ENV{mode}|=={profil}|oui)
+         [(#SESSION{id_auteur}|oui)
+            #FORMULAIRE_INSCRIPTION{#SESSION{id_auteur}}
+         ]
+         [(#SESSION{id_auteur}|non)
+            #LOGIN_PUBLIC
+         ]
+      ]
+      [(#ENV{mode}|=={profil}|non)
+         #FORMULAIRE_INSCRIPTION
+      ]
+   </div>
+</article>

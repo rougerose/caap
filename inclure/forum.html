@@ -1,0 +1,7 @@
+<section id="comments" class="liste messages comments section">
+   <INCLURE{fond=comments-thread1,env,ajax} />[(#ENV{repondre_url}|oui)
+   [<div id="comment-form" class="comment-form">
+      [<h2 class="intertitre">(#ENV{repondre_titre,<:repondre_article:>})</h2>]
+      (#FORMULAIRE_FORUM{#SELF,#ENV{objet},#ENV{id_objet}})
+   </div>]]
+</section>

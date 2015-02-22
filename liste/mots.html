@@ -1,0 +1,18 @@
+<aside class="liste">
+   <ul class="liste-items">
+      <B_tags>
+      <li class="tags">
+         <h1 class="intertitre"><:caap:info_mots:></h1>
+         <ul class="liste-items">
+            <BOUCLE_tags(MOTS){id_article?}{id_rubrique?}{par num titre, titre}>
+            <li class="tag">[(#COMPTEUR_BOUCLE|=={1}|oui)<i class="icon-tags"></i> ]<a href="#URL_MOT" rel="tag">#TITRE</a></li>
+            </BOUCLE_tags>
+         </ul>
+      </li>
+      </B_tags>
+      [(#ENV{id_article}|oui) [(#PLUGIN{socialtags}|oui)
+      <li class="share">
+         <h1 id="partagez" class="intertitre"><:caap:info_partagez:></h1>
+      </li>]]
+   </ul>
+</aside>

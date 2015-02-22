@@ -1,0 +1,18 @@
+[(#SET{titre, <:caap:menu_nom_connecter:>})]
+[(#SET{titre_connecter, <:lien_connecter:>})]
+[(#ENV{titre}|oui)
+	#SET{titre, #ENV*{titre}|typo}
+]
+[(#ENV{titre_connecter}|oui)
+	#SET{titre_connecter, #ENV*{titre_connecter}|typo}
+]
+[(#ENV{appel_formulaire}|oui)
+	<div class="titre">#GET{titre}</div>
+	<div class="infos"> </div>
+]
+[(#ENV{appel_menu}|oui)
+	[(#SESSION{id_auteur}|>{0}|non)
+		<li class="menu-entree item[ (#ENV{css})]">
+			<a href="[(#URL_PAGE{identification}|parametre_url{url,#ENV{url,#URL_RUBRIQUE{12}}})]">#GET{titre_connecter}</a>
+	]
+]

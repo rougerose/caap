@@ -1,0 +1,54 @@
+#SET{documents,#ARRAY} #SET{messages,#ARRAY}
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<article class="contenu-entete self oh">
+   <header class="header[(#LOGO_RUBRIQUE|oui) lg]">
+      <h1 class="titre">#TITRE</h1>
+      [<figure class="logo-objet">
+         (#LOGO_RUBRIQUE||image_reduire{210,0})
+      </figure>]
+   </header>
+   <div class="contextuel rubrique">
+      <INCLURE{fond=navs/rubriques,id_rubrique} />
+      <INCLURE{fond=liste/mots,id_rubrique} />
+   </div>
+</article>
+
+[(#REM) la sélection des articles du secteur ]
+#SET{selection,#ARRAY}
+<B_selection>
+<BOUCLE_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_SECTEUR}{doublons}>
+   #SET_PUSH{selection,#ID_ARTICLE}
+</BOUCLE_selection>
+<INCLURE{fond=liste/articles-selection,env,selection=#GET{selection},ajax} />
+</B_selection>
+
+[(#REM) les derniers messages ]
+<BOUCLE_messages(FORUMS){plat}{id_secteur}{!par date}{0,5}>[(#SET{messages,#GET{messages}|push{#ID_FORUM}})]</BOUCLE_messages>
+[(#GET{messages}|count|>{0}|oui)
+   [<div class="liste messages comments section">
+      <h2 class="intertitre"><:caap:derniers_messages:></h2>
+      (#INCLURE{fond=liste/comments-selection,selection=#GET{messages},contexte=#ENV{composition}})
+      <p class="tous"><a href="#URL_RUBRIQUE{14}"><:caap:tous_sujets:></a></p>
+   </div>]
+][(#REM) les derniers documents ]
+<BOUCLE_documents(DOCUMENTS){id_rubrique=16}{!par date}{0,5}>[(#SET{documents,#GET{documents}|push{#ID_DOCUMENT}})]</BOUCLE_documents>
+[(#GET{documents}|count|>{0}|oui)
+   [<div class="liste documents membres section">
+      <h2 class="intertitre"><:caap:derniers_documents:></h2>
+      (#INCLURE{fond=liste/documents-recherche,selection=#GET{documents},composition=#ENV{composition},ajax})
+      <p class="tous"><a href="#URL_RUBRIQUE{14}"><:caap:tous_documents:></a></p>
+   </div>]
+][(#REM) les autres rubriques avec les derniers articles pour chacune ]
+#SET{selection_art,#ARRAY}
+<BOUCLE_rubriques_enfants(RUBRIQUES){id_parent}{id_rubrique !IN 14,16}>
+<B_derniers_articles>
+<div class="liste articles selection section">
+   <h2 class="intertitre">#INFO_TITRE{rubrique,#ID_RUBRIQUE}</h2>
+   <BOUCLE_derniers_articles(ARTICLES){id_rubrique}{!par date}{0,5}{doublons}>
+   [(#INCLURE{fond=inclure/article-resume,id_article})]
+   </BOUCLE_derniers_articles>
+   <p class="tous"><a href="#URL_RUBRIQUE{#ID_RUBRIQUE}"><:caap:tous_articles:></a></p>
+</div>
+</B_derniers_articles>
+</BOUCLE_rubriques_enfants>
+</BOUCLE_rubrique>

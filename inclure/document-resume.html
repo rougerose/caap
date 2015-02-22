@@ -1,0 +1,29 @@
+[(#ENV{composition}|=={recherche}|oui) [(#SET{url_doc,#ENV{url_doc}|ancre_url{documents}})]
+]<BOUCLE_document(DOCUMENTS){id_document}>
+<article class="hentry colonne oh">
+   <header class="header">
+      <h1 class="entry-title titre"><a href="[(#GET{url_doc}|sinon{#URL_DOCUMENT})]" rel="bookmark">[(#TITRE|sinon{<:caap:info_document:> #ID_DOCUMENT})]</a></h1>
+   </header>
+   <ul class="meta-publi">
+      <li><time class="updated" datetime="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></li>
+      <li class="data-document"><:caap:fichier:> #TYPE_DOCUMENT[ / (#TAILLE|taille_en_octets)]</li>
+   </ul>
+   <div class="entry-content">
+      [<figure class="logo-objet">
+         <a href="[(#GET{url_doc}|sinon{#URL_DOCUMENT})]" type="#MIME_TYPE" class="image">(#LOGO_DOCUMENT||image_reduire{130,0}|)</a>
+      </figure>]
+      <p class="spip">
+         [(#DESCRIPTIF|PtoBR)]
+      </p>
+      [<p class="suite"><a href="(#GET{url_doc})"><:caap:suite:></a></p>]
+      <B_mots>
+      <p>
+         <i class="icon-tags"></i>
+         <BOUCLE_mots(MOTS){id_document}{par titre}{si #ENV{composition}|match{documents|membres}}{", "}>
+         #TITRE
+         </BOUCLE_mots>
+      </p>
+      </B_mots>
+   </div><!-- .entry -->
+</article>
+</BOUCLE_document>

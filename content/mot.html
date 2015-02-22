@@ -1,0 +1,40 @@
+<BOUCLE_mot(MOTS){id_mot}>
+[(#REM) tableaux des résultats ]
+#SET{articles,#ARRAY} #SET{rubriques,#ARRAY} #SET{sites,#ARRAY} #SET{total,''}
+<BOUCLE_articles(ARTICLES){id_mot}>[(#SET{articles,#GET{articles}|push{#ID_ARTICLE}})]</BOUCLE_articles>
+<BOUCLE_rubriques(RUBRIQUES){id_mot}>[(#SET{rubriques,#GET{rubriques}|push{#ID_RUBRIQUE}})]</BOUCLE_rubriques>
+<BOUCLE_sites(SITES){id_mot}>[(#SET{sites,#GET{sites}|push{#ID_SYNDIC}})]</BOUCLE_sites>[
+(#SET{total,
+   #GET{articles}|count
+      |plus{#GET{rubriques}|count}
+      |plus{#GET{sites}|count}
+})
+]<article class="contenu-entete self recherche oh">
+   <h1 class="titre">#TITRE</h1>
+   [<figure class="logo-objet">
+      (#LOGO_MOT||image_reduire{210,0})
+   </figure>]
+   <div class="contenu">
+      [<div class="texte">
+         (#TEXTE)
+      </div><!-- .texte -->]
+      [<aside class="notes">
+         <h1 class="spip intertitre"><:info_notes:></h1>
+         (#NOTES)
+      </aside>]
+   </div>
+</article>
+[(#GET{total}|>{0}|oui)
+   [(#GET{articles}|count|>{0}|oui)
+   [<div class="liste articles recherche">
+      (#INCLURE{fond=liste/articles,selection=#GET{articles},ajax})
+   </div>]][
+   (#GET{rubriques}|count|>{0}|oui)
+   [<div class="liste rubriques recherche">
+      (#INCLURE{fond=liste/rubriques,selection=#GET{rubriques},ajax})
+   </div>]][
+   (#GET{sites}|count|>{0}|oui)
+   [<div class="liste sites recherche">
+      (#INCLURE{fond=liste/sites,selection=#GET{sites},ajax})
+   </div>]]]
+</BOUCLE_mot>

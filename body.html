@@ -1,0 +1,20 @@
+<body>
+   <header role="banner">
+      <INCLURE{fond=inclure/recherche-panneau,env} />
+      <INCLURE{fond=header/#ENV{type-page},env} />
+      <INCLURE{fond=navs/nav,env} />
+   </header>
+   <div class="container page" role="main">
+      <div id="content" class="main">
+         <INCLURE{fond=content/#ENV{type-page},env} />
+      </div><!-- #content -->
+      <INCLURE{fond=extra1/#ENV{type-page},env} />
+      <INCLURE{fond=extra2/#ENV{type-page},env} />
+   </div><!-- .page -->
+   <div class="bc">
+      <INCLURE{fond=breadcrumb/#ENV{type-page},env} />
+   </div>
+   <footer class="footer">
+      <INCLURE{fond=footer/#ENV{type-page},env} />
+   </footer>
+</body>

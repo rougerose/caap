@@ -1,0 +1,16 @@
+<article class="contenu-entete self oh">
+   <header class="header">
+      <h1 class="titre"><:caap:profil_modifier_titre:></h1>
+   </header>
+   <BOUCLE_auteur(AUTEURS){id_auteur}{tout}{si #SESSION{id_auteur}|=={#ID_AUTEUR}}>
+   <div class="texte">
+      [(#FORMULAIRE_EDITER_AUTEUR_PUBLIC{#ID_AUTEUR,#URL_AUTEUR})]
+   </div><!-- .texte -->
+   </BOUCLE_auteur>
+   <div class="texte">
+      <div class="alert alert-error">
+         <:caap:contenu_interdit:>
+      </div>
+   </div><!-- .texte -->
+   <//B_auteur>
+</article>

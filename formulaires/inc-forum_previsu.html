@@ -1,0 +1,24 @@
+<fieldset class="previsu">
+   <legend><:previsualisation:></legend>
+   <ol class="liste-items">
+      <li class="comment-item">
+         <article class="comment oh">
+            <div class="comment-meta">
+               [<span class="image">(#MODELE{gravatar,id_auteur=#SESSION{id_auteur}})</span>]
+               [<span class="auteur">(#SESSION{session_nom}|safehtml|sinon{[(#SESSION{nom}|typo)]}|sinon{<span class="erreur_message blink">?</span>})</span>]
+            </div><!-- .comment-meta -->
+            <div class="comment-content">
+               [<div class="comment-texte">(#ENV*{texte})</div>]
+               [<div class="comment-notes">(#ENV*{notes})</div>]
+            </div><!-- .comment-content -->
+            [(#BOUTONS_ADMIN_FORUM)]
+         </article>
+         [<li class="reponse_formulaire reponse error">(#ENV*{erreur})</li>]
+      </li>
+   </ol>
+   [<p class="boutons"><input type="submit" class="submit" onclick="confirmer_previsu_forum_poste=true;" name="confirmer_previsu_forum" value="(#ENV*{bouton})" /></p>]
+</fieldset>
+<script type="text/javascript">/*<![CDATA[*/
+var confirmer_previsu_forum_poste = false;
+if (window.jQuery){ jQuery(function(){ jQuery(window).unload(function() { if (!confirmer_previsu_forum_poste) alert('<:forum:forum_attention_message_non_poste|texte_script:>');confirmer_previsu_forum_poste=true;});});}
+/*]]>*/</script>
