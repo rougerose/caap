@@ -8,8 +8,8 @@ $(document).ready(function() {
    // = jquery ui accordion / rubrique Ressources =
    // =============================================
    $("#ressources").accordion({
-      header: 'dt',
-      autoHeight: false
+     header: '.ressources-header',
+     autoHeight: false
    });
 
    // ==================================

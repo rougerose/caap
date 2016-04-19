@@ -18,7 +18,7 @@ function caap_insert_head_css($flux) {
 }
 
 // grille de mise en page (hashgrid.js)
-function caap_affichage_final($flux){
+/*function caap_affichage_final($flux){
    if (
    $GLOBALS['html']
    AND isset($GLOBALS['visiteur_session']['statut'])
@@ -31,7 +31,7 @@ function caap_affichage_final($flux){
    }
    return $flux;
 }
-
+*/
 // jquery-ui
 function caap_jqueryui_plugins($scripts){
    $scripts[] = "jquery.ui.accordion";
