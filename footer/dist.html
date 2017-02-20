@@ -46,7 +46,7 @@
          <B_articles>
          <h3 class="soustitre"><:caap:derniers_articles:></h3>
          <ul class="liste">
-            <BOUCLE_articles(ARTICLES){branche}{id_rubrique !IN 14,16}{0,2}{tout_voir}>
+            <BOUCLE_articles(ARTICLES){branche}{id_rubrique !IN 14,16}{!par date}{0,2}{tout_voir}>
             [(#SESSION{id_auteur}|?{[(#SET{url,#URL_ARTICLE})],[(#SET{url,#URL_RUBRIQUE{12}})]})]
             <li class="item"><a href="#GET{url}">#TITRE</a></li>
             </BOUCLE_articles>
