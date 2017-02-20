@@ -1,9 +1,9 @@
 <paquet
    prefix="caap"
    categorie="squelette"
-   version="3.0.4"
+   version="3.0.5"
    etat="stable"
-   compatibilite="[3.0.0-dev;["
+   compatibilite="[3.0.0-dev;3.0.*]"
    logo="img/caap-128.png"
 >
    <nom>CAAP</nom>
