@@ -1,6 +1,9 @@
 # fichiers systemes
 .DS_Store
-.tm_properties
 
-# tous les plugins auto
-auto/
+.sass-cache
+node_modules/
+bower_components/
+css/*.map
+yarn.*
+yarn-error.log
