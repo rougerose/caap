@@ -29,7 +29,7 @@
    ]<dt class="ressources-header theme"><a href="#theme#GET{id}">#TITRE</a></dt>
    <B_articles_lies>
    <dd id="theme#GET{id}" class="articles">
-      <BOUCLE_articles_lies(ARTICLES){id_rubrique}{id_mot}{par titre}>[
+      <BOUCLE_articles_lies(ARTICLES){id_rubrique}{id_mot}{!par date}>[
       (#INCLURE{fond=inclure/article-resume,id_article,composition=#ENV{composition}})
       ]</BOUCLE_articles_lies>
    </dd>
