@@ -13,6 +13,9 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 // plugin jaz : ajout automatique des nouveaux inscrits à la rubrique Membres
 // define('_ZONES_AUTO_JOINTES', '2');
 
+
+define('_JQUERYUI_CSS_NON', true);
+
 $GLOBALS['debut_intertitre'] = "\n<h2 class='spip'>";
 $GLOBALS['fin_intertitre'] = "</h2>\n";
 

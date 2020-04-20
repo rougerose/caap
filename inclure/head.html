@@ -6,7 +6,7 @@
 (#REM) Mobile viewport optimized: h5bp.com/viewport ]
 <meta name="viewport" content="width=device-width">[
 (#REM) Lien vers le flux RSS du site ]
-[<link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="(#URL_PAGE{backend})" />]
+[<link rel="alternate" type="application/rss+xml" title="[(#NOM_SITE_SPIP|textebrut)]" href="(#URL_PAGE{backend})" />]
 [<link rel="stylesheet" href="(#CSS{css/bootstrap.less})" />]
 [(#REM) Balise permettant aux plugins d'inserer des fichiers CSS ]
 #INSERT_HEAD_CSS
@@ -19,6 +19,8 @@
 	si l'option est cochee dans Configuration
 ]
 #INSERT_HEAD
+[<link rel="stylesheet" href="(#CSS{css/jquery.ui.theme.css})" />]
+[<link rel="stylesheet" href="(#CSS{css/jquery.ui.accordion.css})" />]
 [<script src="(#CHEMIN{js/boostrap.js})" type="text/javascript" charset="utf-8"></script>]
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]><script src="#CHEMIN{javascript/html5.js}"></script><![endif]-->
