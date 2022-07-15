@@ -8,3 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.0.8] - 2022-07-15
 - Supprimer le formulaire d'inscription personnalisé au profit du formulaire standard.
+
+## [3.0.9] - 2022-07-15
+- Mails qq.com en liste noire
+<https://discuter.spip.net/t/eviter-le-spam-filtrage-par-domaine-de-mail-pour-les-inscriptions-dauteurs/162641>
