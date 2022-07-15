@@ -1,7 +1,7 @@
 <paquet
    prefix="caap"
    categorie="squelette"
-   version="3.0.8"
+   version="3.0.9"
    etat="stable"
    compatibilite="[3.0.0-dev;3.2.*]"
    logo="img/caap-128.png"
@@ -13,6 +13,7 @@
    <pipeline nom="insert_head_css" inclure="caap_pipelines.php" />
    <pipeline nom="affichage_final" inclure="caap_pipelines.php" />
    <pipeline nom="jqueryui_plugins" inclure="caap_pipelines.php" />
+   <pipeline nom="formulaire_verifier" inclure="caap_pipelines.php" />
 
    <necessite nom="Z5" compatibilite="[2.0-dev;2.0.3]" />
    <necessite nom="Zcore" />
