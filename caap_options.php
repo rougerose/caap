@@ -16,7 +16,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 
 define('_JQUERYUI_CSS_NON', true);
 
+$GLOBALS['z_blocs'] = array('content','extra1','extra2','head','head_js','header','footer','breadcrumb');
+
 $GLOBALS['debut_intertitre'] = "\n<h2 class='spip'>";
 $GLOBALS['fin_intertitre'] = "</h2>\n";
-
-?>
