@@ -10,17 +10,16 @@
    <auteur lien='rouge-rose.net'>christophe le drean</auteur>
    <licence>GNU/GPL</licence>
    <pipeline nom="insert_head" inclure="caap_pipelines.php" />
-   <pipeline nom="insert_head_css" inclure="caap_pipelines.php" />
    <pipeline nom="affichage_final" inclure="caap_pipelines.php" />
    <pipeline nom="jqueryui_plugins" inclure="caap_pipelines.php" />
    <pipeline nom="formulaire_verifier" inclure="caap_pipelines.php" />
 
-   <necessite nom="Z5" compatibilite="[2.0-dev;2.0.3]" />
+   <!-- <necessite nom="Z5" compatibilite="[2.0-dev;2.0.3]" /> -->
    <necessite nom="Zcore" />
    <necessite nom="spip_bonux" />
    <necessite nom="pb_selection" />
-   <necessite nom="bootstrap" compatibilite="[;1.0.0]" />
-   <necessite nom="lesscss" compatibilite="[;0.7.11]" />
+   <necessite nom="bootstrap" />
+   <necessite nom="lesscss" />
 
    <necessite nom="accesrestreint" compatibilite="[3.8.0;]" />
    <!-- plugin jaz a-t-il une utilité ? -->

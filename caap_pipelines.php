@@ -13,12 +13,6 @@ function caap_insert_head($flux) {
    return $flux;
 }
 
-// css
-function caap_insert_head_css($flux) {
-   $flux .= "<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>\n";
-   return $flux;
-}
-
 function caap_formulaire_verifier($flux) {
 	if ($flux['args']['form'] == 'inscription') {
 		if (strpos(_request('mail_inscription'), '@qq.com')) {
