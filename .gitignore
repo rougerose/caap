@@ -9,3 +9,8 @@ bower_components/
 css/*.map
 yarn.*
 yarn-error.log
+
+/vendor
+/composer.lock
+.php_cs.cache
+.php_cs.txt
