@@ -1,4 +1,4 @@
-<BOUCLE_auteur_profil(AUTEURS){id_auteur}{tout}>
+<BOUCLE_auteur_profil(AUTEURS){id_auteur}{tout}{si #SESSION{id_auteur}|=={#ENV{id_auteur}}}>
 [(#REM) Les messages de retour après modification du profil. Les messages sont affichés en fonction des variables. Un premier test préalable. ][
 (#ENV{modification}|ou{#ENV{email_confirm}}|ou{#ENV{email_modif}}|oui)
 <div class="texte">
