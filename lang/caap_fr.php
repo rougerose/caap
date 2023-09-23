@@ -108,6 +108,7 @@ Le Caap",
    'sujets_plusieurs' => '@nb@ sujets',
 
    // T
+   'titre_page_configurer_caap' => 'Configuration du plugin CAAP',
    'tous_articles' => 'Tous les articles',
    'tous_documents' => 'Tous les documents',
    'tous_sujets' => 'Tous les sujets',

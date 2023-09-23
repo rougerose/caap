@@ -13,6 +13,7 @@
    <pipeline nom="affichage_final" inclure="caap_pipelines.php" />
    <pipeline nom="jqueryui_plugins" inclure="caap_pipelines.php" />
    <pipeline nom="formulaire_verifier" inclure="caap_pipelines.php" />
+   <pipeline nom="autoriser" inclure="caap_autorisations.php" />
 
    <!-- <necessite nom="Z5" compatibilite="[2.0-dev;2.0.3]" /> -->
    <necessite nom="Zcore" />
@@ -20,6 +21,7 @@
    <necessite nom="pb_selection" />
    <necessite nom="bootstrap" />
    <necessite nom="lesscss" />
+   <necessite nom="saisies" />
 
    <necessite nom="accesrestreint" compatibilite="[3.8.0;]" />
    <!-- plugin jaz a-t-il une utilité ? -->
