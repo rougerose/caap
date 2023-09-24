@@ -292,7 +292,10 @@
    ------------------------------------------------------ */
    .self .titre,
    .contenu-entete.self .texte {color: @black;}
-   .self .titre {font-size: @baseFontSize * 2.14;}
+   .self .titre {
+		font-size: @baseFontSize * 2.14;
+		line-height: 1.1;
+	}
    .self hgroup .titre {margin-bottom: 0;}
    .self .soustitre {font-size: @baseFontSize * 1.71; margin-top: 0;}
    .contenu-entete.self .texte {font-size: @baseFontSize * 1.14;}
@@ -474,6 +477,13 @@
    .texte h2.spip:first-child,
    .texte h3.spip:first-child,
    .texte h4.spip:first-child {margin-top: 0;}
+
+   .texte h2,
+   .texte h3,
+   .texte h4,
+   .texte h5 {
+	line-height: 1.1;
+   }
 
    /* Notes */
    .notes .intertitre {border-bottom: 1px solid @black;}
