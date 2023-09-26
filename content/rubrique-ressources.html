@@ -16,11 +16,14 @@
    </div>
 </article>
 
-   #SET{tab_categories,#ARRAY}
+#SET{articles_tous, #ARRAY}
+#SET{articles_total, 0}
+<BOUCLE_articles_rubrique(ARTICLES){id_rubrique}>
+	[(#SET{articles_tous, #GET{articles_tous}|push{#ID_ARTICLE}})]
+</BOUCLE_articles_rubrique>
+[(#SET{articles_total, #GET{articles_tous}|count})]
 
-<BOUCLE_tableau_categories(ARTICLES spip_mots_liens){id_rubrique}{id_groupe=3}>
-   [(#ID_MOT|unique|oui) [(#SET_PUSH{tab_categories,#ID_MOT})] ]
-</BOUCLE_tableau_categories>
+<INCLURE{fond=inclure/ressources, id_rubrique, articles_total=#GET{articles_total}, articles_tous=#GET{articles_tous}, mots, ajax, env}/>
 
 <B_categories>
 <dl id="ressources" class="liste ressources">

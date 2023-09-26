@@ -8,6 +8,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'a_propos_caap' => 'À propos',
    'afficher' => "Afficher",
 
+   // B
+   'bouton_submit_filtres' => 'Voir',
+   'bouton_reset_filtres' => 'Effacer les filtres sélectionnés',
+
    // C
    'changer_passe' => 'Changer votre mot de passe',
    'contacter_titre' => "Contacter",
@@ -97,6 +101,9 @@ Le Caap",
    'recherche_resultat' => '1 résultat',
    'recherche_resultats' => '@nb@ résultats',
    'recherche_pas_de_resultat' => 'Aucun résultat',
+   'ressources_nb_singulier' => '1 ressource affichée',
+   'ressources_nb_pluriel' => '@nb@ ressources affichées',
+   'ressources_total' => '(sur un total de @nb@)',
 
 
    // S

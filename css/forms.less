@@ -8,10 +8,19 @@
    clear: both;
 }
 .formulaire_spip .boutons {
-   .form-actions;
-   padding-left: 0;
+	// .form-actions (Bootstrap)
+	padding: (@baseLineHeight - 1) 20px @baseLineHeight 0;
+	margin-top: @baseLineHeight;
+	margin-bottom: @baseLineHeight;
+	background-color: @formActionsBackground;
+	border-top: 1px solid #e5e5e5;
 }
-input.submit {.btn}
+
+.formulaire_spip .boutons--large .bouton {
+	flex: 1;
+}
+
+input.submit {.bouton}
 
 /* Explications */
 .formulaire_spip .explication {.help-block }
@@ -86,7 +95,7 @@ input.submit {.btn}
 ----------------------------------------------- */
 
 /* Champs obligatoires */
-.formulaire_spip li.obligatoire {}
+// .formulaire_spip li.obligatoire {}
 .formulaire_spip li.obligatoire label {font-weight: bold;}
 
 /* * Erreurs */
@@ -147,4 +156,65 @@ input.submit {.btn}
 .formulaire_ecrire_auteur .text,
 .formulaire_ecrire_auteur textarea {
    #grid > .core > .span(5)
+}
+
+// Règles génériques
+
+// Source : https: //moderncss.dev/pure-css-custom-checkbox-style
+// -- checkbox
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	margin: 0;
+	font: inherit;
+	color: currentColor;
+	width: 1.15em;
+	height: 1.15em;
+	border: 0.15em solid currentColor;
+	border-radius: 0.15em;
+	transform: translateY(-0.075em);
+	display: grid;
+	place-content: center;
+}
+
+input[type="checkbox"]::before {
+	content: "";
+	width: 0.65em;
+	height: 0.65em;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1em 1em var(--form-control-color, @linkColor);
+	// Windows High Contrast Mode
+	background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+	transform: scale(1);
+}
+
+// :focus
+input[type="checkbox"]:focus {
+	outline: 2px solid @linkColor;
+	outline-offset: 3px;
+}
+
+// label boutons radio et checkbox
+.form-control {
+	display: grid !important;
+	grid-template-columns: 1em auto;
+	gap: 0.5em;
+	align-items: baseline;
+	margin: 0;
+	// place-content: center;
+}
+
+.form-control + .form-control {
+	margin-top: 1em;
+}
+
+
+// Formulaire des filtres (ressources)
+.filtres_liste {
+	--cluster-space: 0.5rem 1rem;
 }

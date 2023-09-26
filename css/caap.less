@@ -10,6 +10,25 @@
    @import "css/variables.less";
    @import "css/mixins.less";
    @import "css/fonts.less";
+   @import "css/cluster.less";
+   @import "css/indicator.less";
+
+
+::selection {
+	background-color: @black;
+	color: @white;
+}
+
+*:focus-visible,
+[type="button"]:focus-visible,
+[type="reset"]:focus-visible,
+[type="submit"]:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+iframe:focus-visible {
+	outline: 2px solid @linkColor;
+	outline-offset: 3px;
+}
 
 /*   =Utilities
    ------------------------------------------------------ */
@@ -104,6 +123,7 @@
 
    .section .intertitre,
    .ressources .theme,
+   .ressources .col-texte,
    .forum .intertitre,
    .liste.auteur .intertitre {
       padding-left: (@gridColumnWidth * 4) + (@gridGutterWidth * (4 - 1) + @gridGutterWidth);
@@ -123,7 +143,7 @@
       color: @textColor;
       border-bottom: 1px solid @linkColor;
    }
-   a:visited {}
+//    a:visited {}
    a:hover {text-decoration: none;}
    p a:hover, li a:hover {color: @linkColor;}
    a:active, a:focus {position: relative; top: 1px;}
@@ -320,6 +340,8 @@
       border-bottom: 1px solid @linkColor;
    }
    .liste.ressources .articles {clear: both; margin-left: 0;}
+
+//    .ressources
 
    /* espace membres */
    .liste.section {clear: both; margin-bottom: @baseLineHeight*2;}
