@@ -1,10 +1,20 @@
+[(#REM)
+	Paramètres possibles :
+		- pagination_haute = 1		Afficher la pagination haute
+		- pagination = 5			Pas de la pagination
+		- pagination_align			?
+		- selection	= #ARRAY{}		Liste des id_articles à afficher
+		- contexte					?
+]
 <B_articles>
-<div class="liste articles selection section">
-   #ANCRE_PAGINATION
-   [<nav class="pagination haut[ (#ENV{pagination_align})]">(#PAGINATION{li})</nav>]
-   <BOUCLE_articles(ARTICLES){id_article IN #ENV{selection}}{pagination #ENV{pagination,5}}>
-   #INCLURE{fond=inclure/article-resume,id_article,contexte=#ENV{contexte}}
-   </BOUCLE_articles>
-   [<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
-</div><!-- .liste articles -->
+	#SET{pagination_haute, #ENV{pagination_haute, 1}}
+	<div class="liste articles selection section">
+		#ANCRE_PAGINATION
+		[(#GET{pagination_haute}|=={1}|oui)
+			[<nav class="pagination haut[ (#ENV{pagination_align})]">(#PAGINATION{li})</nav>]
+		]<BOUCLE_articles(ARTICLES){id_article IN #ENV{selection}}{pagination #ENV{pagination,5}}>
+			<INCLURE{fond=inclure/article-resume, id_article, contexte=#ENV{contexte}} />
+		</BOUCLE_articles>
+		[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
+	</div><!-- .liste articles -->
 </B_articles>

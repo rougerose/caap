@@ -24,20 +24,4 @@
 [(#SET{articles_total, #GET{articles_tous}|count})]
 
 <INCLURE{fond=inclure/ressources, id_rubrique, articles_total=#GET{articles_total}, articles_tous=#GET{articles_tous}, mots, ajax, env}/>
-
-<B_categories>
-<dl id="ressources" class="liste ressources">
-   <BOUCLE_categories(MOTS){id_mot IN #GET{tab_categories}}{par titre}>[
-   (#SET{id,#ID_MOT})
-   ]<dt class="ressources-header theme"><a href="#theme#GET{id}">#TITRE</a></dt>
-   <B_articles_lies>
-   <dd id="theme#GET{id}" class="articles">
-      <BOUCLE_articles_lies(ARTICLES){id_rubrique}{id_mot}{!par date}>[
-      (#INCLURE{fond=inclure/article-resume,id_article,composition=#ENV{composition}})
-      ]</BOUCLE_articles_lies>
-   </dd>
-   </B_articles_lies>
-   </BOUCLE_categories>
-</dl>
-</B_categories>
 </BOUCLE_contenu>

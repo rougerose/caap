@@ -11,6 +11,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    // B
    'bouton_submit_filtres' => 'Voir',
    'bouton_reset_filtres' => 'Effacer les filtres sélectionnés',
+   'bouton_ressources_toutes' => 'Toutes les ressources',
 
    // C
    'changer_passe' => 'Changer votre mot de passe',
@@ -103,7 +104,7 @@ Le Caap",
    'recherche_pas_de_resultat' => 'Aucun résultat',
    'ressources_nb_singulier' => '1 ressource affichée',
    'ressources_nb_pluriel' => '@nb@ ressources affichées',
-   'ressources_total' => '(sur un total de @nb@)',
+   'ressources_total' => '(sur un total de @nb@ disponibles)',
 
 
    // S

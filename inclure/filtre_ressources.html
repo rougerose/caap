@@ -1,0 +1,18 @@
+<BOUCLE_filtre_ressources(MOTS){id_mot}>
+	#SET{liste_mots, #ARRAY}
+	#SET{occurences, 0}
+	[(#SET{liste_mots, #GET{liste_mots}|push{#ID_MOT}})]
+	[(#ENV{mots}|oui)
+		[(#SET_MERGE{liste_mots, #ENV{mots}})]
+		[(#SET{liste_mots, #GET{liste_mots}|array_unique})]
+	]
+	<B_occurences_mot>
+		<BOUCLE_occurences_mot(ARTICLES){id_rubrique=#ENV{id_rubrique}}{mots 100% #GET{liste_mots}}> </BOUCLE_occurences_mot>
+		#SET{occurences, #TOTAL_BOUCLE}
+	</B_occurences_mot>
+
+	[(#GET{occurences}|>{0}|?{
+		<a class="bouton[ (#ID_MOT|in_any{#ENV{mots}}|oui)bouton--checked] ajax" data-variant="filter" href="[(#SELF|parametre_url{mots\[\], #GET{liste_mots}})]" rel="nofollow">[(#TITRE)[ <span class="indicator">(#GET{occurences})</span>]]</a>,
+		<span class="bouton bouton--disabled" data-variant="filter">[(#TITRE)[ <span class="indicator">(#GET{occurences})</span>]]</span>
+	})]
+</BOUCLE_filtre_ressources>
