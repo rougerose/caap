@@ -13,47 +13,6 @@
          </BOUCLE_contact>
       </div>
    </div>
-   <div class="groupe clearfix">
-      <div class="colonne colonne--1-2 derniers-articles">
-         <h2 class="intertitre intertitre--contrast"><:caap:derniers_articles:></h2>
-         <ul class="liste">
-            <BOUCLE_derniers(ARTICLES){!par date}{id_secteur !IN 12}{0,7}>
-            <li class="item"><a href="#URL_ARTICLE">#TITRE</a></li>
-            </BOUCLE_derniers>
-         </ul>
-      </div>
-      <div class="colonne colonne--1-2 colonne--droite membres">
-         <BOUCLE_membres(RUBRIQUES){id_rubrique=12}{tout_voir}>
-         <h2 class="intertitre intertitre--contrast">#TITRE</h2>
-         <B_messages>
-         <h3 class="soustitre"><:caap:derniers_messages:></h3>
-         <ul class="liste">
-            <BOUCLE_messages(FORUMS){plat}{id_secteur}{!par date}{0,2}{tout_voir}>
-            [(#SESSION{id_auteur}|?{[(#SET{url,#URL_FORUM})],[(#SET{url,#URL_RUBRIQUE})]})]
-            <li class="item"><a href="#GET{url}">[(#TEXTE|couper{50})]</a></li>
-            </BOUCLE_messages>
-         </ul>
-         </B_messages>
-         <B_documents>
-         <h3 class="soustitre"><:caap:derniers_documents:></h3>
-         <ul class="liste">
-            <BOUCLE_documents(DOCUMENTS){id_rubrique=16}{!par date}{0,2}{tout_voir}>
-            [(#SESSION{id_auteur}|?{[(#SET{url,#URL_DOCUMENT})],[(#SET{url,#URL_RUBRIQUE{12}})]})]
-            <li class="item"><a href="#GET{url}">[(#TITRE|sinon{document #TYPE_DOCUMENT})]</a></li>
-            </BOUCLE_documents>
-         </ul>
-         </B_documents>
-         <B_articles>
-         <h3 class="soustitre"><:caap:derniers_articles:></h3>
-         <ul class="liste">
-            <BOUCLE_articles(ARTICLES){branche}{id_rubrique !IN 14,16}{!par date}{0,2}{tout_voir}>
-            [(#SESSION{id_auteur}|?{[(#SET{url,#URL_ARTICLE})],[(#SET{url,#URL_RUBRIQUE{12}})]})]
-            <li class="item"><a href="#GET{url}">#TITRE</a></li>
-            </BOUCLE_articles>
-         </ul>
-         </BOUCLE_membres>
-      </div>
-   </div>
    <nav class="nav">
       <ul class="liste clearfix">
          <li class="signature">[(#SLOGAN_SITE_SPIP)][ <a href="#URL_SITE_SPIP/" rel="start home" class="caap" >(#LOGO_SITE_SPIP|image_reduire{70,0}|inserer_attribut{alt,#NOM_SITE_SPIP})</a>]</li>
