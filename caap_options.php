@@ -16,7 +16,7 @@ if (!defined('_ECRIRE_INC_VERSION')) { return;
 // define('_ZONES_AUTO_JOINTES', '2');
 
 
-define('_JQUERYUI_CSS_NON', true);
+// define('_JQUERYUI_CSS_NON', true);
 
 $GLOBALS['z_blocs'] = ['content','extra1','extra2','head','head_js','header','footer','breadcrumb'];
 
