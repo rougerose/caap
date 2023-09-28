@@ -3,16 +3,16 @@
    categorie="squelette"
    version="3.0.9"
    etat="stable"
-   compatibilite="[3.0.0-dev;3.2.*]"
+   compatibilite="[3.0.0-dev;4.2.*]"
    logo="img/caap-128.png"
 >
    <nom>CAAP</nom>
    <auteur lien='rouge-rose.net'>christophe le drean</auteur>
    <licence>GNU/GPL</licence>
-   <pipeline nom="insert_head" inclure="caap_pipelines.php" />
-   <pipeline nom="affichage_final" inclure="caap_pipelines.php" />
-   <pipeline nom="jqueryui_plugins" inclure="caap_pipelines.php" />
-   <pipeline nom="formulaire_verifier" inclure="caap_pipelines.php" />
+   <!-- <pipeline nom="insert_head" inclure="caap_pipelines.php" /> -->
+   <!-- <pipeline nom="affichage_final" inclure="caap_pipelines.php" /> -->
+   <!-- <pipeline nom="jqueryui_plugins" inclure="caap_pipelines.php" /> -->
+   <!-- <pipeline nom="formulaire_verifier" inclure="caap_pipelines.php" /> -->
    <pipeline nom="autoriser" inclure="caap_autorisations.php" />
 
    <!-- <necessite nom="Z5" compatibilite="[2.0-dev;2.0.3]" /> -->
@@ -26,13 +26,13 @@
    <necessite nom="menus" />
    <necessite nom="critere_mots" />
 
-   <necessite nom="accesrestreint" compatibilite="[3.8.0;]" />
+   <!-- <necessite nom="accesrestreint" compatibilite="[3.8.0;]" /> -->
    <!-- plugin jaz a-t-il une utilité ? -->
    <!-- <utilise nom="jaz" compatibilite="[1.1.0;]" /> -->
    <!-- <utilise nom="menus" /> -->
    <!-- <utilise nom="IntertitresTdm" /> -->
    <!-- <utilise nom="inscription3" /> -->
-   <utilise nom="gravatar" />
+   <!-- <utilise nom="gravatar" /> -->
 
    <!-- <utilise nom="notifications" /> -->
    <!-- <utilise nom="nospam" /> -->
