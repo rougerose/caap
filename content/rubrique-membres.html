@@ -1,7 +1,0 @@
-[(#REM) rubrique Membres est une page d'accueil, si le visiteur est identifié, sinon il s'inscrit/s'identifie ]
-<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}{tout_voir}>[
-(#SESSION{id_auteur}|oui)
-   <INCLURE{fond=content/rubrique-membres-contenu,env} />
-][(#SESSION{id_auteur}|non)
-   <INCLURE{fond=content/rubrique-membres-identification,env} />
-]</BOUCLE_contenu_rubrique>
