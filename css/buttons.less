@@ -66,20 +66,19 @@ body .spip-admin-bloc, body .spip-admin-float {z-index: @zindexFixedNavbar + 1; 
 		border-color: lighten(@grayLight, 20%);
 		color: @grayDark;
 
-		// &::before {
-		// 	content: "";
-		// 	width: 0.65em;
-		// 	height: 0.65em;
-		// 	margin-right: 0.25em;
-		// 	transform: scale(0);
-		// 	transform-origin: bottom left;
-		// 	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-		// 	transition: 120ms transform ease-in-out;
-		// 	box-shadow: inset 1em 1em @linkColor;
-		// }
-
 		&:hover {
 			border-color: @linkColor;
+		}
+	}
+
+	&[data-variant="invert"] {
+		background-color: @black;
+		border: 1px solid @white;
+
+		&:hover {
+			background-color: @linkColor;
+			border-color: @linkColor;
+			color: @white;
 		}
 	}
 
@@ -111,5 +110,9 @@ body .spip-admin-bloc, body .spip-admin-float {z-index: @zindexFixedNavbar + 1; 
 				box-shadow: inset 1em 1em @linkColor;
 			}
 		}
+	}
+
+	&--full-width {
+		flex: 1;
 	}
 }

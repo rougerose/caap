@@ -1,24 +1,56 @@
 <div class="container">
-   <div id="apropos" class="apropos groupe clearfix">
-      <h2 class="intertitre intertitre--contrast"><:caap:a_propos_caap:></h2>
-      <div class="colonne colonne--2-3">
-         [<p class="site--descriptif">(#DESCRIPTIF_SITE_SPIP|PtoBR)</p>]
-         <p><a href="#INFO_URL{article,26}" class="btn-apropos btn--firstitem">En savoir plus</a> <a href="#INFO_URL{article,4}" class="btn-apropos">Adhérer</a></p>
-      </div><!-- /.colonne--2-3 -->
-      <div class="colonne colonne--droite colonne--1-3">
-         <p><a href="https://www.facebook.com/caapartsvisuels" class="a--icon">[(#CHEMIN{img/icon--facebook.png}|balise_img{Le CAAP sur Facebook})] <span class="i--label">Facebook</span></a></p>
-         <p><a href="https://twitter.com/CaapAuteurs" class="a--icon">[(#CHEMIN{img/icon--twitter.png}|image_reduire{32}|inserer_attribut{alt,Le CAAP sur Twitter})]<span class="i--label">Twitter</span></a></p>
-         <BOUCLE_contact(ARTICLES){page=contact}>
-         <p><a href="#URL_ARTICLE" class="a--icon">[(#CHEMIN{img/icon--email.png}|balise_img{Contact par mail})]<span class="i--label">#TITRE</span></a></p>
-         </BOUCLE_contact>
-      </div>
+	<div class="footer_brand">
+		<a href="#URL_SITE_SPIP" class="footer_logo span4">[(#LOGO_SITE_SPIP|image_reduire{140,0}|inserer_attribut{alt,#NOM_SITE_SPIP})]</a>
+		[<div class="footer_baseline">(#SLOGAN_SITE_SPIP)</div>]
    </div>
-   <nav class="nav">
-      <ul class="liste clearfix">
-         <li class="signature">[(#SLOGAN_SITE_SPIP)][ <a href="#URL_SITE_SPIP/" rel="start home" class="caap" >(#LOGO_SITE_SPIP|image_reduire{70,0}|inserer_attribut{alt,#NOM_SITE_SPIP})</a>]</li>
-         <BOUCLE_credits(ARTICLES){page=credits}>
-         <li class="credits"><a href="#URL_ARTICLE">#TITRE</a></li>
-         </BOUCLE_credits>
-      </ul>
-   </nav>
+   <div id="apropos" class="apropos groupe clearfix">
+		<h2 class="intertitre intertitre--contrast"><:caap:a_propos_caap:></h2>
+		<div>
+			[<p class="xsite--descriptif">(#DESCRIPTIF_SITE_SPIP|PtoBR)</p>]
+			<p class="cluster"><a href="#INFO_URL{article,26}" class="bouton bouton--full-width" data-variant="invert">En savoir plus</a> <a href="#INFO_URL{article,4}" class="bouton bouton--full-width" data-variant="invert">Adhérer</a></p>
+		</div>
+		<div class="cluster footer_social">
+			[<a href="(#URL_PAGE_UNIQUE{contact})">
+				[<svg height="1em" width="1em" viewBox="0 0 32 32" aria-labelledby="icon-email-title">
+					<title id="icon-email-title">Contacter le CAAP par email</title>
+					<use href="(#CHEMIN{img/icon-defs.svg}|ancre_url{#icon-email})"></use>
+				</svg>]
+			</a>]
+			[<a href="https://piaille.fr/@CAAP@framapiaf.org">
+				<svg height="1em" width="1em" viewBox="0 0 32 32" aria-labelledby="icon-mastodon-title">
+					<title id="icon-mastodon-title">Suivre le CAAP sur Mastodon</title>
+					<use href="(#CHEMIN{img/icon-defs.svg}|ancre_url{#icon-mastodon})"></use>
+				</svg>
+			</a>]
+			<a href="https://www.facebook.com/caapartsvisuels">
+				<svg height="1em" width="1em" viewBox="0 0 32 32" aria-labelledby="icon-facebook-title">
+					<title id="icon-facebook-title">Suivre le CAAP sur Facebook</title>
+					[<use href="(#CHEMIN{img/icon-defs.svg}|ancre_url{#icon-facebook})"></use>]
+				</svg>
+			</a>
+			<a href="https://twitter.com/CaapAuteurs">
+				<svg height="1em" width="1em" viewBox="0 0 32 32" aria-labelledby="icon-twitter-title">
+					<title id="icon-twitter-title">Suivre le CAAP sur Twitter</title>
+					[<use href="(#CHEMIN{img/icon-defs.svg}|ancre_url{#icon-twitter})"></use>]
+				</svg>
+			</a>
+			<a href="https://www.instagram.com/caap.comite">
+				<svg height="1em" width="1em" viewBox="0 0 32 32" aria-labelledby="icon-instagram-title">
+					<title id="icon-instagram-title">Suivre le CAAP sur Instagram</title>
+					[<use href="(#CHEMIN{img/icon-defs.svg}|ancre_url{#icon-instagram})"></use>]
+				</svg>
+			</a>
+			<a href="#URL_PAGE{backend}">
+				<svg height="1em" width="1em" viewBox="0 0 32 32" aria-labelledby="icon-rss-title">
+					<title id="icon-rss-title">Suivre le fil RSS du CAAP</title>
+					[<use href="(#CHEMIN{img/icon-defs.svg}|ancre_url{#icon-rss})"></use>]
+				</svg>
+			</a>
+		</div>
+		<BOUCLE_credits(ARTICLES){page=credits}>
+			[<div class="footer_credits">
+				<a href="(#URL_ARTICLE)">#TITRE</a>
+			</div>]
+		</BOUCLE_credits>
+   </div>
 </div>
