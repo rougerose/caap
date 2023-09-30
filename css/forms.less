@@ -20,7 +20,16 @@
 	flex: 1;
 }
 
-input.submit {.bouton}
+input.submit {
+	.bouton;
+	background-image: none;
+
+	&:hover,
+	&:focus {
+		background-color: @linkColor;
+		color: @white;
+	}
+}
 
 /* Explications */
 .formulaire_spip .explication {.help-block }
@@ -75,8 +84,8 @@ input.submit {.bouton}
 .span2 form textarea { width: 80%;}
 */
 //form textarea { width: 80%;}
-.markItUp .markItUpContainer .markItUpHeader {padding-right: 6px;padding-left: 6px;}
-.markItUp .markItUpContainer .markItUpHeader + textarea {border-top-left-radius: 0;border-top-right-radius: 0;border-top:0;}
+// .markItUp .markItUpContainer .markItUpHeader {padding-right: 6px;padding-left: 6px;}
+// .markItUp .markItUpContainer .markItUpHeader + textarea {border-top-left-radius: 0;border-top-right-radius: 0;border-top:0;}
 
 /*
 .span9 form select { width: 80%;}
@@ -106,8 +115,15 @@ input.submit {.bouton}
 
 /* Reponses */
 .reponse_formulaire {.alert;}
-.reponse_formulaire_ok {.alert-success;}
-.reponse_formulaire_erreur {.alert-error;}
+.reponse_formulaire_ok {
+	// .alert-success;
+	background-color: lighten(@successBackground, 1%);
+	border-color: @successBorder;
+	color: darken(@successText, 10%);
+}
+.reponse_formulaire_erreur {
+	.alert-error;
+}
 
 /* Variantes et cas particuliers
 ----------------------------------------------- */
