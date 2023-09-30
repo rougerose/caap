@@ -2,7 +2,7 @@
 
 - corriger les modèles doc et images
 - social tags : supprimer référence et appels au plugin
-- intertitres : mieux différencier les niveaux des intertitres.
+- résultats recherche : documents -> url et ancre à vérifier
 
 # Fait
 
@@ -14,6 +14,7 @@
 - supprimer espace adhérent
 - corriger les paginations
 - ajout liens instagram et mastodon
+- intertitres : mieux différencier les niveaux des intertitres.
 
 # Mise à jour en production
 

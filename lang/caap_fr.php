@@ -12,6 +12,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'bouton_submit_filtres' => 'Voir',
    'bouton_reset_filtres' => 'Effacer les filtres sélectionnés',
    'bouton_ressources_toutes' => 'Toutes les ressources',
+   'bouton_telecharger' => 'Télécharger le fichier',
 
    // C
    'changer_passe' => 'Changer votre mot de passe',
@@ -23,6 +24,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'dernier_message' => 'Dernier message',
    'derniers_messages' => 'Les derniers messages',
    'derniers_articles' => 'Les derniers articles',
+   'document_associe' => 'Document à télécharger',
+   'documents_associes' => 'Documents à télécharger',
 
    // E
    'entree_nom_pseudo' => 'Votre nom et votre prénom',
@@ -43,6 +46,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'info_site_web' => 'Site web',
    'inscrire_titre' => "s'inscrire",
    'identification_titre' => 'se connecter',
+   'image_associee' => 'Portfolio',
 
    //L
 	'label_bouton_inscription' => 'Vous inscrire',

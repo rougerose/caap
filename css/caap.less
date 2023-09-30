@@ -10,8 +10,14 @@
    @import "css/variables.less";
    @import "css/mixins.less";
    @import "css/fonts.less";
+   @import "css/utopia-type.less";
+   @import "css/utopia-space.less";
+   @import "css/auto-grid.less";
    @import "css/cluster.less";
    @import "css/indicator.less";
+   @import "css/flow.less";
+   @import "css/icon.less";
+   @import "css/prose.less";
 
 
 ::selection {
@@ -49,7 +55,7 @@ ol[role="list"] {
       #grid > .core > .span(12)
    }
    .self > .titre, // rubrique
-   .self .header .titre,
+   .self .header > div,
    .contenu-entete .texte, // rubrique
    .header > .entry-title, // liste art et art lui-même
    .header hgroup,
@@ -122,9 +128,27 @@ ol[role="list"] {
       float: left;
       #grid > .core > .span(4)
    }
-   .notes {
-      #grid > .core > .span(5)
-   }
+//    .notes {
+//       #grid > .core > .span(5)
+//    }
+
+.notes {
+	position: relative;
+	padding-top: var(--space-xs);
+
+	& div:first-child::before {
+		content: "";
+		background-color: @linkColor;
+		height: 2px;
+		width: 150px;
+		position: absolute;
+		top: 0;
+	}
+}
+
+.contenu {
+	padding-bottom: var(--space-l);
+}
 
    .section .intertitre,
    .ressources .theme,
@@ -307,7 +331,10 @@ header[role=banner] {
 /*   =Contenu
    ------------------------------------------------------ */
    .contenu .texte,
-   .contenu .ps {margin-bottom: @baseLineHeight*2;}
+   .contenu .ps,
+   .contenu .documents {
+		margin-bottom: var(--space-xl);
+	}
 
 /*   =Contenu entete
    ------------------------------------------------------ */
@@ -339,15 +366,21 @@ header[role=banner] {
    ------------------------------------------------------ */
    .hentry {}
       .entry-title {}
-      .soustitre {font-style: italic; font-weight: 400; color: @gray;}
+      .soustitre {
+		font-style: italic;
+		font-weight: 400;
+		// color: @gray;
+	}
       .meta-publi {display: inline-block; margin: 0; padding: 0;}
       .meta-publi li {display: block;}
       .self .meta-publi .category {margin-bottom: @baseLineHeight;}
-      .entry-content {}
+    //   .entry-content {}
          .entry-content .chapo {
             color: @black;
-            font-size: @baseFontSize * 1.14;
-            margin-bottom: @baseLineHeight * 2;
+            // font-size: @baseFontSize * 1.14;
+			font-size: var(--step-2);
+			font-weight: initial;
+            margin-bottom: var(--space-xl);
          }
       .tags {margin-bottom: @baseLineHeight;}
       .tags .tag {display: inline; margin-right: 5px;}
@@ -361,7 +394,7 @@ header[role=banner] {
 		line-height: 1.1;
 	}
    .self hgroup .titre {margin-bottom: 0;}
-   .self .soustitre {font-size: @baseFontSize * 1.71; margin-top: 0;}
+   .self .soustitre {font-size: @baseFontSize * 1.71; margin-top: 1rem;}
    .contenu-entete.self .texte {font-size: @baseFontSize * 1.14;}
    .self .meta-publi {margin-bottom: @baseLineHeight; clear: left;}
 
@@ -535,45 +568,52 @@ header[role=banner] {
 /*   =Spip
    ------------------------------------------------------ */
    /* Titres */
-   h1.spip, h2.spip, h3.spip, h4.spip, h5.spip, h6.spip {font-weight: 400; color: @black;}
-   h1.spip {font-size: @baseFontSize*2;}
-   h2.spip,
-   .notes .intertitre {font-size: @baseFontSize * 1.86; line-height: @baseLineHeight * 1.5; margin-bottom:(@baseLineHeight / 2.22); margin-top: @baseLineHeight;}
-   h3.spip {font-size: @baseFontSize * 1.57; line-height: @baseLineHeight * 1.5; margin-top: @baseLineHeight * 1.5;}
-   h4.spip {margin-top: @baseLineHeight * 1.5;}
-   h5.spip {font-size: @baseFontSize; margin-top: @baseLineHeight; margin-bottom: 10px;}
-   h6.spip {font-weight: 700; margin-top: @baseLineHeight; margin-bottom: 10px;}
+//    h1.spip, h2.spip, h3.spip, h4.spip, h5.spip, h6.spip {font-weight: 400; color: @black;}
+//    h1.spip {font-size: @baseFontSize*2;}
+//    h2.spip,
+//    .notes .intertitre {font-size: @baseFontSize * 1.86; line-height: @baseLineHeight * 1.5; margin-bottom:(@baseLineHeight / 2.22); margin-top: @baseLineHeight;}
+//    h3.spip {font-size: @baseFontSize * 1.57; line-height: @baseLineHeight * 1.5; margin-top: @baseLineHeight * 1.5;}
+//    h4.spip {margin-top: @baseLineHeight * 1.5;}
+//    h5.spip {font-size: @baseFontSize; margin-top: @baseLineHeight; margin-bottom: 10px;}
+//    h6.spip {font-weight: 700; margin-top: @baseLineHeight; margin-bottom: 10px;}
 
    .section .intertitre {font-size: @baseFontSize * 1.86;font-weight: 400; border-bottom: 1px solid #000;}
    .groupe .intertitre {
       font-size: @baseFontSize*1.42; line-height: @baseLineHeight;
       font-weight: 400;
-      // color: @gray;
       text-transform: uppercase;
    }
    .groupe .soustitre {
       font-size: 16px; line-height: @baseLineHeight;
-      // margin-bottom: 0;
       color: #fff;
    }
 
-   .texte h2.spip:first-child,
-   .texte h3.spip:first-child,
-   .texte h4.spip:first-child {margin-top: 0;}
+//    .texte h2.spip:first-child,
+//    .texte h3.spip:first-child,
+//    .texte h4.spip:first-child {margin-top: 0;}
 
-   .texte h2,
-   .texte h3,
-   .texte h4,
-   .texte h5 {
-	line-height: 1.1;
-   }
+// .texte {
+// 	& h2 {
+// 		font-size: var(--step-5);
+// 	}
+// }
+
+//    .texte h2,
+//    .texte h3,
+//    .texte h4,
+//    .texte h5,
+//    .text h6 {
+// 	// margin-top: var(--space-xl);
+// 	// margin-bottom: var(--space-s);
+// 	line-height: 1.1;
+//    }
 
    /* Notes */
-   .notes .intertitre {border-bottom: 1px solid @black;}
+//    .notes .intertitre {border-bottom: 1px solid @black;}
 
    /* images et documents */
-   .entry-content #documents {margin: 0;}
-   .entry-content .documents {margin: 0 0 @baseLineHeight;}
+//    .entry-content #documents {margin: 0;}
+//    .entry-content .documents {margin: 0 0 @baseLineHeight;}
 
    /* logos d'objet */
    .logo-objet {float: left; margin: 0 @gridGutterWidth @baseLineHeight 0;}

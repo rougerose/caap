@@ -1,0 +1,181 @@
+// Styles des contenus produits par Spip (articles notamment)
+// Ils surchargent également les styles éventuellement définis par Bootstrap
+
+.prose {
+	// Annuler les règles BS
+	& p,
+	& blockquote,
+	& table {
+		margin-bottom: 0;
+	}
+
+	// Intertitres
+	h2 {
+		--flow-space: var(--space-xl);
+		margin-bottom: 0 !important;
+		font-size: var(--step-5);
+	}
+
+	h3 {
+		font-size: var(--step-3);
+	}
+
+	h4 {
+		font-size: var(--step-2);
+	}
+
+	h5 {
+		font-size: var(--step-1);
+	}
+
+	h6 {
+		font-size: var(--step-1);
+		font-style: italic;
+	}
+
+	h3,
+	h4,
+	h5,
+	h6 {
+		--flow-space: var(--space-xl);
+		margin-bottom: 0 !important;
+	}
+
+	// h2 + *,
+	// h3 + *,
+	// h4 + *,
+	// h5 + * {
+	// 	--flow-space: var(--space-s);
+	// }
+
+	h2 + h3,
+	h3 + h4,
+	h5 + h6 {
+		--flow-space: var(--space-l);
+	}
+
+	// HR
+	hr,
+	hr.spip {
+		border: none;
+		background-color: @black;
+		// color: #333;
+		overflow: visible;
+		text-align: center;
+		height: 3px;
+		margin: var(--space-xl);
+	}
+
+	// Liens
+	// a[class*="spip"] {
+	// 	color: var(--color-link);
+	// }
+
+	// a[class*="spip"]:visited {
+	// 	color: var(--color-link-visited);
+	// }
+
+	// a[class*="spip"]:hover {
+	// 	color: var(--color-link);
+	// }
+
+	a.spip_out {
+		&::after {
+			background-color: @linkColor;
+			content: "";
+			display: inline-flex;
+			margin-left: 6px;
+			mask-image: url(../img/icon-link-external-16.svg);
+			mask-size: cover;
+			width: 0.6em;
+			height: 0.6em;
+		}
+	}
+
+	// Listes
+	ul.spip,
+	ol.spip {
+		--flow-space: var(--space-xs);
+		padding-left: 2rem;
+		margin-left: 0;
+		margin-bottom: 0 !important;
+
+		> li + li,
+		ul,
+		ol {
+			margin-top: calc(var(--flow-space) / 2);
+		}
+	}
+
+	// Tableaux
+	table {
+		max-width: 100%;
+		min-width: 50%;
+		width: 100%;
+		border-spacing: 0;
+	}
+
+	th,
+	td {
+		padding: 0.8em 0.5em;
+		text-align: left;
+		border-collapse: collapse;
+	}
+
+	th {
+		font-weight: 600;
+	}
+
+	tr th,
+	tr td {
+		border-bottom: 1px solid var(--color-stroke);
+	}
+
+	caption {
+		caption-side: bottom;
+		padding: 0.8em 0.5em;
+		font-size: var(--step--1);
+	}
+
+	// Citations
+	q {
+		&::before {
+			margin-right: 0.2em;
+		}
+
+		&::after {
+			margin-left: 0.2em;
+		}
+	}
+
+	blockquote {
+		border-left: 4px solid @grayLighter;
+		padding-left: var(--flow-space, var(--space-m));
+
+		// extend flow-space
+		& > * + * {
+			margin-top: var(--flow-space, var(--space-m));
+		}
+	}
+
+	// Code
+	.spip_code {
+		font-size: var(--step--1);
+	}
+
+	&.texte,
+	&.chapo,
+	&.ps {
+		& .spip_documents,
+		& .spip_documents + * {
+			--flow-space: var(--space-xl);
+		}
+	}
+
+	&.notes {
+		p {
+			font-size: var(--step--1);
+			line-height: 1.4;
+		}
+	}
+}

@@ -20,5 +20,5 @@ if (!defined('_ECRIRE_INC_VERSION')) { return;
 
 $GLOBALS['z_blocs'] = ['content','head','head_js','header','footer','breadcrumb'];
 
-$GLOBALS['debut_intertitre'] = "\n<h2 class='spip'>";
-$GLOBALS['fin_intertitre'] = "</h2>\n";
+// $GLOBALS['debut_intertitre'] = "\n<h2 class='spip'>";
+// $GLOBALS['fin_intertitre'] = "</h2>\n";
