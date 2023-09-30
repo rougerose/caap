@@ -41,12 +41,5 @@
    <div class="contextuel article">
       <INCLURE{fond=liste/mots,id_article} />
    </div>
-   [(#REM) Afficher les sujets des forums, si l'on est bien dans la rubrique Espace membres > Discussions ]
-   <BOUCLE_rubrique_forum(RUBRIQUES){id_rubrique}{si #ID_RUBRIQUE|=={14}}>
-   <div id="forum" class="forum">
-      <INCLURE{fond=inclure/forum,
-         env,repondre_titre=<:caap:message_ecrire:>,repondre_url=(#PARAMETRES_FORUM|url_reponse_forum)} />
-   </div><!-- #forum -->
-   </BOUCLE_rubrique_forum>
 </article>
 </BOUCLE_contenu>
