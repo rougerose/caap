@@ -8,7 +8,7 @@
 
 - remplacer plugin intertitres
 - mise à jour des plugins pour spip 3
-- Typo : corps de base à 16px au lieu de 14 ; interlignage à 24px au lieu de 20. Avertir de possibles effets de bords non décelés.
+- Typo : corps de base à 18px au lieu de 14 ; interlignage à 26px au lieu de 20. Avertir de possibles effets de bords non décelés.
 - Refonte du footer
 - mise à jour de Spip v4
 - supprimer espace adhérent
