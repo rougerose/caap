@@ -27,7 +27,7 @@
   </div>
 </nav>
 
-[<nav class="pagination haut[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
+[<nav class="pagination haut[ (#ENV{pagination-align})]">(#PAGINATION{caap})</nav>]
 [<p class="resultats detail">
    (#GET{selection}|count|singulier_ou_pluriel{caap:recherche_document,caap:recherche_documents,nb})[ / (#ENV{id_mot}|oui)<:caap:info_mot:> #INFO_TITRE{mot,#ENV{id_mot}}]
 </p>]
@@ -46,7 +46,7 @@
    </li>
    </BOUCLE_documents>
 </ol>
-[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{li})</nav>]
+[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{caap})</nav>]
 </B_documents>
 <p class="message info"><:caap:aucun_resultat:></p>
 <//B_documents>
