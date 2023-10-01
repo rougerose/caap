@@ -26,6 +26,7 @@
    <necessite nom="menus" />
    <necessite nom="critere_mots" />
    <necessite nom="oembed" />
+   <necessite nom="fulltext" />
 
    <!-- <necessite nom="accesrestreint" compatibilite="[3.8.0;]" /> -->
    <!-- plugin jaz a-t-il une utilité ? -->
