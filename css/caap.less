@@ -117,6 +117,10 @@ ol[role="list"] {
    .self .header.lg > .titre,
    .header.lg hgroup {margin-left: 0;} // Si logo
 
+   .self .header > .titre {
+	padding-left: 20px;
+   }
+
    .contenu-entete .nav-secondaire,
    .liste .meta-publi,
    .self .meta-publi,
@@ -198,18 +202,27 @@ ol[role="list"] {
 /*   =Navs
    ------------------------------------------------------ */
    /* Elements communs */
-   .nav .item,
-   .meta-publi .category {text-transform: uppercase; list-style-type: none; }
-   .nav .item:before, .meta-publi .category:before {content:'/ '; color: @grayLight;}
-   .nav .item.on > a, .meta-publi .category.on a {font-weight: 700; color: @linkColor;}
-   .nav > li > a:hover {background: none; color: @linkColor;}
+.nav .item,
+.meta-publi .category {text-transform: uppercase; list-style-type: none; }
+.nav .item:before, .meta-publi .category:before {content:'/ '; color: @grayLight;}
+.nav .item.on > a, .meta-publi .category.on a {font-weight: 700; color: @linkColor;}
+.nav > li > a:hover {background: none; color: @linkColor;}
 
    /* Navigation principale */
-   .nav-principale {border-bottom:@borderCaap;}
-      .nav-principale .menu-liste {border-top: @borderCaap; margin-left: 20px; padding-top: 0.5em;}
-      .nav .item a {display: inline; color: @gray;}
-      .nav-principale .menu-liste:first-child {margin-left: 0;}
-      .nav-principale .descriptif_site {border-top: @borderCaap; padding-top: 0.5em;}
+.nav-principale {border-bottom:@borderCaap;}
+.nav-principale .menu-liste {border-top: @borderCaap; margin-left: 20px; padding-top: 0.5em;}
+.nav .item {
+	font-size: var(--step--1);
+	line-height: 1.4;
+}
+.nav .item a {display: inline; color: @gray;}
+.nav-principale .menu-liste:first-child {margin-left: 0;}
+.nav-principale .descriptif_site {
+	border-top: @borderCaap;
+	padding-top: 0.5em;
+	font-size: var(--step--1);
+	line-height: 1.4;
+}
 
    /* Navigation secondaire */
    .nav-secondaire {margin-left: 0; clear: left;}
@@ -364,26 +377,29 @@ header[role=banner] {
 
 /*   =Hentry
    ------------------------------------------------------ */
-   .hentry {}
-      .entry-title {}
-      .soustitre {
-		font-style: italic;
-		font-weight: 400;
-		// color: @gray;
-	}
-      .meta-publi {display: inline-block; margin: 0; padding: 0;}
-      .meta-publi li {display: block;}
-      .self .meta-publi .category {margin-bottom: @baseLineHeight;}
-    //   .entry-content {}
-         .entry-content .chapo {
-            color: @black;
-            // font-size: @baseFontSize * 1.14;
-			font-size: var(--step-2);
-			font-weight: initial;
-            margin-bottom: var(--space-xl);
-         }
-      .tags {margin-bottom: @baseLineHeight;}
-      .tags .tag {display: inline; margin-right: 5px;}
+// .hentry {}
+//   .entry-title {}
+.soustitre {
+	font-style: italic;
+	font-weight: 400;
+	// color: @gray;
+}
+.meta-publi {display: inline-block; margin: 0; padding: 0;}
+.meta-publi li {
+	display: block;
+	font-size: var(--step--1);
+}
+.self .meta-publi .category {margin-bottom: @baseLineHeight;}
+//   .entry-content {}
+.entry-content .chapo {
+	color: @black;
+	// font-size: @baseFontSize * 1.14;
+	font-size: var(--step-2);
+	font-weight: initial;
+	margin-bottom: var(--space-xl);
+}
+.tags {margin-bottom: @baseLineHeight;}
+.tags .tag {display: inline; margin-right: 5px;}
 
 /*   =Self
    ------------------------------------------------------ */
@@ -400,16 +416,22 @@ header[role=banner] {
 
 /*   =Listes
    ------------------------------------------------------ */
-   .liste.selection {float: left;}
-   .liste .liste-items {margin-left: 0; list-style: none;}
+.liste.selection {float: left;}
+.liste .liste-items {margin-left: 0; list-style: none;}
 
-   .liste .hentry {border-bottom: @borderCaap; padding-bottom: @baseLineHeight; margin-bottom: @baseLineHeight;}
-   .liste .entry-title {font-size: @baseFontSize*1.57; line-height: @baseLineHeight; margin-bottom: @baseLineHeight;}
-      .liste .entry-title a {color: @black;}
-      .liste .entry-title a:hover {color: @linkColor;}
-   .liste hgroup .entry-title {margin-bottom: @baseLineHeight/4;}
-   .liste hgroup .soustitre {margin-top: @baseLineHeight/4;}
-   .liste .soustitre {font-size: @baseFontSize*1.3; line-height: @baseLineHeight;}
+.liste .hentry {border-bottom: @borderCaap; padding-bottom: @baseLineHeight; margin-bottom: @baseLineHeight;}
+.liste .entry-title {
+	// font-size: @baseFontSize*1.57;
+	// line-height: @baseLineHeight;
+	font-size: var(--step-3);
+	line-height: 1.1;
+	margin-bottom: @baseLineHeight;
+}
+.liste .entry-title a {color: @black;}
+.liste .entry-title a:hover {color: @linkColor;}
+.liste hgroup .entry-title {margin-bottom: @baseLineHeight/4;}
+.liste hgroup .soustitre {margin-top: @baseLineHeight/4;}
+.liste .soustitre {font-size: @baseFontSize*1.3; line-height: @baseLineHeight;}
 
    /* ressources */
    .liste.ressources .theme {
@@ -616,8 +638,16 @@ header[role=banner] {
 //    .entry-content .documents {margin: 0 0 @baseLineHeight;}
 
    /* logos d'objet */
-   .logo-objet {float: left; margin: 0 @gridGutterWidth @baseLineHeight 0;}
-   .self .logo-objet {}
+.logo-objet {float: left; margin: 0 @gridGutterWidth @baseLineHeight 0;}
+
+.logo-objet {
+	& a {
+		display: block;
+		border-bottom: none;
+	}
+}
+
+.self .logo-objet {}
 
    /* HR */
    hr.spip {border-color: @black; margin:@baseLineHeight * 2;}
