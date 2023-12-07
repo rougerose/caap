@@ -1,7 +1,7 @@
 <BOUCLE_contenu(RUBRIQUES){id_rubrique}>
 	<article class="contenu-entete self oh">
 	<header class="header">
-		<h1 class="titre">#TITRE</h1>
+		<INCLURE{fond=inclure/ressources_titre, id_rubrique, ajax=ressources_titre, env}/>
 		[<figure class="logo-objet">
 			(#LOGO_RUBRIQUE|image_reduire{210,0})
 		</figure>]

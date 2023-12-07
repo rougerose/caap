@@ -28,6 +28,9 @@ $(function () {
 				history: true,
 				args: params,
 			});
+
+			// Recharger le titre de la rubrique
+			ajaxReload("ressources_titre", { args: params });
 		}
 	);
 
@@ -43,6 +46,8 @@ $(function () {
 			history: true,
 			href: url,
 		});
+		// Recharger le titre de la rubrique
+		ajaxReload("ressources_titre", { href: url });
 	});
 
 	/**
