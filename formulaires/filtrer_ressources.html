@@ -1,0 +1,48 @@
+<B_filtres>
+	[(#REM)
+		<!--
+			Lorsque l'url est vidée des parametres mots,
+			l'env contient toujours un tableau mots
+			avec un premier index vide.
+		-->
+	][(#SET{env_mots, non})][
+	(#ENV{mots}|is_array|oui)
+		[(#ENV{mots}|table_valeur{0}|=={''}|?{
+			#SET{env_mots, non},
+			#SET{env_mots, oui}
+		})]
+	]<div class="formulaire_spip formulaire_#FORM">
+		[<p class="formulaire_ok">(#ENV*{message_ok})</p>]
+		[<p class="formulaire_erreur">(#ENV*{message_erreur})</p>]
+		<form action="#ENV{action}" method="post">
+			#ACTION_FORMULAIRE
+			<div class="editer-groupe">
+				<fieldset>
+					<legend class="ressources-filtres_titre">Filtres disponibles</legend>
+					<div class="cluster filters_list">
+						<BOUCLE_filtres(MOTS mots_liens){mots.id_groupe=3}{mots_liens.id_objet IN #ENV{articles}}{mots_liens.objet=article}{par titre}>
+							<B_mot_occurrences>
+								#SET{occurrences, #TOTAL_BOUCLE}
+								<BOUCLE_mot_occurrences(ARTICLES){id_mot}{id_rubrique=#ENV{id_rubrique}}> </BOUCLE_mot_occurrences>
+							</B_mot_occurrences>
+							<div class="choix checkbox [ (#ENV{mots}|find{#ID_MOT}|oui)is-checked]">
+								<input type="checkbox" name="mots\[\]" id="mot#ID_MOT" value="#ID_MOT"[ (#ENV{mots}|find{#ID_MOT}|oui) checked] data-title="[(#TITRE|attribut_html)]">
+								<label for="mot#ID_MOT">#TITRE <span class="indicator"><span>#GET{occurrences}</span></span></label>
+							</div>
+						</BOUCLE_filtres>
+						<div class="choix filters_reset[(#GET{env_mots}|=={non}|oui) is-hide]">
+							<button class="bouton" data-variant="filters-reset" data-self="[(#SELF|parametre_url{mots\[\],''})]">Effacer votre sélection</button>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<noscript>
+				<p class="boutons cluster">
+					<input type="submit" class="submit button" value="Appliquer les filtres">
+					<span class="image_loading">&nbsp;</span>
+				</p>
+			</noscript>
+		</form>
+		[<script src="(#CHEMIN{dist/js/caap_filtrer_ressources.js}|timestamp)" defer></script>]
+	</div>
+</B_filtres>

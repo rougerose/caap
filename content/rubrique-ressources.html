@@ -1,27 +1,20 @@
 <BOUCLE_contenu(RUBRIQUES){id_rubrique}>
-<article class="contenu-entete self oh">
-   <header class="header">
-      <h1 class="titre">#TITRE</h1>
-      [<figure class="logo-objet">
-         (#LOGO_RUBRIQUE||image_reduire{210,0})
-      </figure>]
-   </header>
-   #PIPELINE{insert_head}
-   [<div class="texte">
-      (#TEXTE)
-   </div><!-- .texte -->]
-   <div class="contextuel rubrique">
-      <INCLURE{fond=navs/rubriques,id_rubrique} />
-      <INCLURE{fond=liste/mots,id_rubrique} />
-   </div>
-</article>
+	<article class="contenu-entete self oh">
+	<header class="header">
+		<h1 class="titre">#TITRE</h1>
+		[<figure class="logo-objet">
+			(#LOGO_RUBRIQUE|image_reduire{210,0})
+		</figure>]
+	</header>
 
-#SET{articles_tous, #ARRAY}
-#SET{articles_total, 0}
-<BOUCLE_articles_rubrique(ARTICLES){id_rubrique}>
-	[(#SET{articles_tous, #GET{articles_tous}|push{#ID_ARTICLE}})]
-</BOUCLE_articles_rubrique>
-[(#SET{articles_total, #GET{articles_tous}|count})]
-
-<INCLURE{fond=inclure/ressources, id_rubrique, articles_total=#GET{articles_total}, articles_tous=#GET{articles_tous}, mots, ajax, env}/>
+	[<div class="texte">
+		(#TEXTE)
+	</div><!-- .texte -->]
+	<div class="contextuel rubrique">
+		<INCLURE{fond=navs/rubriques,id_rubrique} />
+	</div>
+	</article>
+	[(#SET{articles, #ARRAY})]
+	<BOUCLE_articles(ARTICLES){id_rubrique}>[(#SET{articles, #GET{articles}|push{#ID_ARTICLE}})]</BOUCLE_articles>
+	<INCLURE{fond=inclure/ressources_body, id_rubrique, articles=#GET{articles}, ajax=ressources_body, env}/>
 </BOUCLE_contenu>

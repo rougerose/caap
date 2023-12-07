@@ -13,7 +13,7 @@
 		[(#GET{pagination_haute}|=={1}|oui)
 			[<nav class="pagination haut[ (#ENV{pagination_align})]">(#PAGINATION{caap})</nav>]
 		]<BOUCLE_articles(ARTICLES){id_article IN #ENV{selection}}{pagination #ENV{pagination,5}}>
-			<INCLURE{fond=inclure/article-resume, id_article, contexte=#ENV{contexte}} />
+			<INCLURE{fond=inclure/article-resume, id_article, contexte=#ENV{contexte, standard}} />
 		</BOUCLE_articles>
 		[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{caap})</nav>]
 	</div><!-- .liste articles -->

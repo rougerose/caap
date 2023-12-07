@@ -57,18 +57,13 @@ body .spip-admin-bloc, body .spip-admin-float {z-index: @zindexFixedNavbar + 1; 
 				0 0 6px 0 fade(@linkColorDark, 25%);
 	}
 
-	&[data-variant="ghost"] {
+	&[data-variant="filters-reset"] {
 		background-color: transparent;
 		color: @linkColor;
-	}
-
-	&[data-variant="filter"] {
-		background-color: transparent;
-		border-color: lighten(@grayLight, 20%);
-		color: @grayDark;
+		border: none;
 
 		&:hover {
-			border-color: @linkColor;
+			box-shadow: none;
 		}
 	}
 

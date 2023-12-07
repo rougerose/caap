@@ -398,8 +398,17 @@ header[role=banner] {
 	font-weight: initial;
 	margin-bottom: var(--space-xl);
 }
-.tags {margin-bottom: @baseLineHeight;}
-.tags .tag {display: inline; margin-right: 5px;}
+// .tags {margin-bottom: @baseLineHeight;}
+// .tags .tag {display: inline; margin-right: 5px;}
+
+.meta-tags {
+	font-size: @fontSizeSmall;
+	& span {
+		border: 1px solid @linkColor;
+		border-radius: 4px;
+		padding: 0.15em 0.35em 0.15em;
+	}
+}
 
 /*   =Self
    ------------------------------------------------------ */
@@ -442,9 +451,8 @@ header[role=banner] {
 
 //    .ressources-filtres {}
 .ressources-filtres_titre {
-	border-bottom: 1px solid @grayLighter;
-	margin-bottom: 24px;
-	padding-bottom: 12px;
+	border-bottom: 0;
+	margin-bottom: 12px;
 	font-weight: normal;
 }
 
