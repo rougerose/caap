@@ -1,9 +1,3 @@
-# A faire
-
-- corriger les modèles doc et images
-- social tags : supprimer référence et appels au plugin
-- résultats recherche : documents -> url et ancre à vérifier
-
 # Fait
 
 - remplacer plugin intertitres
@@ -17,5 +11,3 @@
 - intertitres : mieux différencier les niveaux des intertitres.
 
 # Mise à jour en production
-
--
