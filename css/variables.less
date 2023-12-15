@@ -1,7 +1,7 @@
 //
 // Variables
 // --------------------------------------------------
-
+@import "css/spip.variables.less";
 
 // Global values
 // --------------------------------------------------
@@ -41,17 +41,18 @@
 //@linkColor:             #08c;
 @linkColor:             #d93d04;
 @linkColorHover:        @black;
+@linkColorDark: darken(@linkColor, 30%);
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        "PT Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansFontFamily:        "PTSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @serifFontFamily:       "PT Serif", Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Menlo, Consolas, "Courier New", Monaco, monospace;
 
-@baseFontSize:          14px;
+@baseFontSize:          18px;
 @baseFontFamily:        @sansFontFamily;
-@baseLineHeight:        20px;
+@baseLineHeight:        26px;
 @altFontFamily:         @serifFontFamily;
 
 @headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily

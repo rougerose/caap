@@ -1,13 +1,37 @@
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
-<div class="container">
-   <nav class="breadcrumb">
-      <ul>
-         <li><a href="#URL_SITE_SPIP/"><:accueil_site:></a></li>
-         <BOUCLE_bc(HIERARCHIE){id_rubrique}>
-         <li><a href="#URL_RUBRIQUE">[(#TITRE)]</a></li>
-         </BOUCLE_bc>
-         <li class="on"><span>[(#TITRE|couper{50})]</span></li>
-      </ul>
-   </nav>
-</div>
+	[(#REM)
+		<!--
+			Lorsque l'url est vidée des parametres mots,
+			l'env contient toujours un tableau mots
+			avec un premier index vide.
+		-->
+	][(#SET{env_mots, non})][
+	(#ENV{mots}|is_array|oui)
+	[(#ENV{mots}|table_valeur{0}|=={''}|?{
+		#SET{env_mots, non},
+		#SET{env_mots, oui}
+	})]
+	][(#SET{filtres,''})]
+	[(#SET{url, #URL_RUBRIQUE})]
+	<BOUCLE_mots_ressources(CONDITION){si #GET{env_mots}|=={oui}}>
+		[(#SET{filtres, ' :'})]
+		[(#SET{url, #URL_RUBRIQUE|parametre_url{mots\[\], #ENV{mots}}})]
+		<BOUCLE_titre_mot(MOTS){id_mot IN #ENV{mots}}>[(#SET{filtres,
+			#GET{filtres}|concat{' '}|concat{#TITRE}|concat{', '}})]
+		</BOUCLE_titre_mot>
+	</BOUCLE_mots_ressources>
+	<div class="container">
+		<nav class="breadcrumb" aria-label="Vous êtes dans :">
+			<ul>
+				<li><a href="#URL_SITE_SPIP/"><:accueil_site:></a></li>
+				<BOUCLE_bc(HIERARCHIE){id_rubrique}{tout}>
+					[(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|non)
+						<li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+					][(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|oui)
+						<li><a href="#GET{url}" aria-current="page">#TITRE[ (#GET{filtres}|trim{', '})]</a></li>
+					]
+				</BOUCLE_bc>
+			</ul>
+		</nav>
+	</div>
 </BOUCLE_rubrique>

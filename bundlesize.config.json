@@ -1,0 +1,12 @@
+{
+    "files": [
+        {
+            "path": "./dist/js/caap.js",
+            "maxSize": "3 kB"
+        },
+        {
+            "path": "./dist/js/caap_filtrer_ressources.js",
+            "maxSize": "3 kB"
+        }
+    ]
+}

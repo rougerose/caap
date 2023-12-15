@@ -1,4 +1,4 @@
-@import "bs/css/forms.less";
+@import "bootstrap/css/forms.less";
 
 /* Structure generale des formulaires
 ----------------------------------------------- */
@@ -8,10 +8,71 @@
    clear: both;
 }
 .formulaire_spip .boutons {
-   .form-actions;
-   padding-left: 0;
+	// .form-actions (Bootstrap)
+	padding: (@baseLineHeight - 1) 20px @baseLineHeight 0;
+	margin-top: @baseLineHeight;
+	margin-bottom: @baseLineHeight;
+	background-color: @formActionsBackground;
+	border-top: 1px solid #e5e5e5;
 }
-input.submit {.btn}
+
+.formulaire_spip .boutons--large .bouton {
+	flex: 1;
+}
+
+input.submit {
+	.bouton;
+	background-image: none;
+
+	&:hover,
+	&:focus {
+		background-color: @linkColor;
+		color: @white;
+	}
+}
+
+// Règles génériques
+
+// Source : https: //moderncss.dev/pure-css-custom-checkbox-style
+// -- checkbox
+input[type="checkbox"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	margin: 0;
+	font: inherit;
+	color: currentColor;
+	width: 1.15em;
+	height: 1.15em;
+	border: 0.15em solid currentColor;
+	border-radius: 0.15em;
+	transform: translateY(-0.075em);
+	display: grid;
+	place-content: center;
+}
+
+input[type="checkbox"]::before {
+	content: "";
+	width: 0.65em;
+	height: 0.65em;
+	transform: scale(0);
+	transition: 120ms transform ease-in-out;
+	box-shadow: inset 1em 1em var(--form-control-color, @linkColor);
+	// Windows High Contrast Mode
+	background-color: CanvasText;
+	transform-origin: bottom left;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+	transform: scale(1);
+}
+
+// :focus
+input[type="checkbox"]:focus {
+	outline: 2px solid @linkColor;
+	outline-offset: 3px;
+}
 
 /* Explications */
 .formulaire_spip .explication {.help-block }
@@ -66,8 +127,8 @@ input.submit {.btn}
 .span2 form textarea { width: 80%;}
 */
 //form textarea { width: 80%;}
-.markItUp .markItUpContainer .markItUpHeader {padding-right: 6px;padding-left: 6px;}
-.markItUp .markItUpContainer .markItUpHeader + textarea {border-top-left-radius: 0;border-top-right-radius: 0;border-top:0;}
+// .markItUp .markItUpContainer .markItUpHeader {padding-right: 6px;padding-left: 6px;}
+// .markItUp .markItUpContainer .markItUpHeader + textarea {border-top-left-radius: 0;border-top-right-radius: 0;border-top:0;}
 
 /*
 .span9 form select { width: 80%;}
@@ -86,7 +147,7 @@ input.submit {.btn}
 ----------------------------------------------- */
 
 /* Champs obligatoires */
-.formulaire_spip li.obligatoire {}
+// .formulaire_spip li.obligatoire {}
 .formulaire_spip li.obligatoire label {font-weight: bold;}
 
 /* * Erreurs */
@@ -97,8 +158,15 @@ input.submit {.btn}
 
 /* Reponses */
 .reponse_formulaire {.alert;}
-.reponse_formulaire_ok {.alert-success;}
-.reponse_formulaire_erreur {.alert-error;}
+.reponse_formulaire_ok {
+	// .alert-success;
+	background-color: lighten(@successBackground, 1%);
+	border-color: @successBorder;
+	color: darken(@successText, 10%);
+}
+.reponse_formulaire_erreur {
+	.alert-error;
+}
 
 /* Variantes et cas particuliers
 ----------------------------------------------- */
@@ -109,7 +177,7 @@ input.submit {.btn}
   color: inherit;
   text-shadow:inherit;
   .border-radius(inherit);
-  fieldset;
+  // fieldset;
 }
 
 /* Selection des langues */
@@ -128,10 +196,10 @@ input.submit {.btn}
 .formulaire_recherche .btn {width: 80px;}
 
 /* Formulaire de login dans une page */
-.formulaire_login form .editer {clear:left;}
+// .formulaire_login form .editer {clear:left;}
 
-.formulaire_login form .editer_password .details {margin-bottom:0;}
-.formulaire_login #spip_logo_auteur {float:right;}
+// .formulaire_login form .editer_password .details {margin-bottom:0;}
+// .formulaire_login #spip_logo_auteur {float:right;}
 
 /* Formulaire forum */
 .formulaire_forum {border: @borderCaap; padding: 10px;}
@@ -140,12 +208,72 @@ input.submit {.btn}
 .formulaire_forum .boutons {clear: both; padding-left: 0; padding-right: 0;}
 
 /* Largeur des champs, formulaires : inscription, ecrire_auteur et login  */
-.formulaire_login .text,
-.formulaire_login .password,
-.formulaire_inscription .text,
-.formulaire_inscription .password,
+// .formulaire_login .text,
+// .formulaire_login .password,
+// .formulaire_inscription .text,
+// .formulaire_inscription .password,
 .formulaire_ecrire_auteur .text,
 .formulaire_ecrire_auteur textarea {
    #grid > .core > .span(5)
 }
 
+// Formulaire filtrer_ressources
+.formulaire_filtrer_ressources {
+	& .choix {
+		display: grid;
+		gap: 0.5em;
+		align-items: center;
+		border: 1px solid lighten(@grayLight, 20%);
+		border-radius: 4px;
+		color: @grayDark;
+		padding: 0.15em 0.35em 0.15em;
+		transition: border-color 0.3s, color 0.3s;
+
+		&.checkbox {
+			grid-template-columns: 1em auto;
+		}
+
+		&.filters_reset {
+			padding: 0;
+		}
+
+		&.is-hide,
+		.no-js &.filters_reset {
+			display: none;
+		}
+
+		&.is-checked,
+		& input[type="checkbox"]:checked,
+		&:hover {
+			border-color: @linkColor;
+		}
+	}
+
+	& input[type="checkbox"] {
+		float: none;
+		margin-left: unset;
+		color: lighten(@grayLight, 20%);
+		transition: border-color 0.3s, color 0.3s;
+	}
+}
+
+
+// label boutons radio et checkbox
+.form-control {
+	display: grid !important;
+	grid-template-columns: 1em auto;
+	gap: 0.5em;
+	align-items: baseline;
+	margin: 0;
+	// place-content: center;
+}
+
+.form-control + .form-control {
+	margin-top: 1em;
+}
+
+
+// Formulaire des filtres (ressources)
+.filtres_liste {
+	--cluster-space: 0.5rem 1rem;
+}

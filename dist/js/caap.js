@@ -1,0 +1,1 @@
+$((function(){$(".recherche-panneau .action").click((function(){$("#formulaire_recherche").slideToggle("slow","swing"),$(this).toggleClass("on")})),$("html.page_recherche").length&&$(".recherche-panneau .action").trigger("click")}));

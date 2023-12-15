@@ -21,13 +21,15 @@
       </ul>
    </header>
    <div class="entry-content">
-      [(#INTRODUCTION)]
-      [(#REM) test contexte : standard ou rubrique forum ? ][
-      (#GET{contexte}|=={standard}|oui)
-         <p class="suite"><a href="#URL_ARTICLE"><:caap:suite:></a></p>][
-      (#GET{contexte}|=={forums-meta}|oui)
-         #INCLURE{fond=liste/forums-meta,id_article}
-      ]
+      	[(#INTRODUCTION)]
+      	[(#REM) test contexte : standard ou rubrique forum ? ][
+      	(#GET{contexte}|=={standard}|oui)
+        	<p class="suite"><a href="#URL_ARTICLE"><:caap:suite:></a></p>]
+		<B_mots>
+			<p class="meta-tags">
+				<BOUCLE_mots(MOTS){id_article}{par titre}{' '}{si #ID_RUBRIQUE|=={6}}><span>#TITRE</span></BOUCLE_mots>
+			</p>
+		</B_mots>
    </div><!-- .entry -->
 </article>
 </BOUCLE_article>

@@ -1,0 +1,15 @@
+[(#AUTORISER{configurer,_caap}|sinon_interdire_acces)]
+
+<h1 class="grostitre"><:caap:titre_page_configurer_caap:/></h1>
+
+[(#SET{total, 0})]
+[(#SET{secteur, 12})]
+<B_articles_adherents>
+	<BOUCLE_articles_adherents(ARTICLES){id_secteur=#GET{secteur}}{statut=publie}> </BOUCLE_articles_adherents>
+		<h3>Rubrique #INFO_TITRE{rubrique, #GET{secteur}}</h3>
+		<p>[(#SET{total, [(#TOTAL_BOUCLE) [(#TOTAL_BOUCLE|singulier_ou_pluriel{article, articles}) à dépublier]]})]</p>
+		[(#BOUTON_ACTION{dépublier les articles, #URL_ACTION_AUTEUR{depublier_articles_caap, #GET{secteur}, #SELF}, ajax})]
+</B_articles_adherents>
+	<h3>Rubrique #INFO_TITRE{rubrique, #GET{secteur}}</h3>
+	<p>Aucun article à dépublier</p>
+<//B_articles_adherents>

@@ -1,4 +1,4 @@
-[(#ENV{composition}|=={recherche}|oui) [(#SET{url_doc,#ENV{url_doc}|ancre_url{documents}})]
+[(#ENV{composition}|=={recherche}|oui) [(#SET{url_doc,#ENV{url_doc}})]
 ]<BOUCLE_document(DOCUMENTS){id_document}>
 <article class="hentry colonne oh">
    <header class="header">
@@ -12,9 +12,9 @@
       [<figure class="logo-objet">
          <a href="[(#GET{url_doc}|sinon{#URL_DOCUMENT})]" type="#MIME_TYPE" class="image">(#LOGO_DOCUMENT||image_reduire{130,0}|)</a>
       </figure>]
-      <p class="spip">
-         [(#DESCRIPTIF|PtoBR)]
-      </p>
+      [<p class="spip">
+         (#DESCRIPTIF|PtoBR)
+      </p>]
       [<p class="suite"><a href="(#GET{url_doc})"><:caap:suite:></a></p>]
       <B_mots>
       <p>

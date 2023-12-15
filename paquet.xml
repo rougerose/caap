@@ -1,38 +1,44 @@
 <paquet
    prefix="caap"
    categorie="squelette"
-   version="3.0.9"
+   version="4.0.0"
    etat="stable"
-   compatibilite="[3.0.0-dev;3.2.*]"
+   compatibilite="[4.2.6-dev;4.2.*]"
    logo="img/caap-128.png"
 >
    <nom>CAAP</nom>
    <auteur lien='rouge-rose.net'>christophe le drean</auteur>
    <licence>GNU/GPL</licence>
-   <pipeline nom="insert_head" inclure="caap_pipelines.php" />
-   <pipeline nom="insert_head_css" inclure="caap_pipelines.php" />
-   <pipeline nom="affichage_final" inclure="caap_pipelines.php" />
-   <pipeline nom="jqueryui_plugins" inclure="caap_pipelines.php" />
-   <pipeline nom="formulaire_verifier" inclure="caap_pipelines.php" />
+   <!-- <pipeline nom="insert_head" inclure="caap_pipelines.php" /> -->
+   <!-- <pipeline nom="affichage_final" inclure="caap_pipelines.php" /> -->
+   <!-- <pipeline nom="jqueryui_plugins" inclure="caap_pipelines.php" /> -->
+   <!-- <pipeline nom="formulaire_verifier" inclure="caap_pipelines.php" /> -->
+   <pipeline nom="autoriser" inclure="caap_autorisations.php" />
 
-   <necessite nom="Z5" compatibilite="[2.0-dev;2.0.3]" />
+   <!-- <necessite nom="Z5" compatibilite="[2.0-dev;2.0.3]" /> -->
    <necessite nom="Zcore" />
    <necessite nom="spip_bonux" />
    <necessite nom="pb_selection" />
-   <necessite nom="bootstrap" compatibilite="[;1.0.0]" />
-   <necessite nom="lesscss" compatibilite="[;0.7.11]" />
+   <necessite nom="bootstrap" />
+   <necessite nom="lesscss" />
+   <necessite nom="saisies" />
+   <necessite nom="pages" />
+   <necessite nom="menus" />
+   <necessite nom="critere_mots" />
+   <necessite nom="oembed" />
+   <necessite nom="fulltext" />
 
-   <necessite nom="accesrestreint" compatibilite="[3.8.0;]" />
+   <!-- <necessite nom="accesrestreint" compatibilite="[3.8.0;]" /> -->
    <!-- plugin jaz a-t-il une utilité ? -->
    <!-- <utilise nom="jaz" compatibilite="[1.1.0;]" /> -->
-   <utilise nom="menus" />
-   <utilise nom="IntertitresTdm" />
-   <utilise nom="inscription3" />
-   <utilise nom="gravatar" />
+   <!-- <utilise nom="menus" /> -->
+   <!-- <utilise nom="IntertitresTdm" /> -->
+   <!-- <utilise nom="inscription3" /> -->
+   <!-- <utilise nom="gravatar" /> -->
 
-   <utilise nom="notifications" />
-   <utilise nom="nospam" />
-   <utilise nom="pages" />
-   <utilise nom="socialtags" />
+   <!-- <utilise nom="notifications" /> -->
+   <!-- <utilise nom="nospam" /> -->
+   <!-- <utilise nom="pages" /> -->
+   <!-- <utilise nom="socialtags" /> -->
    <chemin path="" />
 </paquet>

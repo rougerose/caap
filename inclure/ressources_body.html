@@ -1,0 +1,24 @@
+<BOUCLE_ressources(RUBRIQUES){id_rubrique}>
+	[(#SET{articles_filtres, #ARRAY})]
+	[(#SET{articles_total, #ENV{articles}|count})]
+	<div id="filtres" class="ressources">
+		<div class="col-texte ressources-filtres">
+			<div class="ajax">
+				[(#FORMULAIRE_FILTRER_RESSOURCES{#SELF, #ID_RUBRIQUE, #ENV{articles}})]
+			</div>
+			<B_compteur_articles>
+				<BOUCLE_compteur_articles(ARTICLES){id_rubrique}{mots_selon_id? 1 #ENV{mots}}{!par date}>[
+					(#SET{articles_filtres, #GET{articles_filtres}|push{#ID_ARTICLE}})]
+				</BOUCLE_compteur_articles>
+				<p class="ressources-filtres_total">[(#TOTAL_BOUCLE|singulier_ou_pluriel{caap:ressources_nb_singulier, caap:ressources_nb_pluriel})] <:caap:ressources_total{nb=#GET{articles_total}}:>.</p>
+			</B_compteur_articles>
+		</div>
+		<B_afficher_articles>
+			<div class="ressources-articles">
+				<BOUCLE_afficher_articles(CONDITION){si #GET{articles_filtres}|count|>{0}}>
+					<INCLURE{fond=liste/articles-selection, selection=#GET{articles_filtres}, pagination="10", pagination_haute=0, env, ajax } />
+				</BOUCLE_afficher_articles>
+			</div>
+		</B_afficher_articles>
+	</div>
+</BOUCLE_ressources>

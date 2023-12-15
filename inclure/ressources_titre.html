@@ -1,0 +1,20 @@
+<BOUCLE_ressources_titre(RUBRIQUES){id_rubrique}>
+	[(#REM)
+	<!--
+		Lorsque l'url est vidée des parametres mots,
+		l'env contient toujours un tableau mots
+		avec un premier index vide.
+	-->
+	][(#SET{env_mots, non})][
+	(#ENV{mots}|is_array|oui)
+	[(#ENV{mots}|table_valeur{0}|=={''}|?{
+	#SET{env_mots, non},
+	#SET{env_mots, oui}
+	})]
+	][(#SET{filtres,''})]
+	<BOUCLE_mots_ressources(CONDITION){si #GET{env_mots}|=={oui}}>
+		[(#SET{filtres, ' :'})]
+		<BOUCLE_titre_mot(MOTS){id_mot IN #ENV{mots}}>[(#SET{filtres, #GET{filtres}|concat{' '}|concat{#TITRE}|concat{', '}})]</BOUCLE_titre_mot>
+	</BOUCLE_mots_ressources>
+	<h1 class="titre">#TITRE[ (#GET{filtres}|trim{', '})]</h1>
+</BOUCLE_ressources_titre>

@@ -1,11 +1,13 @@
 <?php
+
 /**
  * Plugin caap
  * (c) 2012 christophe le drean
  * Licence GNU/GPL
  */
 
-if (!defined('_ECRIRE_INC_VERSION')) return;
+if (!defined('_ECRIRE_INC_VERSION')) { return;
+}
 
 // en dev, pas de cache
 // define('_NO_CACHE', 1);
@@ -14,9 +16,9 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 // define('_ZONES_AUTO_JOINTES', '2');
 
 
-define('_JQUERYUI_CSS_NON', true);
+// define('_JQUERYUI_CSS_NON', true);
 
-$GLOBALS['debut_intertitre'] = "\n<h2 class='spip'>";
-$GLOBALS['fin_intertitre'] = "</h2>\n";
+$GLOBALS['z_blocs'] = ['content','head','head_js','header','footer','breadcrumb'];
 
-?>
+// $GLOBALS['debut_intertitre'] = "\n<h2 class='spip'>";
+// $GLOBALS['fin_intertitre'] = "</h2>\n";

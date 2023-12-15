@@ -1,0 +1,10 @@
+<B_docs_associes>
+  [(#SET{titre_docs, #TOTAL_BOUCLE|singulier_ou_pluriel{caap:document_associe, caap:documents_associes}})]
+  <div class="documents prose flow">
+    <h2 id="[(#GET{titre_docs}|identifiant_slug{id, #ARRAY{separateur,-,longueur_mini,5}})]">[(#GET{titre_docs})]
+    </h2>
+    <BOUCLE_docs_associes(DOCUMENTS){id_article}{vu=non}{media=file}{par rang_lien, num titre, titre, id_document}>
+      [(#INCLURE{fond=modeles/file, id_document})]
+    </BOUCLE_docs_associes>
+  </div>
+</B_docs_associes>

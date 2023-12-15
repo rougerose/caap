@@ -31,6 +31,10 @@
       a:before, span:before {content:'/'; color: #aaa; margin-right: 5px;}
    }
    .on span {color: @linkColor;}
+
+   & a[aria-current="page"] {
+	color: @linkColor;
+   }
    .divider {
       padding: 0 5px;
       color: #ccc;

@@ -8,6 +8,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'a_propos_caap' => 'À propos',
    'afficher' => "Afficher",
 
+   // B
+   'bouton_submit_filtres' => 'Voir',
+   'bouton_reset_filtres' => 'Effacer les filtres sélectionnés',
+   'bouton_ressources_toutes' => 'Toutes les ressources',
+   'bouton_telecharger' => 'Télécharger le fichier',
+
    // C
    'changer_passe' => 'Changer votre mot de passe',
    'contacter_titre' => "Contacter",
@@ -18,6 +24,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'dernier_message' => 'Dernier message',
    'derniers_messages' => 'Les derniers messages',
    'derniers_articles' => 'Les derniers articles',
+   'document_associe' => 'Document à télécharger',
+   'documents_associes' => 'Documents à télécharger',
 
    // E
    'entree_nom_pseudo' => 'Votre nom et votre prénom',
@@ -38,6 +46,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
    'info_site_web' => 'Site web',
    'inscrire_titre' => "s'inscrire",
    'identification_titre' => 'se connecter',
+   'image_associee' => 'Portfolio',
 
    //L
 	'label_bouton_inscription' => 'Vous inscrire',
@@ -97,6 +106,9 @@ Le Caap",
    'recherche_resultat' => '1 résultat',
    'recherche_resultats' => '@nb@ résultats',
    'recherche_pas_de_resultat' => 'Aucun résultat',
+   'ressources_nb_singulier' => '1 ressource affichée',
+   'ressources_nb_pluriel' => '@nb@ ressources affichées',
+   'ressources_total' => '(sur un total de @nb@ disponibles)',
 
 
    // S
@@ -108,6 +120,7 @@ Le Caap",
    'sujets_plusieurs' => '@nb@ sujets',
 
    // T
+   'titre_page_configurer_caap' => 'Configuration du plugin CAAP',
    'tous_articles' => 'Tous les articles',
    'tous_documents' => 'Tous les documents',
    'tous_sujets' => 'Tous les sujets',

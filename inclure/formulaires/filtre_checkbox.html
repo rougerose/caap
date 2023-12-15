@@ -1,0 +1,19 @@
+<BOUCLE_filtre_checkbox(MOTS){id_mot}>
+	#SET{liste_mots, #ARRAY}
+	#SET{occurences, 0}
+	[(#SET{liste_mots, #GET{liste_mots}|push{#ID_MOT}})]
+	[(#ENV{mots}|oui)
+		[(#SET_MERGE{liste_mots, #ENV{mots}})]
+		[(#SET{liste_mots, #GET{liste_mots}|array_unique})]
+	]
+	<B_occurences_mot>
+		<BOUCLE_occurences_mot(ARTICLES){id_rubrique=#ENV{id_rubrique}}{mots 100% #GET{liste_mots}}> </BOUCLE_occurences_mot>
+		#SET{occurences, #TOTAL_BOUCLE}
+	</B_occurences_mot>
+	<div class="choix">
+		<label class="form-control">
+			<input type="checkbox" name="mots\[\]" class="" id="filtre_#ID_MOT" value="#ID_MOT"[(#ENV{mots}|find{#ID_MOT}|oui) checked="checked"][(#GET{occurences}|=={0}|oui) disabled] data-label="[(#TITRE|attribut_html)]"/>
+			[<span>(#TITRE) [ <span class="indicator">(#GET{occurences})</span>]</span>]
+		</label>
+	</div>
+</BOUCLE_filtre_checkbox>
