@@ -16,5 +16,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [4.0.2] - 2024-01-22
 
+### Fixed
+
 - Corrections sur les styles des listes et tableaux générés par Spip dans le champ #TEXTE.
 - Mise à jour Spip 4.2.8 et des plugins utilisés.
+
+## [4.0.3] - 2024-01-22
+
+### Fixed
+
+- Styles des tableaux plus précis dans la cascade
