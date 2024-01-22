@@ -99,6 +99,7 @@
 		padding-left: 2rem;
 		margin-left: 0;
 		margin-bottom: 0 !important;
+		list-style: square;
 
 		> li + li,
 		ul,
@@ -122,33 +123,39 @@
 	}
 
 	// Tableaux
-	table {
+	table.spip {
+		--color-stroke: #d9d9d9;
+		--color-stroke-head: #555;
 		max-width: 100%;
 		min-width: 50%;
 		width: 100%;
 		border-spacing: 0;
-	}
 
-	th,
-	td {
-		padding: 0.8em 0.5em;
-		text-align: left;
-		border-collapse: collapse;
-	}
+		th,
+		td {
+			padding: 0.5em 0.25em;
+			text-align: left;
+			border-collapse: collapse;
+		}
 
-	th {
-		font-weight: 600;
-	}
+		th {
+			font-weight: 600;
+		}
 
-	tr th,
-	tr td {
-		border-bottom: 1px solid var(--color-stroke);
-	}
+		tr th {
+			border: 1px solid var(--color-stroke-head) !important;
+			border-width: 1px 0 !important;
+		}
 
-	caption {
-		caption-side: bottom;
-		padding: 0.8em 0.5em;
-		font-size: var(--step--1);
+		tr td {
+			border-bottom: 1px solid var(--color-stroke);
+		}
+
+		caption {
+			caption-side: bottom;
+			padding: 0.5em 0.25em;
+			font-size: var(--step--1);
+			}
 	}
 
 	// Citations
