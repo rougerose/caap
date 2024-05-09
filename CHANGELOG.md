@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.4] - 2024-05-09
+
+### Added
+
+- Ajout de Métaplus pour gérer les partages d'articles et en particulier les images associées.
+- Lors du partage d'un article, c'est le logo qui est privilégié, sinon le logo du site.
+
+### Fixed
+
+- Ajout d'une règle pour autoriser la collecte des images en cache produites par Spip.
+- Inverser l'ordre du Changelog : de la version la plus récente à la plus ancienne, et non l'inverse.
+
 ## [4.0.3] - 2024-01-22
 
 ### Fixed
