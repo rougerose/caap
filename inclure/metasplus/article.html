@@ -1,0 +1,22 @@
+[(#ENV{var_mode}|=={debug}|oui)#HTTP_HEADER{Content-Type:text/html}][(#ENV{debug}|oui)#HTTP_HEADER{Content-Type:text/plain}]
+<BOUCLE_article(ARTICLES){id_article}>
+	#SET{logos_auto, #ARRAY}
+	<BOUCLE_si_logo(CONDITION){si #LOGO_ARTICLE|oui}>
+		[(#SET{logo,
+		#LOGO_ARTICLE|image_passe_partout{1200,630}|image_reduire{1200,630}|image_recadre{1200,630,center,white}|extraire_attribut{src}})]
+		[(#SET{logos_auto, #GET{logo}|?{
+			#LISTE{#ARRAY{url, #GET{logo}}},
+			#ARRAY
+		}})]
+	</BOUCLE_si_logo>
+		[(#SET{logo, #INFO_FICHIER{document, #CONFIG{metasplus/id_doc_logo}}|sinon{#LOGO_SITE_SPIP|extraire_attribut{src}}})]
+		[(#SET{logo, #GET{logo}|image_passe_partout{1200,630}|image_reduire{1200,630}|image_recadre{1200,630,center,white}|extraire_attribut{src}})]
+		[(#SET{logos_auto, #GET{logos_auto}|push{#ARRAY{url, #GET{logo}}}})]
+	<//B_si_logo>
+<INCLURE{
+	fond=inclure/metasplus/dist,
+	logos=#ENV{logos,#GET{logos_auto}},
+	env,
+}/>
+</BOUCLE_article>
+#FILTRE{trim}
