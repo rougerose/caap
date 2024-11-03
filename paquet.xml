@@ -1,7 +1,7 @@
 <paquet
    prefix="caap"
    categorie="squelette"
-   version="4.0.4"
+   version="4.0.5"
    etat="stable"
    compatibilite="[4.2.6-dev;4.2.*]"
    logo="img/caap-128.png"
@@ -12,7 +12,7 @@
    <pipeline nom="autoriser" inclure="caap_autorisations.php" />
    <necessite nom="Zcore" />
    <necessite nom="spip_bonux" />
-   <necessite nom="pb_selection" />
+   <necessite nom="selections_editoriales" />
    <necessite nom="bootstrap" />
    <necessite nom="lesscss" />
    <necessite nom="saisies" />
