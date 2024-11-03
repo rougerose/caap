@@ -1,0 +1,21 @@
+<BOUCLE_selection_rubrique(SELECTIONS_CONTENUS){id_selections_contenu}>
+	[(#SET{titre, #TITRE})]
+	[(#SET{desc, #DESCRIPTIF|sinon{''}})]
+	<BOUCLE_rubrique(RUBRIQUES){id_rubrique=#ID_OBJET}>
+		<article class="hentry colonne oh">
+			<header class="header">
+				<h1 class="entry-title"><a href="#URL_RUBRIQUE">#GET{titre}</a></h1>
+					<ul class="meta-publi">
+						<li><time class="updated" datetime="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></li>
+					</ul>
+			</header>
+			<div class="entry-content">
+				[(#GET{desc}|?{
+					[(#GET{desc})],
+					[(#INTRODUCTION)]
+				})]
+				<p class="suite"><a href="#URL_RUBRIQUE"><:caap:suite:></a></p>
+		    </div>
+		</article>
+	</BOUCLE_rubrique>
+</BOUCLE_selection_rubrique>

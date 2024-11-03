@@ -1,7 +1,3 @@
-#SET{selection,#ARRAY}
-<BOUCLE_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=0}>[
-(#SET_PUSH{selection,#ID_ARTICLE})
-]</BOUCLE_selection>[
-
-(#REM) Affichage de la sélection ]
-<INCLURE{fond=liste/articles-selection, selection=#GET{selection}, pagination_haute=0, ajax, env} />
+<BOUCLE_accueil(SELECTIONS){identifiant=accueil}>
+    <INCLURE{fond=inclure/selections/sommaire, id_selection, ajax, env}/>
+</BOUCLE_accueil>

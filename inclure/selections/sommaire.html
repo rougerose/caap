@@ -1,0 +1,13 @@
+<B_selection_sommaire_contenus>
+	<div class="liste articles selection section">
+		#ANCRE_PAGINATION
+		<BOUCLE_selection_sommaire_contenus(SELECTIONS_CONTENUS){id_selection}{par rang}{pagination #ENV{pagination, 10} _actu}>
+			[(#LISTE{article, rubrique}|find{#OBJET}|?{
+				[(#SET{contenu, #OBJET})],
+				[(#SET{contenu, autre})]
+			})]
+            <INCLURE{fond=inclure/selections/selection_#GET{contenu}, id_selections_contenu} />
+        </BOUCLE_selection_sommaire_contenus>
+		[<nav class="pagination bas[ (#ENV{pagination-align})]">(#PAGINATION{caap})</nav>]
+	</div>
+</B_selection_sommaire_contenus>

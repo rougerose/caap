@@ -1,0 +1,35 @@
+<BOUCLE_selection_article(SELECTIONS_CONTENUS){id_selections_contenu}>
+	[(#SET{titre, #TITRE})]
+	[(#SET{desc, #DESCRIPTIF|sinon{''}})]
+	<BOUCLE_article(ARTICLES){id_article=#ID_OBJET}>
+		<article class="hentry colonne oh">
+			<header class="header">
+				[(#SOUSTITRE|oui)
+					<hgroup>]
+						<h1 class="entry-title"><a href="#URL_ARTICLE">#GET{titre}</a></h1>
+						[<h2 class="soustitre">(#SOUSTITRE)</h2>]
+				[(#SOUSTITRE|oui)
+					</hgroup>]
+					<ul class="meta-publi">
+						<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+							<li class="category"><a href="#URL_RUBRIQUE">#TITRE</a></li>
+						</BOUCLE_rubrique>
+							<li><time class="updated" datetime="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></li>
+						<B_auteurs>
+							<li class="byline author vcard"><:caap:par:> <BOUCLE_auteurs(AUTEURS){id_article}{par nom}{", "}><span class=" fn">#NOM</span></BOUCLE_auteurs></li>
+						</B_auteurs>
+					</ul>
+			</header>
+			<div class="entry-content">
+				[(#GET{desc}|?{
+					[(#GET{desc})],
+					[(#INTRODUCTION)]
+				})]
+				<p class="suite"><a href="#URL_ARTICLE"><:caap:suite:></a></p>
+				<B_mots>
+					<p class="meta-tags"><BOUCLE_mots(MOTS){id_article}{par titre}{' '}{si #ID_RUBRIQUE|=={6}}><span>#TITRE</span></BOUCLE_mots></p>
+				</B_mots>
+		   </div>
+		</article>
+	</BOUCLE_article>
+</BOUCLE_selection_article>

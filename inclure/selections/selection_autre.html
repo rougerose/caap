@@ -1,0 +1,17 @@
+[(#REM)
+	<!-- Sélection qui ne renvoie ni vers un article, ni vers une rubrique -->
+]
+<BOUCLE_selection_autre(SELECTIONS_CONTENUS){id_selections_contenu}>
+		<article class="hentry colonne oh">
+			<header class="header">
+				<h1 class="entry-title"><a href="#URL">#TITRE</a></h1>
+					<ul class="meta-publi">
+						<li><time class="updated" datetime="[(#MAJ|affdate{Y-m-d})]">[(#MAJ|affdate)]</time></li>
+					</ul>
+			</header>
+			<div class="entry-content">
+				[(#DESCRIPTIF)]
+				<p class="suite"><a href="#URL"><:caap:suite:></a></p>
+		   </div>
+		</article>
+</BOUCLE_selection_autre>
