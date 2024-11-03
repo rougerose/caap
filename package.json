@@ -3,20 +3,16 @@
     "version": "3.0.9",
     "description": "Site internet du CAAP",
     "private": true,
+    "type": "module",
     "main": "index.js",
-    "config": {
-        "host": {
-            "local": "http://localhost:8888/caap.dev"
-        }
-    },
     "scripts": {
+        "bs": "browser-sync start -c package-scripts/browsersync.config.cjs",
+        "bs:log": "node package-scripts/browsersync-proxy-log.js",
         "build": "run-s clean && run-p build:*",
-        "build:js": "rollup -c --bundleConfigAsCjs",
+        "build:js": "rollup -c package-scripts/rollup.config.js",
         "clean": "rimraf -g 'dist/js/*'",
-        "server": "browser-sync start -p $npm_package_config_host_local -f \"css/*.less, dist/js/*.js, **/*.html, !node_modules/\"",
-        "watch": "run-p build server watch:*",
+        "watch": "run-p build bs bs:log watch:*",
         "watch:js": "chokidar './src/js/**/*.js' -c 'npm run build:js'",
-        "size": "bundlesize",
         "publish": "NODE_ENV=production run-s build"
     },
     "author": "christophe le drean",
@@ -28,11 +24,11 @@
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^15.2.3",
         "@rollup/plugin-terser": "^0.4.4",
-        "browser-sync": "^2.29.3",
-        "bundlesize": "^0.18.1",
+        "browser-sync": "^3.0.3",
+        "chalk": "^5.3.0",
         "chokidar-cli": "^3.0.0",
-        "npm-run-all2": "^6.1.1",
-        "rimraf": "^5.0.5",
-        "rollup": "^4.6.1"
+        "npm-run-all2": "^7.0.1",
+        "rimraf": "^6.0.1",
+        "rollup": "^4.24.3"
     }
 }
