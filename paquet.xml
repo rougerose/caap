@@ -3,7 +3,7 @@
    categorie="squelette"
    version="4.0.7"
    etat="stable"
-   compatibilite="[4.2.6-dev;4.2.*]"
+   compatibilite="[4.2.6-dev;4.4.*]"
    logo="img/caap-128.png"
 >
    <nom>CAAP</nom>
