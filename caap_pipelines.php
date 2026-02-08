@@ -22,7 +22,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 // 	return $flux;
 // }
 
-
 // jquery-ui
 // function caap_jqueryui_plugins($scripts) {
 //    $scripts[] = 'jquery.ui.accordion';

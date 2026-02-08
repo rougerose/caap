@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('_ECRIRE_INC_VERSION')) {
-  return;
+	return;
 }
 
 function action_depublier_articles_caap_dist() {
@@ -11,7 +11,11 @@ function action_depublier_articles_caap_dist() {
 	$id_secteur = intval($arg);
 
 	if ($id_secteur > 0) {
-		$articles = sql_allfetsel('id_article', 'spip_articles', "id_secteur=$id_secteur" . ' AND statut=' . sql_quote('publie'));
+		$articles = sql_allfetsel(
+			'id_article',
+			'spip_articles',
+			"id_secteur=$id_secteur" . ' AND statut=' . sql_quote('publie')
+		);
 
 		if (is_array($articles) && count($articles) > 0) {
 			include_spip('action/editer_objet');
