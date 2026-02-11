@@ -1,0 +1,46 @@
+// Surcharge des styles publics du plugin Sommaire
+.nav-sommaire {
+  margin: var(--space-xl) calc(var(--space-s) * -1) var(--space-xl);
+  padding: 1.25rem var(--space-s) 1.5rem;
+  background-color: #eee;
+
+  // Masquer l'ancre sur le titre du sommaire
+  & .intertitre_ancre {
+    display: none;
+  }
+
+  .prose & > h2 {
+    font-size: var(--step-1);
+  }
+
+  & ul {
+    margin-top: var(--flow-space);
+  }
+
+  & li {
+    font-size: var(--step--1);
+  }
+}
+
+// Styles des intertitres et des ancres
+.intertitre {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+
+  &:hover {
+    & .intertitre_ancre {
+      color: #d93d04;
+    }
+  }
+}
+
+.intertitre_ancre {
+  display: inline-flex;
+  width: 1.2rem;
+  position: absolute;
+  left: -1.5rem;
+  top: 3px;
+  color: #909090;
+  transition: opacity 0.2s ease;
+}

@@ -54,6 +54,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = [
 	//L
 	'label_bouton_inscription' => 'Vous inscrire',
 	'label_bouton_identification' => 'Vous identifier',
+	'label_title_ancre_intertitre' => 'Lien direct vers cette section',
 
 	// M
 	'membre_deja' => 'Déjà inscrit ?',
@@ -114,6 +115,7 @@ Le Caap",
 	'ressources_total' => '(sur un total de @nb@ disponibles)',
 
 	// S
+	'sommaire_titre' => 'Sommaire de cette page',
 	'suite' => 'Lire la suite',
 	'sujet' => 'Sujet',
 	'sujet_creer' => 'Créer un nouveau sujet',

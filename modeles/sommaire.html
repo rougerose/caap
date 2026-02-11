@@ -1,0 +1,13 @@
+#SET{liste, '*'}
+[(#CONFIG{sommaire_automatique_numerote}|=={on}|oui)
+	#SET{liste, '#'}
+]
+<B_somm>
+  <nav id="#ENV{id_sommaire}" aria-labelledby="nav-sommaire_titre" class="nav-sommaire nav-sommaire-[(#ENV{sommaire}|count)]">
+    <h2 id="nav-sommaire_titre"><:caap:sommaire_titre:></h2>
+    <BOUCLE_somm(DATA){source tableau, #ENV{sommaire}}>
+-[(#GET{liste}|str_pad{#VALEUR{niveau},#GET{liste}})] [#VALEUR{id}<-][#VALEUR*{titre}->#VALEUR{href}]</BOUCLE_somm>
+  </nav>
+  #FILTRE{propre}
+</B_somm>
+#FILTRE{trim}

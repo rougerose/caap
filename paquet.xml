@@ -22,5 +22,6 @@
    <necessite nom="oembed" />
    <necessite nom="fulltext" />
    <necessite nom="metasplus" />
+   <necessite nom="sommaire" />
    <chemin path="" />
 </paquet>
