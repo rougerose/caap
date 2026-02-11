@@ -23,5 +23,6 @@
    <necessite nom="fulltext" />
    <necessite nom="metasplus" />
    <necessite nom="sommaire" />
+   <necessite nom="encarts" />
    <chemin path="" />
 </paquet>
