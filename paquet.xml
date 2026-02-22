@@ -17,6 +17,7 @@
    <necessite nom="critere_mots" />
    <necessite nom="encarts" />
    <necessite nom="fulltext" />
+   <necessite nom="inserer_modeles" />
    <necessite nom="lesscss" />
    <necessite nom="menus" />
    <necessite nom="metasplus" />

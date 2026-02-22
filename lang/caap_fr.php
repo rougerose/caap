@@ -64,6 +64,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = [
 	'messages' => 'Messages',
 	'message_un' => '@nb@ message',
 	'message_plusieurs' => '@nb@ messages',
+	'modele_titre_inserer_encart_sans_titre' => 'Encart (<strong>sans</strong> son titre)',
+	'modele_titre_inserer_encart_avec_titre' => 'Encart (<strong>avec</strong> son titre)',
+	'modele_label_inserer_encart' => "Choisir l'encart",
 
 	// notifications inscriptions
 	'message_auteur_invalide_contenu_user' => "Vous n’êtes pas à jour de votre adhésion et votre demande d'inscription à l'espace adhérent ne peut être validée, ou bien vous n’apparaissez pas sous ce nom dans nos documents. Dans ce dernier cas, merci de nous contacter par e-mail (caap2@free.fr) pour nous signaler ce problème.

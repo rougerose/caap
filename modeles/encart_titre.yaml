@@ -1,0 +1,19 @@
+nom: "<:caap:modele_titre_inserer_encart_avec_titre:>"
+icone_barre: "encart-xx.svg"
+parametres:
+  - saisie: "hidden"
+    options:
+      nom: "modele"
+      defaut: "encart"
+  - saisie: "hidden"
+    options:
+      nom: "variante"
+      defaut: "titre"
+  - saisie: "selecteur_encart"
+    options:
+      nom: "id_modele"
+      label: "<:caap:modele_label_inserer_encart:>"
+      defaut: ""
+      env: "oui"
+      obligatoire: "oui"
+      cacher_option_intro: "oui"

@@ -1,0 +1,9 @@
+<select name="#ENV{nom}" id="champ_#ENV{nom}"[ class="(#ENV{class})"][ disabled="(#ENV{disabled})"]>
+  [(#ENV{cacher_option_intro}|non)
+    <option value="">[(#ENV{option_intro})]</option>
+  ]<BOUCLE_encarts_article(ENCARTS){id_article}>
+    <option value="#ID_ENCART"[(#ID_ENCART|=={#ENV{valeur,#ENV{defaut}}}|oui) selected="selected"]>
+      #TITRE
+    </option>
+  </BOUCLE_encarts_article>
+</select>
