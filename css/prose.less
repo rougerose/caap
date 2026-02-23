@@ -209,6 +209,7 @@
     border: 2px solid #d93d04;
   }
 
+  & aside.encart,
   & div.encart {
     padding: var(--space-s) var(--space-m);
     border: 2px solid #d93d04;
@@ -216,6 +217,9 @@
 
   & .encart__texte {
     --flow-space: var(--space-s);
+  }
+
+  & h2 + .encart__texte {
     margin-top: var(--flow-space);
   }
 }

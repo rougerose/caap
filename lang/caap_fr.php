@@ -64,8 +64,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = [
 	'messages' => 'Messages',
 	'message_un' => '@nb@ message',
 	'message_plusieurs' => '@nb@ messages',
-	'modele_titre_inserer_encart_sans_titre' => 'Encart (<strong>sans</strong> son titre)',
-	'modele_titre_inserer_encart_avec_titre' => 'Encart (<strong>avec</strong> son titre)',
+	'modele_titre_inserer_encart_sans_titre' => 'Encart (SANS son titre)',
+	'modele_titre_inserer_encart_avec_titre' => 'Encart (AVEC son titre)',
 	'modele_label_inserer_encart' => "Choisir l'encart",
 
 	// notifications inscriptions
