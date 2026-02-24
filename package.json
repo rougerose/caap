@@ -1,34 +1,42 @@
 {
-    "name": "caap",
-    "version": "3.0.9",
-    "description": "Site internet du CAAP",
-    "private": true,
-    "type": "module",
-    "main": "index.js",
-    "scripts": {
-        "bs": "browser-sync start -c package-scripts/browsersync.config.cjs",
-        "bs:log": "node package-scripts/browsersync-proxy-log.js",
-        "build": "run-s clean && run-p build:*",
-        "build:js": "rollup -c package-scripts/rollup.config.js",
-        "clean": "rimraf -g 'dist/js/*'",
-        "watch": "run-p build bs bs:log watch:*",
-        "watch:js": "chokidar './src/js/**/*.js' -c 'npm run build:js'",
-        "publish": "NODE_ENV=production run-s build"
-    },
-    "author": "christophe le drean",
-    "license": "GPL-3.0-or-later",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/rougerose/caap.git"
-    },
-    "devDependencies": {
-        "@rollup/plugin-node-resolve": "^16.0.3",
-        "@rollup/plugin-terser": "^0.4.4",
-        "browser-sync": "^3.0.4",
-        "chalk": "^5.6.2",
-        "chokidar-cli": "^3.0.0",
-        "npm-run-all2": "^8.0.4",
-        "rimraf": "^6.1.0",
-        "rollup": "^4.53.2"
-    }
+  "name": "caap",
+  "version": "3.0.9",
+  "description": "Site internet du CAAP",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "bs": "browser-sync start -c package-scripts/browsersync.config.cjs",
+    "build": "run-s clean && run-p build:* && run-p css:dev",
+    "build:js": "rollup -c package-scripts/rollup.config.js",
+    "build:scss": "sass --no-source-map --load-path=node_modules src/scss/sommaire.scss:dist/css/sommaire.tmp.css",
+    "clean": "rimraf -g 'dist/{css/*,js/*}'",
+    "css:dev": "lightningcss --browserslist dist/css/sommaire.tmp.css -o css/sommaire.css",
+    "css:prod": "lightningcss --minify --bundle --browserslist dist/css/sommaire.tmp.css -o css/sommaire.css",
+    "watch": "run-p build bs watch:*",
+    "watch:css": "chokidar 'src/scss/**/*.scss' -c 'npm run build:scss && npm run css:dev'",
+    "watch:js": "chokidar './src/js/**/*.js' -c 'npm run build:js'",
+    "prod": "NODE_ENV=production run-s build css:prod"
+  },
+  "author": "christophe le drean",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rougerose/caap.git"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "browser-sync": "^3.0.4",
+    "chokidar-cli": "^3.0.0",
+    "lightningcss-cli": "^1.31.1",
+    "npm-run-all2": "^8.0.4",
+    "prettier": "^3.8.1",
+    "rimraf": "^6.1.2",
+    "rollup": "^4.57.1",
+    "sass": "^1.97.3"
+  }
 }

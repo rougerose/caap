@@ -13,7 +13,7 @@
 	h2 {
 		--flow-space: var(--space-xl);
 		margin-bottom: 0 !important;
-		font-size: var(--step-5);
+		font-size: var(--step-4);
 	}
 
 	h3 {
@@ -171,7 +171,8 @@
 	}
 
 	blockquote {
-		border-left: 4px solid @grayLighter;
+		// border-left: 4px solid @grayLighter;
+		border-left: 4px solid #d93d0491;
 		padding-left: var(--flow-space, var(--space-m));
 
 		// extend flow-space
@@ -200,4 +201,25 @@
 			line-height: 1.4;
 		}
 	}
+
+  // Plugin Encarts
+  & span.encart {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-s);
+    border: 2px solid #d93d04;
+  }
+
+  & aside.encart,
+  & div.encart {
+    padding: var(--space-s) var(--space-m);
+    border: 2px solid #d93d04;
+  }
+
+  & .encart__texte {
+    --flow-space: var(--space-s);
+  }
+
+  & h2 + .encart__texte {
+    margin-top: var(--flow-space);
+  }
 }

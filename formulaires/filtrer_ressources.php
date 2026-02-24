@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('_ECRIRE_INC_VERSION')) {
-  return;
+	return;
 }
 
 function formulaires_filtrer_ressources_charger($redirect = '', $id_rubrique = '', $articles = []) {

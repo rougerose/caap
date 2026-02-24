@@ -6,19 +6,17 @@
  * Licence GNU/GPL
  */
 
-if (!defined('_ECRIRE_INC_VERSION')) { return;
+if (!defined('_ECRIRE_INC_VERSION')) {
+	return;
 }
 
-// en dev, pas de cache
-// define('_NO_CACHE', 1);
+$GLOBALS['z_blocs'] = ['content', 'head', 'head_js', 'header', 'footer', 'breadcrumb'];
 
-// plugin jaz : ajout automatique des nouveaux inscrits à la rubrique Membres
-// define('_ZONES_AUTO_JOINTES', '2');
+/**
+ * Plugin Sommaire :
+ * - ne pas ajouter une section autour d'un intertitre.
+ */
 
-
-// define('_JQUERYUI_CSS_NON', true);
-
-$GLOBALS['z_blocs'] = ['content','head','head_js','header','footer','breadcrumb'];
-
-// $GLOBALS['debut_intertitre'] = "\n<h2 class='spip'>";
-// $GLOBALS['fin_intertitre'] = "</h2>\n";
+if (!defined('SOMMAIRE_GENERER_SECTIONS')) {
+	define('SOMMAIRE_GENERER_SECTIONS', false);
+}

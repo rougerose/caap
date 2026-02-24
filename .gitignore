@@ -1,16 +1,8 @@
 # fichiers systemes
 .DS_Store
-
 .vscode/
-
-.sass-cache
 node_modules/
-bower_components/
-css/*.map
-yarn.*
-yarn-error.log
-
 /vendor
 /composer.lock
-.php_cs.cache
-.php_cs.txt
+
+/dist/css/*.tmp.css
