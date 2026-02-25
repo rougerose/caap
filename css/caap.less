@@ -36,8 +36,8 @@ iframe:focus-visible {
 	outline-offset: 3px;
 }
 
-ul[role="list"],
-ol[role="list"] {
+ul:not(.spip)[role="list"],
+ol:not(.spip)[role="list"] {
 	list-style: none;
 }
 
@@ -655,7 +655,7 @@ header[role=banner] {
 	}
 }
 
-.self .logo-objet {}
+// .self .logo-objet {}
 
    /* HR */
    hr.spip {border-color: @black; margin:@baseLineHeight * 2;}
